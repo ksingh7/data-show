@@ -12,10 +12,12 @@ To setup the environment in EC2 you'll need to boot the environment:
 
 You will need to export a few environmental variables that are specific to your environment:
 
-```export AWS_ACCESS_KEY="Your AWS Access Key"
+```
+export AWS_ACCESS_KEY="Your AWS Access Key"
 export AWS_SECRET_KEY="Your AWS Secret Key"
 export MY_IP="Your IP Address"
-export AWS_KEYNAME="Your AWS SSH Key Name"```
+export AWS_KEYNAME="Your AWS SSH Key Name"
+```
 
 You will also want to disable host key checking since the new instances will have SSH fingerprints unknown to your local machine:
 
@@ -27,8 +29,10 @@ You can check to see if the instances are ready by pinging them with ansible:
 
 You can ping either the spark or ceph groups of instances using a tag filter:
 
-```ansible -i ec2.py -u ec2-user -m ping tag_group_spark
-ansible -i ec2.py -u ec2-user -m ping tag_group_ceph```
+```
+ansible -i ec2.py -u ec2-user -m ping tag_group_spark
+ansible -i ec2.py -u ec2-user -m ping tag_group_ceph
+```
 
 Once the environment is running, it's time to configure it
 
