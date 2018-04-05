@@ -105,6 +105,6 @@
             volume_size: "16"
         monitoring:      "yes"
         vpc_subnet_id:   "{{ public_subnet_id }}"
-        instance_tags: "group=ceph"
+        instance_tags: "group=ceph mon=yes osd=yes rgw=yes"
         assign_public_ip: "yes"
         group:            "Demo Lab"
