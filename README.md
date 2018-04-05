@@ -49,9 +49,9 @@ script to convert it into a static inventory file to be used with ceph-ansible:
 ```
 python ./ec2.py --refresh-cache > ec2-dynamic.json
 dynamic2flat.py
-sed -i '' 's/tag\_//g' ec2-static.ini
-sed -i '' 's/\_yes//g' ec2-static.ini
-sed -i '' 's/group\_//g' ec2-static.ini
+sed -i '' 's/tag_//g' ec2-static.ini
+sed -i '' 's/_yes//g' ec2-static.ini
+sed -i '' 's/group_//g' ec2-static.ini
 ``` 
 
 Then we can run playbooks a la:
