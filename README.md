@@ -56,4 +56,4 @@ sed -i '' 's/group_//g' ec2-static.ini
 
 Then we can run playbooks a la:
 
-```ansible-playbook -i ec2-static.ini ceph-ansible/site.yml```
+```ansible-playbook -i ec2-static.ini ../ceph-ansible/site.yml```
