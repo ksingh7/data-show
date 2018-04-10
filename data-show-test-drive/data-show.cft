@@ -292,7 +292,8 @@ Resources:
               - sudo wget -O /home/student/auto-pilot/setup_ceph_cluster.sh https://raw.githubusercontent.com/red-hat-storage/ceph-test-drive-bootstrap/ceph-test-drive-packer/rhcs3.0/auto-pilot/setup_ceph_cluster.sh
               - sudo wget -O /home/student/auto-pilot/setup_rgw.sh https://raw.githubusercontent.com/red-hat-storage/ceph-test-drive-bootstrap/ceph-test-drive-packer/rhcs3.0/auto-pilot/setup_rgw.sh
               - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
-
+              - sudo ansible-galaxy install ansiblebit.oracle-java
+              - git clone https://github.com/mmgaggle/bd.git
 
   CephNode1:
     Type: AWS::EC2::Instance
