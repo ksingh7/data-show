@@ -13,6 +13,7 @@ my_ip: "{{ lookup('env','MY_IP') }}"
 # Global Demo Settings
 aws_region: "us-east-1"
 aws_ami: "ami-26ebbc5c" # RHEL 7.4
+#aws_ami: "ami-caca16b5" # RHEL 7.4 / RHCS 3.0 Test Drive AMI
 remote_user: 'ec2-user'
 
 # VPC Information

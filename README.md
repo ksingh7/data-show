@@ -4,14 +4,10 @@ Playbooks to setup data show lab environment
 
 # Setup
 
-You'll need to have Ansible >= 2.4 installed on the machine you plan on
+- You'll need to have Ansible >= 2.4 installed on the machine you plan on
 launching the lab from.
 
-To setup the environment in EC2 you'll need to boot the environment:
-
-```ansible-playbook -i hosts boot.yml```
-
-You will need to export a few environmental variables that are specific to
+- You will need to export a few environmental variables that are specific to
 your environment:
 
 ```
@@ -19,7 +15,12 @@ export AWS_ACCESS_KEY="Your AWS Access Key"
 export AWS_SECRET_KEY="Your AWS Secret Key"
 export MY_IP="Your IP Address"
 export AWS_KEYNAME="Your AWS SSH Key Name"
+export ANSIBLE_PYTHON_INTERPRETER=$(which python)
 ```
+
+- To setup the environment in EC2 you'll need to boot the environment:
+
+```ansible-playbook -i hosts boot.yml```
 
 You will also want to disable host key checking since the new instances will
 have SSH fingerprints unknown to your local machine:
