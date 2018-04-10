@@ -63,15 +63,33 @@ s3cmd mb s3://public_bucket --acl-public
 s3cmd put --acl-public  /home/student/Red_Hat_Tower.jpg s3://public_bucket
 s3cmd put --acl-public /home/student/Red_Hat_Ceph_Storage.mp4 s3://public_bucket
 
+printf "\n"
+echo "******************* Ceph Installation and Configuration Commpleted **********************"
+printf "\n"
+printf "\n"
+
+echo "****************************************************************************************"
+echo "Ceph Metrics Dashboard Details"
 echo "****************************************************************************************"
 echo "Ceph-Metrics Dashboard : http://insert-ceph-admin-node-public-IP:3000"
 echo "Ceph-Metrics Username  : admin"
 echo "Ceph-Metrics Password  : admin"
-echo "****************************************************************************************"
-echo "Public URL for the shared image: http://ceph-admin-public-IP-Address/public_bucket/Red_Hat_Tower.jpg"
-echo "Public URL for the shared image: http://ceph-admin-public-IP-Address/public_bucket/Red_Hat_Ceph_Storage.mp4"
-echo "For ceph-sree object storage GUI : http://ceph-admin-public-IP-Address:5000"
+printf "\n"
 
+echo "****************************************************************************************"
+echo "Ceph Object Storage Endpoint Details"
+echo "****************************************************************************************"
+echo "Ceph Object Storage Endpoint : http://ceph-admin-public-IP-Address"
+echo "Ceph S3 Access Key : S3user1 "
+echo "Ceph S3 Secret Key : S3user1key "
+echo "ceph-sree Object Storage GUI : http://ceph-admin-public-IP-Address:5000"
+printf "\n"
+
+echo "****************************************************************************************"
+echo "Sample files publicly hosted on Ceph Object Storage"
+echo "***************************************************************************************"
+echo "Image File: http://ceph-admin-public-IP-Address/public_bucket/Red_Hat_Tower.jpg"
+echo "Video File: http://ceph-admin-public-IP-Address/public_bucket/Red_Hat_Ceph_Storage.mp4"
 echo "****************************************************************************************"
 
 
