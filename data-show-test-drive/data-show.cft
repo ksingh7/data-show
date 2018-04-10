@@ -291,6 +291,7 @@ Resources:
               - sudo mkdir /home/student/auto-pilot
               - sudo wget -O /home/student/auto-pilot/setup_ceph_cluster.sh https://raw.githubusercontent.com/red-hat-storage/ceph-test-drive-bootstrap/ceph-test-drive-packer/rhcs3.0/auto-pilot/setup_ceph_cluster.sh
               - sudo wget -O /home/student/auto-pilot/setup_rgw.sh https://raw.githubusercontent.com/red-hat-storage/ceph-test-drive-bootstrap/ceph-test-drive-packer/rhcs3.0/auto-pilot/setup_rgw.sh
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
 
   CephNode1:
@@ -363,6 +364,8 @@ Resources:
               - yum remove -y ceph-ansible cephmetrics-ansible
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"CephNode1\",\"Data\": \"Ceph-node1 launch successful\" }" '
               - hostnamectl set-hostname ceph-node1
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
+
              
 
   CephNode2:
@@ -435,7 +438,7 @@ Resources:
               - yum remove -y ceph-ansible cephmetrics-ansible
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"CephNode2\",\"Data\": \"Ceph-node2 launch successful\" }" '
               - hostnamectl set-hostname ceph-node2
-
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
   CephNode3:
     Type: AWS::EC2::Instance
@@ -507,6 +510,7 @@ Resources:
               - yum remove -y ceph-ansible cephmetrics-ansible
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"CephNode3\",\"Data\": \"Ceph-node3 launch successful\" }" '
               - hostnamectl set-hostname ceph-node3
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
 
   CephNode4:
@@ -579,6 +583,7 @@ Resources:
               - yum remove -y ceph-ansible cephmetrics-ansible
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"CephNode4\",\"Data\": \"Ceph-node4 launch successful\" }" '
               - hostnamectl set-hostname ceph-node4
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
 
   ComputeNode1:
@@ -628,6 +633,7 @@ Resources:
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"ComputeNode1\",\"Data\": \"client-node1 launch successful\" }" '
               - hostnamectl set-hostname compute-node1
               - sudo modprobe rbd             
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
   ComputeNode2:
     Type: AWS::EC2::Instance
@@ -676,6 +682,7 @@ Resources:
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"ComputeNode2\",\"Data\": \"client-node2 launch successful\" }" '
               - hostnamectl set-hostname compute-node2
               - sudo modprobe rbd             
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
   ComputeNode3:
     Type: AWS::EC2::Instance
@@ -724,6 +731,7 @@ Resources:
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"ComputeNode1\",\"Data\": \"client-node3 launch successful\" }" '
               - hostnamectl set-hostname compute-node3
               - sudo modprobe rbd             
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
   ComputeNode4:
     Type: AWS::EC2::Instance
@@ -772,6 +780,7 @@ Resources:
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"ComputeNode4\",\"Data\": \"client-node4 launch successful\" }" '
               - hostnamectl set-hostname compute-node4
               - sudo modprobe rbd             
+              - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
 
   AdminNodeEIP:
     Type: AWS::EC2::EIP
