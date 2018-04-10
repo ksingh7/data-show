@@ -294,6 +294,7 @@ Resources:
               - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
               - sudo ansible-galaxy install ansiblebit.oracle-java
               - git clone https://github.com/mmgaggle/bd.git
+              - sudo wet -O /home/student/bd/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/bd-hosts
 
   CephNode1:
     Type: AWS::EC2::Instance
