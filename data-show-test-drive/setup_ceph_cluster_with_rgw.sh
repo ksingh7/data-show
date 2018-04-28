@@ -9,20 +9,16 @@ sudo sed -i '$a\ceph-node[1:3]' /etc/ansible/hosts
 sudo sed -i '$a\    ' /etc/ansible/hosts
 
 sudo sed -i '$a\[osds]' /etc/ansible/hosts
-sudo sed -i '$a\ceph-node[1:4]' /etc/ansible/hosts
+sudo sed -i '$a\ceph-node[1:3]' /etc/ansible/hosts
 sudo sed -i '$a\    ' /etc/ansible/hosts
 
 sudo sed -i '$a\[mgrs]' /etc/ansible/hosts
-sudo sed -i '$a\ceph-admin' /etc/ansible/hosts
-sudo sed -i '$a\    ' /etc/ansible/hosts
-
-sudo sed -i '$a\[clients]' /etc/ansible/hosts
-sudo sed -i '$a\ceph-admin' /etc/ansible/hosts
+sudo sed -i '$a\ceph-node1' /etc/ansible/hosts
 sudo sed -i '$a\    ' /etc/ansible/hosts
 
 sudo sed -i '$a\    ' /etc/ansible/hosts
 sudo sed -i '$a\[rgws]' /etc/ansible/hosts
-sudo sed -i '$a\ceph-admin' /etc/ansible/hosts
+sudo sed -i '$a\ceph-node1' /etc/ansible/hosts
 sudo sed -i '$a\    ' /etc/ansible/hosts
 
 cd /usr/share/ceph-ansible
@@ -34,30 +30,30 @@ ceph osd pool create ecpool 128 128 erasure my_ec_profile
 ceph osd pool application enable ecpool benchmarking
 
 sudo sed -i '$a\[ceph-grafana]' /etc/ansible/hosts
-sudo sed -i '$a\ceph-admin ansible_connection=local' /etc/ansible/hosts
+sudo sed -i '$a\ceph-node1 ansible_connection=local' /etc/ansible/hosts
 sudo sed -i '$a\    ' /etc/ansible/hosts
 
 cd /usr/share/cephmetrics-ansible
 time ansible-playbook playbook.yml
 sudo chown -R student:student /etc/ceph
 
-sudo systemctl status ceph-radosgw@rgw.ceph-admin.service
+sudo systemctl status ceph-radosgw@rgw.ceph-node1.service
 sudo netstat -plunt | grep -i rados
 
 sudo radosgw-admin user create --uid='user1' --display-name='First User' --access-key='S3user1' --secret-key='S3user1key'
 sudo radosgw-admin subuser create --uid='user1' --subuser='user1:swift' --secret-key='Swiftuser1key' --access=full
 
-swift -A http://ceph-admin/auth/1.0  -U user1:swift -K 'Swiftuser1key' post container-1
-swift -A http://ceph-admin/auth/1.0  -U user1:swift -K 'Swiftuser1key' list
+swift -A http://ceph-node1/auth/1.0  -U user1:swift -K 'Swiftuser1key' post container-1
+swift -A http://ceph-node1/auth/1.0  -U user1:swift -K 'Swiftuser1key' list
 
-echo "address=/.ceph-admin/10.100.0.10" | sudo tee -a /etc/dnsmasq.conf
+echo "address=/.ceph-node1/10.100.0.10" | sudo tee -a /etc/dnsmasq.conf
 sudo systemctl start dnsmasq ; sudo systemctl enable dnsmasq
 
 sudo sed -i '/search/anameserver 127.0.0.1' /etc/resolv.conf
 
-ping -c 2 anything-bucket-name.ceph-admin
+ping -c 2 anything-bucket-name.ceph-node1
 
-s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl --host=ceph-admin --host-bucket="%(bucket)s.ceph-admin" --dump-config > /home/student/.s3cfg
+s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl --host=ceph-node1 --host-bucket="%(bucket)s.ceph-node1" --dump-config > /home/student/.s3cfg
 
 s3cmd mb s3://public_bucket --acl-public
 s3cmd put --acl-public  /home/student/Red_Hat_Tower.jpg s3://public_bucket
@@ -71,7 +67,7 @@ printf "\n"
 echo "****************************************************************************************"
 echo "Ceph Metrics Dashboard Details"
 echo "****************************************************************************************"
-echo "Ceph-Metrics Dashboard : http://insert-ceph-admin-node-public-IP:3000"
+echo "Ceph-Metrics Dashboard : http://insert-ceph-node1-public-IP:3000"
 echo "Ceph-Metrics Username  : admin"
 echo "Ceph-Metrics Password  : admin"
 printf "\n"
@@ -79,17 +75,15 @@ printf "\n"
 echo "****************************************************************************************"
 echo "Ceph Object Storage Endpoint Details"
 echo "****************************************************************************************"
-echo "Ceph Object Storage Endpoint : http://ceph-admin-public-IP-Address"
+echo "Ceph Object Storage Endpoint : http://ceph-node1-public-IP-Address"
 echo "Ceph S3 Access Key : S3user1 "
 echo "Ceph S3 Secret Key : S3user1key "
-echo "ceph-sree Object Storage GUI : http://ceph-admin-public-IP-Address:5000"
-printf "\n"
 
 echo "****************************************************************************************"
 echo "Sample files publicly hosted on Ceph Object Storage"
 echo "***************************************************************************************"
-echo "Image File: http://ceph-admin-public-IP-Address/public_bucket/Red_Hat_Tower.jpg"
-echo "Video File: http://ceph-admin-public-IP-Address/public_bucket/Red_Hat_Ceph_Storage.mp4"
+echo "Image File: http://ceph-node1-public-IP-Address/public_bucket/Red_Hat_Tower.jpg"
+echo "Video File: http://ceph-node1-public-IP-Address/public_bucket/Red_Hat_Ceph_Storage.mp4"
 echo "****************************************************************************************"
 
 
