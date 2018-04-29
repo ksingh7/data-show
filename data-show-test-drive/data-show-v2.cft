@@ -1987,6 +1987,7 @@ Resources:
               - sudo sed -i '/search/anameserver 127.0.0.1' /etc/resolv.conf
               - sudo mkdir /home/student/auto-pilot
               - sudo wget -O /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/setup_ceph_cluster_with_rgw.sh
+              - sudo chmod +x /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
               - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
               - sudo chown -R student:student /home/student
 
