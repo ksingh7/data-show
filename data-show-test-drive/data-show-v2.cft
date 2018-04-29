@@ -1990,6 +1990,7 @@ Resources:
               - sudo chmod +x /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
               - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
               - sudo chown -R student:student /home/student
+              - sudo wget -O /usr/share/ceph-ansible/group_vars/all.yml https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/all.yml
 
   CephNode2:
     Type: AWS::EC2::Instance
@@ -2149,19 +2150,27 @@ Resources:
 
 
 Outputs:
-   CephNode1PublicIP:
+   CephNodePublicIP:
      Description: "ceph-node1 node public IP address"
      Value:
        Ref: CephNode1EIP
-   UserName:
+   CephNodeUserName:
      Description: "SSH User Name"
      Value: "student"
-   Password:
+   CephNodeUserPassword:
      Description: "SSH Password"
      Value: "Redhat18"
-   PublicDnsName:
+   CephS3PublicEndpoint:
      Description: "Ceph S3 Endpoint"
      Value: !GetAtt CephNode1.PublicDnsName
-   LabGuide:
-     Description: "Student Lab Guide"
-     Value: !Sub "http://support.${AWS::AccountId}.${PublicHostedZone}/"
+   OpenShiftWebConsole:
+     Description: "OpenShift Web Console"
+     Value: !Sub "https://openshift.${AWS::AccountId}.${PublicHostedZone}/console"
+   OpenShiftWebConsoleUserName:
+     Description: "OpenShift Web Console User Name"
+     Value: "teamuser1"
+   OpenShiftWebConsoleUserPassword:
+     Description: "OpenShift Web Console User Name"
+     Value: "openshift"  
+
+      
