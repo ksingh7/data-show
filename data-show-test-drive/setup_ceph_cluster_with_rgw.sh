@@ -29,12 +29,6 @@ ceph osd erasure-code-profile set my_ec_profile k=2 m=1 ruleset-failure-domain=h
 ceph osd pool create ecpool 128 128 erasure my_ec_profile
 ceph osd pool application enable ecpool benchmarking
 
-sudo sed -i '$a\[ceph-grafana]' /etc/ansible/hosts
-sudo sed -i '$a\ceph-node1 ansible_connection=local' /etc/ansible/hosts
-sudo sed -i '$a\    ' /etc/ansible/hosts
-
-cd /usr/share/cephmetrics-ansible
-time ansible-playbook playbook.yml
 sudo chown -R student:student /etc/ceph
 
 sudo systemctl status ceph-radosgw@rgw.ceph-node1.service
@@ -55,44 +49,15 @@ ping -c 2 anything-bucket-name.ceph-node1
 
 s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl --host=ceph-node1 --host-bucket="%(bucket)s.ceph-node1" --dump-config > /home/student/.s3cfg
 
-s3cmd mb s3://public_bucket --acl-public
-s3cmd put --acl-public  /home/student/Red_Hat_Tower.jpg s3://public_bucket
-s3cmd put --acl-public /home/student/Red_Hat_Ceph_Storage.mp4 s3://public_bucket
-
-yum install -y unzip
-cd /home/student/auto-pilot/
-wget -O /home/student/auto-pilot/metrics_dataset.zip  https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds-20180427T150114Z-001.zip
-
-unzip /home/student/auto-pilot/metrics_dataset.zip
-
-cd /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds
-
-s3cmd mb s3://metrics_dataset
-s3cmd sync /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds/ s3://metrics_dataset
-
 printf "\n"
 echo "******************* Ceph Installation and Configuration Commpleted **********************"
 printf "\n"
 printf "\n"
 
 echo "****************************************************************************************"
-echo "Ceph Metrics Dashboard Details"
+echo "Ceph S3 Object Storage Endpoint Details"
 echo "****************************************************************************************"
-echo "Ceph-Metrics Dashboard : http://insert-ceph-node1-public-IP:3000"
-echo "Ceph-Metrics Username  : admin"
-echo "Ceph-Metrics Password  : admin"
-printf "\n"
-
-echo "****************************************************************************************"
-echo "Ceph Object Storage Endpoint Details"
-echo "****************************************************************************************"
-echo "Ceph Object Storage Endpoint : http://ceph-node1-public-IP-Address"
+echo "Ceph Object Storage Endpoint : http://10.0.1.111"
 echo "Ceph S3 Access Key : S3user1 "
 echo "Ceph S3 Secret Key : S3user1key "
-
-echo "****************************************************************************************"
-echo "Sample files publicly hosted on Ceph Object Storage"
-echo "***************************************************************************************"
-echo "Image File: http://ceph-node1-public-IP-Address/public_bucket/Red_Hat_Tower.jpg"
-echo "Video File: http://ceph-node1-public-IP-Address/public_bucket/Red_Hat_Ceph_Storage.mp4"
 echo "****************************************************************************************"
