@@ -59,6 +59,17 @@ s3cmd mb s3://public_bucket --acl-public
 s3cmd put --acl-public  /home/student/Red_Hat_Tower.jpg s3://public_bucket
 s3cmd put --acl-public /home/student/Red_Hat_Ceph_Storage.mp4 s3://public_bucket
 
+yum install -y unzip
+cd /home/student/auto-pilot/
+wget -O /home/student/auto-pilot/metrics_dataset.zip  https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds-20180427T150114Z-001.zip
+
+unzip /home/student/auto-pilot/metrics_dataset.zip
+
+cd /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds
+
+s3cmd mb s3://metrics_dataset
+s3cmd sync /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds/ s3://metrics_dataset
+
 printf "\n"
 echo "******************* Ceph Installation and Configuration Commpleted **********************"
 printf "\n"
@@ -85,5 +96,3 @@ echo "**************************************************************************
 echo "Image File: http://ceph-node1-public-IP-Address/public_bucket/Red_Hat_Tower.jpg"
 echo "Video File: http://ceph-node1-public-IP-Address/public_bucket/Red_Hat_Ceph_Storage.mp4"
 echo "****************************************************************************************"
-
-
