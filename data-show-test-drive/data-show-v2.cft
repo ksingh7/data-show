@@ -932,10 +932,8 @@ Resources:
               - cp /opt/lab/code/support/* /opt/lab/support/
               - chown -R cloud-user:cloud-user /opt/lab
               - systemctl start httpd
-              - oc new-project jupyterhub
-              - oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/notebooks.json
-              - oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
-              - oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -f -
+              - wget -O /home/cloud-user/setup_ocp.sh https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/setup_ocp.sh
+              - chmod +x /home/cloud-user/setup_ocp.sh
 
               write_files:
                 - content: |
@@ -2152,10 +2150,17 @@ Resources:
       InstanceId:
         Ref: CephNode1
 
+  Master1EIP:
+    Type: AWS::EC2::EIP
+    DependsOn: Master1
+    Properties:
+      Domain: VPC
+      InstanceId:
+        Ref: Master1
 
 Outputs:
-   CephNodePublicIP:
-     Description: "ceph-node1 node public IP address"
+   CephNodeSSHIP:
+     Description: "ceph-node1 node SSH IP address"
      Value:
        Ref: CephNode1EIP
    CephNodeUserName:
@@ -2166,14 +2171,11 @@ Outputs:
      Value: "Redhat18"
    CephS3PublicEndpoint:
      Description: "Ceph S3 Endpoint"
-     Value: !GetAtt CephNode1.PublicDnsName
+     Value: "http://10.0.1.111"
    OpenShiftWebConsole:
      Description: "OpenShift Web Console"
-     Value: !Sub "https://openshift.${AWS::AccountId}.${PublicHostedZone}/console"
-   OpenShiftWebConsoleUserName:
-     Description: "OpenShift Web Console User Name"
-     Value: "teamuser1"
-   OpenShiftWebConsoleUserPassword:
-     Description: "OpenShift Web Console User Name"
-     Value: "openshift"  
+   OpenShiftNodeSSHIP:
+     Description: "OpenShift OC CLI Node SSH IP"
+     Value:
+       Ref: Master1EIP 
 
