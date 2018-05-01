@@ -932,6 +932,10 @@ Resources:
               - cp /opt/lab/code/support/* /opt/lab/support/
               - chown -R cloud-user:cloud-user /opt/lab
               - systemctl start httpd
+              - oc new-project jupyterhub
+              - oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/notebooks.json
+              - oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
+              - oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -f -
 
               write_files:
                 - content: |
@@ -2173,4 +2177,3 @@ Outputs:
      Description: "OpenShift Web Console User Name"
      Value: "openshift"  
 
-      
