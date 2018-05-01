@@ -1993,6 +1993,7 @@ Resources:
               - sudo wget -O /etc/hosts https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/hosts
               - sudo chown -R student:student /home/student
               - sudo wget -O /usr/share/ceph-ansible/group_vars/all.yml https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/all.yml
+              - sudo wget -O /home/student/ingest_dataset.sh https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/ingest_dataset.sh              
               - sudo yum install -y unzip
 
   CephNode2:
