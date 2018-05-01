@@ -2149,7 +2149,7 @@ Resources:
       Domain: VPC
       InstanceId:
         Ref: CephNode1
-
+        
   Master1EIP:
     Type: AWS::EC2::EIP
     DependsOn: Master1
@@ -2174,8 +2174,8 @@ Outputs:
      Value: "http://10.0.1.111"
    OpenShiftWebConsole:
      Description: "OpenShift Web Console"
+     Value: !Sub "https://openshift.${AWS::AccountId}.${PublicHostedZone}/console"
    OpenShiftNodeSSHIP:
      Description: "OpenShift OC CLI Node SSH IP"
-     Value:
-       Ref: Master1EIP 
+     Value: !GetAtt Master1.PublicIp 
 
