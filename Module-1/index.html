@@ -1,0 +1,562 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-1/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.5.0">
+    
+    
+      
+        <title>Module-1 : Ceph cluster & Object Storage Setup - Red Hat Ceph Data Show</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.2a88008a.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://red-hat-storage.github.io/RHCS_Test_Drive" title="Red Hat Ceph Data Show" class="md-header-nav__button md-logo">
+          
+            <img src="../images/shadowman_rgb.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Red Hat Ceph Data Show
+              </span>
+              <span class="md-header-nav__topic">
+                Module-1 : Ceph cluster & Object Storage Setup
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/shadowman_rgb.png" width="24" height="24">
+      
+    </span>
+    Red Hat Ceph Data Show
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Module-1 : Ceph cluster & Object Storage Setup
+      </label>
+    
+    <a href="./" title="Module-1 : Ceph cluster & Object Storage Setup" class="md-nav__link md-nav__link--active">
+      Module-1 : Ceph cluster & Object Storage Setup
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-defined-storage-and-ceph" title="Software Defined Storage and Ceph" class="md-nav__link">
+    Software Defined Storage and Ceph
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-new-in-ceph-3" title="What's New in Ceph 3" class="md-nav__link">
+    What's New in Ceph 3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-architectural-components" title="Ceph Architectural Components" class="md-nav__link">
+    Ceph Architectural Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-use-cases" title="Ceph Use Cases" class="md-nav__link">
+    Ceph Use Cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-features" title="Ceph Features" class="md-nav__link">
+    Ceph Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-get-more-information" title="Where to get more information" class="md-nav__link">
+    Where to get more information
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-2/" title="Module-2 : OCP Setup" class="md-nav__link">
+      Module-2 : OCP Setup
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-3/" title="Module-3 : Loading Dataset" class="md-nav__link">
+      Module-3 : Loading Dataset
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-4/" title="Module-4 : Lab excercise-1" class="md-nav__link">
+      Module-4 : Lab excercise-1
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-5/" title="Module-5 : Lab excercise-2" class="md-nav__link">
+      Module-5 : Lab excercise-2
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-defined-storage-and-ceph" title="Software Defined Storage and Ceph" class="md-nav__link">
+    Software Defined Storage and Ceph
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-new-in-ceph-3" title="What's New in Ceph 3" class="md-nav__link">
+    What's New in Ceph 3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-architectural-components" title="Ceph Architectural Components" class="md-nav__link">
+    Ceph Architectural Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-use-cases" title="Ceph Use Cases" class="md-nav__link">
+    Ceph Use Cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-features" title="Ceph Features" class="md-nav__link">
+    Ceph Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-get-more-information" title="Where to get more information" class="md-nav__link">
+    Where to get more information
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="module-1-introduction-to-red-hat-ceph-storage">Module - 1 : Introduction to Red Hat Ceph Storage<a class="headerlink" href="#module-1-introduction-to-red-hat-ceph-storage" title="Permanent link">#</a></h1>
+<div class="admonition summary">
+<p class="admonition-title">Module Overview</p>
+<p><strong>Module 1 provides an introduction to Software Defined Storage, the Red Hat Ceph architecture, target use cases, and features. There is no hands-on exercise to be performed in this module.</strong></p>
+</div>
+<p><strong>If you are familiar with Red Hat Ceph Storage, peruse Module 1 as a refresher, or you may skip it altogether. Once you are ready for the action, please proceed to <a href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-2/">Module 2</a></strong></p>
+<p><img alt="" src="../images/Slide01.JPG" /></p>
+<h2 id="software-defined-storage-and-ceph">Software Defined Storage and Ceph<a class="headerlink" href="#software-defined-storage-and-ceph" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/Slide02.JPG" /><br />
+<img alt="" src="../images/Slide03.JPG" /><br />
+<img alt="" src="../images/Slide04.JPG" /><br />
+<img alt="" src="../images/Slide05.JPG" /><br />
+<img alt="" src="../images/Slide06.JPG" /></p>
+<h2 id="whats-new-in-ceph-3">What&rsquo;s New in Ceph 3<a class="headerlink" href="#whats-new-in-ceph-3" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/Slide07.JPG" /><br />
+<img alt="" src="../images/Slide08.JPG" /><br />
+<img alt="" src="../images/Slide09.JPG" /><br />
+<img alt="" src="../images/Slide10.JPG" /><br />
+<img alt="" src="../images/Slide11.JPG" /><br />
+<img alt="" src="../images/Slide12.JPG" /><br />
+<img alt="" src="../images/Slide13.JPG" /><br />
+<img alt="" src="../images/Slide14.JPG" /></p>
+<h2 id="ceph-architectural-components">Ceph Architectural Components<a class="headerlink" href="#ceph-architectural-components" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/Slide15.JPG" /><br />
+<img alt="" src="../images/Slide16.JPG" /><br />
+<img alt="" src="../images/Slide17.JPG" /><br />
+<img alt="" src="../images/Slide18.JPG" /><br />
+<img alt="" src="../images/Slide19.JPG" /><br />
+<img alt="" src="../images/Slide20.JPG" /><br />
+<img alt="" src="../images/Slide21.JPG" /><br />
+<img alt="" src="../images/Slide22.JPG" /><br />
+<img alt="" src="../images/Slide23.JPG" /><br />
+<img alt="" src="../images/Slide24.JPG" /><br />
+<img alt="" src="../images/Slide25.JPG" /><br />
+<img alt="" src="../images/Slide26.JPG" /><br />
+<img alt="" src="../images/Slide27.JPG" /><br />
+<img alt="" src="../images/Slide28.JPG" /><br />
+<img alt="" src="../images/Slide29.JPG" /><br />
+<img alt="" src="../images/Slide30.JPG" /><br />
+<img alt="" src="../images/Slide31.JPG" /><br />
+<img alt="" src="../images/Slide32.JPG" /><br />
+<img alt="" src="../images/Slide33.JPG" /><br />
+<img alt="" src="../images/Slide34.JPG" /><br />
+<img alt="" src="../images/Slide35.JPG" /><br />
+<img alt="" src="../images/Slide36.JPG" /><br />
+<img alt="" src="../images/Slide37.JPG" /><br />
+<img alt="" src="../images/Slide38.JPG" /><br />
+<img alt="" src="../images/Slide39.JPG" /></p>
+<h2 id="ceph-use-cases">Ceph Use Cases<a class="headerlink" href="#ceph-use-cases" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/Slide40.JPG" /><br />
+<img alt="" src="../images/Slide41.JPG" /><br />
+<img alt="" src="../images/Slide42.JPG" /><br />
+<img alt="" src="../images/Slide43.JPG" /><br />
+<img alt="" src="../images/Slide44.JPG" /><br />
+<img alt="" src="../images/Slide45.JPG" /><br />
+<img alt="" src="../images/Slide46.JPG" /><br />
+<img alt="" src="../images/Slide47.JPG" /><br />
+<img alt="" src="../images/Slide48.JPG" /><br />
+<img alt="" src="../images/Slide49.JPG" /><br />
+<img alt="" src="../images/Slide50.JPG" /><br />
+<img alt="" src="../images/Slide51.JPG" /><br />
+<img alt="" src="../images/Slide52.JPG" /></p>
+<h2 id="ceph-features">Ceph Features<a class="headerlink" href="#ceph-features" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/Slide53.JPG" /><br />
+<img alt="" src="../images/Slide54.JPG" /><br />
+<img alt="" src="../images/Slide55.JPG" /><br />
+<img alt="" src="../images/Slide56.JPG" /><br />
+<img alt="" src="../images/Slide57.JPG" /><br />
+<img alt="" src="../images/Slide58.JPG" /><br />
+<img alt="" src="../images/Slide59.JPG" /><br />
+<img alt="" src="../images/Slide60.JPG" /><br />
+<img alt="" src="../images/Slide61.JPG" /><br />
+<img alt="" src="../images/Slide62.JPG" /><br />
+<img alt="" src="../images/Slide63.JPG" /><br />
+<img alt="" src="../images/Slide64.JPG" /><br />
+<img alt="" src="../images/Slide65.JPG" /></p>
+<h2 id="where-to-get-more-information">Where to get more information<a class="headerlink" href="#where-to-get-more-information" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/Slide66.JPG" /><br />
+<img alt="" src="../images/Slide67.JPG" /><br />
+<img alt="" src="../images/Slide68.JPG" /><br />
+<img alt="" src="../images/Slide69.JPG" /></p>
+<div class="admonition summary">
+<p class="admonition-title">End of Module</p>
+<p><strong>We have reached the end of Module-1. At this point you should have theoretical understanding of software defined storage concepts, Ceph&rsquo;s architecture and its terminology. In the next module you will learn how to deploy a Ceph cluster.</strong></p>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting Started
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Module-2/" title="Module-2 : OCP Setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Module-2 : OCP Setup
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright ©2018 Red Hat, Inc.
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://www.redhat.com/en/technologies/storage/ceph" class="md-footer-social__link fa fa-link"></a>
+    
+      <a href="https://twitter.com/RedHatStorage" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/ceph/ceph" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.linkedin.com/company/3545/" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ce2ab4bf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

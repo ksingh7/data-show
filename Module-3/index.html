@@ -1,0 +1,663 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-3/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.5.0">
+    
+    
+      
+        <title>Module-3 : Loading Dataset - Red Hat Ceph Data Show</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.2a88008a.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://red-hat-storage.github.io/RHCS_Test_Drive" title="Red Hat Ceph Data Show" class="md-header-nav__button md-logo">
+          
+            <img src="../images/shadowman_rgb.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Red Hat Ceph Data Show
+              </span>
+              <span class="md-header-nav__topic">
+                Module-3 : Loading Dataset
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/shadowman_rgb.png" width="24" height="24">
+      
+    </span>
+    Red Hat Ceph Data Show
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-1/" title="Module-1 : Ceph cluster & Object Storage Setup" class="md-nav__link">
+      Module-1 : Ceph cluster & Object Storage Setup
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-2/" title="Module-2 : OCP Setup" class="md-nav__link">
+      Module-2 : OCP Setup
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Module-3 : Loading Dataset
+      </label>
+    
+    <a href="./" title="Module-3 : Loading Dataset" class="md-nav__link md-nav__link--active">
+      Module-3 : Loading Dataset
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-block-storage-provisioning-through-rbd-protocol" title="Ceph Block Storage Provisioning through RBD Protocol" class="md-nav__link">
+    Ceph Block Storage Provisioning through RBD Protocol
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-4/" title="Module-4 : Lab excercise-1" class="md-nav__link">
+      Module-4 : Lab excercise-1
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Module-5/" title="Module-5 : Lab excercise-2" class="md-nav__link">
+      Module-5 : Lab excercise-2
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ceph-block-storage-provisioning-through-rbd-protocol" title="Ceph Block Storage Provisioning through RBD Protocol" class="md-nav__link">
+    Ceph Block Storage Provisioning through RBD Protocol
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="module-3-ceph-block-storage-provisioning">Module - 3 : Ceph Block Storage Provisioning<a class="headerlink" href="#module-3-ceph-block-storage-provisioning" title="Permanent link">#</a></h1>
+<div class="admonition summary">
+<p class="admonition-title">Module Agenda</p>
+<ul>
+<li><strong>In this module, you will be provisioning Ceph Block Storage using the RADOS Block Device (RBD) protocol.</strong></li>
+<li><strong>Later, you will use RBD to host a MySQL database and perform some basic operations on the database running on Ceph Block Storage.</strong></li>
+<li><strong>By the end of this module, you will have an understanding of Ceph Block Storage provisioning.</strong></li>
+</ul>
+</div>
+<ul>
+<li>From your workstation login to the <code class="codehilite">ceph-admin</code> node as user <strong><code class="codehilite">student</code></strong> <a href="https://red-hat-storage.github.io/RHCS_Test_Drive/#starting-the-lab">(Learn how to Login)</a></li>
+</ul>
+<div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-admin node&gt;
+</pre></div>
+
+<div class="admonition example">
+<p class="admonition-title">Prerequisite</p>
+<ul>
+<li><strong>This module is independent of the other modules. If you intend to follow this module, please make sure that you have a running Ceph cluster before you begin.</strong></li>
+<li><strong>You could setup a Ceph cluster using either of these two methods<br />
+1) Follow the hands-on instructions in Module-2 and deploy the Ceph cluster<br />
+2) From <code class="codehilite">ceph-admin</code> node, execute the following script to setup a Ceph cluster <br />
+<code class="codehilite">sh /home/student/auto-pilot/setup_ceph_cluster.sh</code></strong></li>
+<li><strong>Once you have a running Ceph cluster, you will be ready to continue with this module.</strong></li>
+<li><strong>You must run all the commands using user <code class="codehilite">student</code> on the <code class="codehilite">ceph-admin</code> node, unless otherwise specified.</strong></li>
+</ul>
+</div>
+<h2 id="ceph-block-storage-provisioning-through-rbd-protocol">Ceph Block Storage Provisioning through RBD Protocol<a class="headerlink" href="#ceph-block-storage-provisioning-through-rbd-protocol" title="Permanent link">#</a></h2>
+<p>In this section you will learn how to provision block storage using Ceph RBD. We will create a thin-provisioned, re-sizable RADOS Block Device (RBD) volume, which you will provision and map to <code class="codehilite">client-node1</code>. Later you will use this RBD volume to store a MySQL database.</p>
+<ul>
+<li>Let&rsquo;s begin by creating a <code class="codehilite">rbd</code> storage pool</li>
+</ul>
+<div class="codehilite"><pre><span></span>ceph osd pool create rbd 64
+</pre></div>
+
+<ul>
+<li>Assign an application to this pool</li>
+</ul>
+<div class="codehilite"><pre><span></span>ceph osd pool application enable rbd rbd
+</pre></div>
+
+<ul>
+<li>Create a RBD client named <code class="codehilite">client.rbd</code> with necessary permissions on Ceph Monitor and OSDs</li>
+</ul>
+<div class="codehilite"><pre><span></span>ceph auth get-or-create client.rbd mon &#39;allow r&#39; osd &#39;allow rwx pool=rbd&#39; -o /etc/ceph/ceph.client.rbd.keyring
+</pre></div>
+
+<ul>
+<li><code class="codehilite">ceph-common</code> package has already been installed on <code class="codehilite">client-node1</code>. Next, set permissions on the <code class="codehilite">/etc/ceph</code> directory</li>
+</ul>
+<div class="codehilite"><pre><span></span>ssh client-node1 -t sudo chown -R ceph:student /etc/ceph
+</pre></div>
+
+<div class="codehilite"><pre><span></span>ssh client-node1 -t sudo chmod 775 /etc/ceph
+</pre></div>
+
+<ul>
+<li>In order to allow <code class="codehilite">client-node1</code> to run Ceph commands, add a copy of the <code class="codehilite">ceph.conf</code> and <code class="codehilite">ceph.client.rbd.keyring</code> files to <code class="codehilite">client-node1</code></li>
+</ul>
+<div class="codehilite"><pre><span></span>scp /etc/ceph/ceph.conf client-node1:/etc/ceph/ceph.conf
+</pre></div>
+
+<div class="codehilite"><pre><span></span>scp /etc/ceph/ceph.client.rbd.keyring client-node1:/etc/ceph
+</pre></div>
+
+<ul>
+<li>The rest of the commands must be run from <code class="codehilite">client-node1</code>, so let&rsquo;s ssh to client-node1</li>
+</ul>
+<div class="codehilite"><pre><span></span>ssh client-node1
+</pre></div>
+
+<ul>
+<li>First, let&rsquo;s verify that <code class="codehilite">client-node1</code> is able to access the Ceph cluster through user <code class="codehilite">rbd</code> </li>
+</ul>
+<div class="codehilite"><pre><span></span>ceph -s --id rbd
+</pre></div>
+
+<ul>
+<li>Next, we shall provision a RBD volume named <code class="codehilite">mariadb-disk1</code> of size 10G</li>
+</ul>
+<div class="codehilite"><pre><span></span>rbd create mariadb-disk1 --size 10240 --image-feature layering --id rbd
+</pre></div>
+
+<ul>
+<li>Verify the RBD volume that we have just created</li>
+</ul>
+<div class="codehilite"><pre><span></span>rbd ls --id rbd ; 
+rbd info mariadb-disk1 --id rbd
+</pre></div>
+
+<ul>
+<li>The Red Hat Linux kernel starting with 2.6.32 comes with native support for Ceph RBD protocol, so let&rsquo;s verify that the RBD module is loaded.</li>
+</ul>
+<div class="codehilite"><pre><span></span>lsmod | grep -i rbd
+</pre></div>
+
+<ul>
+<li>If the RBD module is not loaded for some reason, try loading it manually.</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo modprobe rbd
+</pre></div>
+
+<ul>
+<li>Once the RBD module is loaded, the client node is ready to map the Ceph RBD volume. Let&rsquo;s map <code class="codehilite">mariadb-disk1</code> RBD volume on <code class="codehilite">client-node1</code></li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo rbd map mariadb-disk1 --id rbd
+</pre></div>
+
+<ul>
+<li>Verify that the RBD volume is mapped</li>
+</ul>
+<div class="codehilite"><pre><span></span>rbd showmapped --id rbd
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+</div>
+<ul>
+<li>From the above command output, make a note of the OS device name for <code class="codehilite">mariadb-disk1</code> RBD volume. </li>
+</ul>
+<p>​    - In most of the cases it&rsquo;s  <code class="codehilite">/dev/rbd0</code>.</p>
+<ul>
+<li>
+<p>At this point, we have created a 10GB RBD volume provisioned and mapped on <code class="codehilite">client-node1</code> as a block device. Let&rsquo;s make use of this storage by putting a workload on it (MariaDB in our case).</p>
+</li>
+<li>
+<p>Create an xfs file-system and mount the RBD volume on the <code class="codehilite">/var/lib/mysql</code> directory and verify</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo mkfs.xfs /dev/rbd0 ;
+sudo mount /dev/rbd0 /var/lib/mysql ; sudo df -h /var/lib/mysql
+</pre></div>
+
+<p><strong>Next, we shall configure the MariaDB database and use Ceph RBD for storage.</strong></p>
+<ul>
+<li>Prepare the MariaDB configuration file for use</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo wget https://raw.githubusercontent.com/red-hat-storage/ceph-test-drive-bootstrap/master/mysql-module/my.cnf -O /etc/my.cnf
+</pre></div>
+
+<ul>
+<li>To save time, a MariaDB package has already been installed. Let&rsquo;s begin by changing the ownership of the database mount point and start the MariaDB service.</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo chown -R mysql:mysql /var/lib/mysql
+</pre></div>
+
+<div class="codehilite"><pre><span></span>sudo systemctl start mariadb ; sudo systemctl enable mariadb ; sudo systemctl status mariadb
+</pre></div>
+
+<ul>
+<li>Login as <code class="codehilite">mysqladmin</code> and run a basic query to verify </li>
+</ul>
+<div class="codehilite"><pre><span></span>mysqladmin -u root version
+</pre></div>
+
+<div class="codehilite"><pre><span></span>mysql -u root -e &#39;SHOW DATABASES&#39;
+</pre></div>
+
+<ul>
+<li>If MariaDB is setup properly, you should see an output similar to that as shown below</li>
+</ul>
+<div class="codehilite"><pre><span></span>[ceph@client-node1 ~]$ mysqladmin -u root version
+mysqladmin  Ver 9.0 Distrib 5.5.52-MariaDB, for Linux on x86_64
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Server version      5.5.52-MariaDB
+Protocol version    10
+Connection      Localhost via UNIX socket
+UNIX socket     /var/lib/mysql/mysql.sock
+Uptime:         41 min 21 sec
+
+Threads: 1  Questions: 1000769  Slow queries: 0  Opens: 65  Flush tables: 2  Open tables: 90  Queries per second avg: 403.373
+[ceph@client-node1 ~]$
+[ceph@client-node1 ~]$
+[ceph@client-node1 ~]$ mysql -u root -e &#39;SHOW DATABASES&#39;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+[ceph@client-node1 ~]$
+</pre></div>
+
+<ul>
+<li>Verify MySQL is using Ceph block storage</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo ls -l /var/lib/mysql ; sudo df -h /var/lib/mysql
+</pre></div>
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+</div>
+<ul>
+<li>
+<p>At this point, we have a running MariaDB database instance on top of Ceph Block Storage. Let&rsquo;s try some database read and write operations using <code class="codehilite">sysbench</code> which is a popular tool for MySQL database benchmarking.</p>
+</li>
+<li>
+<p>For sysbench, create a database user and grant necessary access</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>mysql -u root -e &quot;CREATE DATABASE sysbench;&quot; 
+</pre></div>
+
+<div class="codehilite"><pre><span></span>mysql -u root -e &quot;CREATE USER &#39;sysbench&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;secret&#39;;&quot;
+</pre></div>
+
+<div class="codehilite"><pre><span></span>mysql -u root -e &quot;GRANT ALL PRIVILEGES ON *.* TO &#39;sysbench&#39;@&#39;localhost&#39; IDENTIFIED  BY &#39;secret&#39;;&quot;
+</pre></div>
+
+<ul>
+<li>Generate some test data in a <code class="codehilite">sysbench</code> table.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As soon as you start generating test data by running the following command, switch to Ceph Metrics Dashboard to monitor your Ceph cluster activity.</p>
+</div>
+<div class="codehilite"><pre><span></span>sysbench /usr/share/sysbench/oltp_read_write.lua --threads=64 --table_size=2000000 --time=300 --mysql-db=sysbench --mysql-user=sysbench --mysql-password=secret --db-driver=mysql --mysql_storage_engine=innodb prepare
+</pre></div>
+
+<ul>
+<li>Verify sysbench created test table rows</li>
+</ul>
+<div class="codehilite"><pre><span></span>mysql -u root -e &#39;SELECT TABLE_NAME, TABLE_ROWS FROM information_schema.tables WHERE `table_schema` = &quot;sysbench&quot; ;&#39;
+</pre></div>
+
+<ul>
+<li>You will notice a similar output, as shown below</li>
+</ul>
+<p><a href="../images/ceph-rbd-mariadb-1.png"><img alt="" src="../images/ceph-rbd-mariadb-1.png" /></a><br />
+<em>(click on the screen shot for better resolution)</em></p>
+<ul>
+<li>Finally using Sysbench, simulate read+write (mix) database operations representing a MariaDB workload on Ceph block storage.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As soon as you start generating test data by running the following command, switch to Ceph Metrics Dashboard to monitor your Ceph cluster activity.</p>
+</div>
+<div class="codehilite"><pre><span></span>sysbench /usr/share/sysbench/oltp_read_write.lua --table_size=2000000 --time=60 --threads=64 --mysql-db=sysbench --mysql-user=sysbench --mysql-password=secret --db-driver=mysql --mysql_storage_engine=innodb  run
+</pre></div>
+
+<ul>
+<li>You will notice a similar output, as shown below</li>
+</ul>
+<p><a href="../images/ceph-rbd-mariadb-2.png"><img alt="" src="../images/ceph-rbd-mariadb-2.png" /></a><br />
+<em>(click on the screen shot for better resolution)</em></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>By any means, this test does not represents Ceph or MariaDB actual performance, so do not take these performance numbers literally. This is only for demonstration purposes.</p>
+</div>
+<div class="admonition summary">
+<p class="admonition-title">End of Module</p>
+<p><strong>We have reached the end of Module-3. In this module, you have learned how to provision Ceph block storage through the RBD protocol and have verified its functionality by applying a MariaDB database workload. In the next module, we shall cover Ceph Object Storage.</strong></p>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Module-2/" title="Module-2 : OCP Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Module-2 : OCP Setup
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Module-4/" title="Module-4 : Lab excercise-1" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Module-4 : Lab excercise-1
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright ©2018 Red Hat, Inc.
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://www.redhat.com/en/technologies/storage/ceph" class="md-footer-social__link fa fa-link"></a>
+    
+      <a href="https://twitter.com/RedHatStorage" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/ceph/ceph" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.linkedin.com/company/3545/" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ce2ab4bf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
