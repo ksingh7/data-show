@@ -1,0 +1,85 @@
+# Module - 1 : Introduction to Red Hat Ceph Storage
+
+!!! Summary "Module Overview"
+    **Module 1 provides an introduction to Software Defined Storage, the Red Hat Ceph architecture, target use cases, and features. There is no hands-on exercise to be performed in this module.**
+
+**If you are familiar with Red Hat Ceph Storage, peruse Module 1 as a refresher, or you may skip it altogether. Once you are ready for the action, please proceed to [Module 2](https://red-hat-storage.github.io/RHCS_Test_Drive/Module-2/)**
+
+![](images/Slide01.JPG)
+## Software Defined Storage and Ceph
+![](images/Slide02.JPG)
+![](images/Slide03.JPG)
+![](images/Slide04.JPG)
+![](images/Slide05.JPG)
+![](images/Slide06.JPG)
+## What's New in Ceph 3
+![](images/Slide07.JPG)
+![](images/Slide08.JPG)
+![](images/Slide09.JPG)
+![](images/Slide10.JPG)
+![](images/Slide11.JPG)
+![](images/Slide12.JPG)
+![](images/Slide13.JPG)
+![](images/Slide14.JPG)
+## Ceph Architectural Components
+![](images/Slide15.JPG)
+![](images/Slide16.JPG)
+![](images/Slide17.JPG)
+![](images/Slide18.JPG)
+![](images/Slide19.JPG)
+![](images/Slide20.JPG)
+![](images/Slide21.JPG)
+![](images/Slide22.JPG)
+![](images/Slide23.JPG)
+![](images/Slide24.JPG)
+![](images/Slide25.JPG)
+![](images/Slide26.JPG)
+![](images/Slide27.JPG)
+![](images/Slide28.JPG)
+![](images/Slide29.JPG)
+![](images/Slide30.JPG)
+![](images/Slide31.JPG)
+![](images/Slide32.JPG)
+![](images/Slide33.JPG)
+![](images/Slide34.JPG)
+![](images/Slide35.JPG)
+![](images/Slide36.JPG)
+![](images/Slide37.JPG)
+![](images/Slide38.JPG)
+![](images/Slide39.JPG)
+## Ceph Use Cases
+![](images/Slide40.JPG)
+![](images/Slide41.JPG)
+![](images/Slide42.JPG)
+![](images/Slide43.JPG)
+![](images/Slide44.JPG)
+![](images/Slide45.JPG)
+![](images/Slide46.JPG)
+![](images/Slide47.JPG)
+![](images/Slide48.JPG)
+![](images/Slide49.JPG)
+![](images/Slide50.JPG)
+![](images/Slide51.JPG)
+![](images/Slide52.JPG)
+## Ceph Features
+![](images/Slide53.JPG)
+![](images/Slide54.JPG)
+![](images/Slide55.JPG)
+![](images/Slide56.JPG)
+![](images/Slide57.JPG)
+![](images/Slide58.JPG)
+![](images/Slide59.JPG)
+![](images/Slide60.JPG)
+![](images/Slide61.JPG)
+![](images/Slide62.JPG)
+![](images/Slide63.JPG)
+![](images/Slide64.JPG)
+![](images/Slide65.JPG)
+## Where to get more information
+![](images/Slide66.JPG)
+![](images/Slide67.JPG)
+![](images/Slide68.JPG)
+![](images/Slide69.JPG)
+
+!!! summary "End of Module"
+    **We have reached the end of Module-1. At this point you should have theoretical understanding of software defined storage concepts, Ceph's architecture and its terminology. In the next module you will learn how to deploy a Ceph cluster.**
