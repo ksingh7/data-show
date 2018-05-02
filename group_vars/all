@@ -1,0 +1,35 @@
+---
+# Variables listed here are applicable to all host groups
+
+# Can be 'bare' for bare metal, or 'ec2'
+deploy_method: 'ec2'
+
+# Set secrets and user specifics via environmental variables
+aws_access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
+aws_secret_key: "{{ lookup('env','AWS_SECRET_ACCESS_KEY') }}"
+aws_keyname: "{{ lookup('env','AWS_KEYNAME') }}"
+my_ip: "{{ lookup('env','MY_IP') }}"
+
+# Global Demo Settings
+aws_region: "us-east-1"
+aws_ami: "ami-26ebbc5c" # RHEL 7.4
+#aws_ami: "ami-caca16b5" # RHEL 7.4 / RHCS 3.0 Test Drive AMI
+remote_user: 'ec2-user'
+
+# VPC Information
+vpc_cidr_block: "10.0.0.0/16"
+
+# Subnets
+public_subnet_1_cidr: "10.0.0.0/24"
+
+# Spark Cluster
+spark_instance_type: 'm4.xlarge'
+spark_instance_count: 1
+
+# Ceph Cluster
+ceph_instance_type: 'i3.xlarge'
+ceph_instance_count: 1
+
+# Set NTP time server
+ntpserver: time.nasa.gov
+
