@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-4/">
+        <link rel="canonical" href="https://ksingh7.github.io/data-show/Module-4/">
       
       
       
@@ -34,7 +34,7 @@
     
     
       
-        <title>Module-4 : Lab excercise-1 - Red Hat Ceph Data Show</title>
+        <title>Module-4 : Analytics on Metrics Data - Ceph Data Show</title>
       
     
     
@@ -76,7 +76,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://red-hat-storage.github.io/RHCS_Test_Drive" title="Red Hat Ceph Data Show" class="md-header-nav__button md-logo">
+        <a href="https://ksingh7.github.io/data-show/" title="Ceph Data Show" class="md-header-nav__button md-logo">
           
             <img src="../images/shadowman_rgb.png" width="24" height="24">
           
@@ -90,10 +90,10 @@
           
             
               <span class="md-header-nav__topic">
-                Red Hat Ceph Data Show
+                Ceph Data Show
               </span>
               <span class="md-header-nav__topic">
-                Module-4 : Lab excercise-1
+                Module-4 : Analytics on Metrics Data
               </span>
             
           
@@ -153,7 +153,7 @@
         <img src="../images/shadowman_rgb.png" width="24" height="24">
       
     </span>
-    Red Hat Ceph Data Show
+    Ceph Data Show
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -188,8 +188,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-2/" title="Module-2 : OCP Setup" class="md-nav__link">
-      Module-2 : OCP Setup
+    <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-nav__link">
+      Module-2 : Setting up OpenShift Container Platform
     </a>
   </li>
 
@@ -200,8 +200,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-3/" title="Module-3 : Loading Dataset" class="md-nav__link">
-      Module-3 : Loading Dataset
+    <a href="../Module-3/" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-nav__link">
+      Module-3 : Introduction to S3A & Loading Sample Data Set
     </a>
   </li>
 
@@ -220,57 +220,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Module-4 : Lab excercise-1
-      </label>
-    
-    <a href="./" title="Module-4 : Lab excercise-1" class="md-nav__link md-nav__link--active">
-      Module-4 : Lab excercise-1
+    <a href="./" title="Module-4 : Analytics on Metrics Data" class="md-nav__link md-nav__link--active">
+      Module-4 : Analytics on Metrics Data
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" title="Introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-ceph-rados-gateway" title="Setting up Ceph Rados Gateway" class="md-nav__link">
-    Setting up Ceph Rados Gateway
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access-ceph-object-storage-using-swift-api" title="Access Ceph Object Storage using Swift API" class="md-nav__link">
-    Access Ceph Object Storage using Swift API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access-ceph-object-storage-using-s3-api" title="Access Ceph Object Storage using S3 API" class="md-nav__link">
-    Access Ceph Object Storage using S3 API
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -281,8 +233,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-5/" title="Module-5 : Lab excercise-2" class="md-nav__link">
-      Module-5 : Lab excercise-2
+    <a href="../Module-5/" title="Module-5 : ML using Jupyter Datahub on Ceph" class="md-nav__link">
+      Module-5 : ML using Jupyter Datahub on Ceph
     </a>
   </li>
 
@@ -304,41 +256,6 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" title="Introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-ceph-rados-gateway" title="Setting up Ceph Rados Gateway" class="md-nav__link">
-    Setting up Ceph Rados Gateway
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access-ceph-object-storage-using-swift-api" title="Access Ceph Object Storage using Swift API" class="md-nav__link">
-    Access Ceph Object Storage using Swift API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access-ceph-object-storage-using-s3-api" title="Access Ceph Object Storage using S3 API" class="md-nav__link">
-    Access Ceph Object Storage using S3 API
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -350,282 +267,42 @@
               
                 
                 
-                <h1 id="module-4-ceph-object-storage-provisioning">Module - 4 : Ceph Object Storage Provisioning<a class="headerlink" href="#module-4-ceph-object-storage-provisioning" title="Permanent link">#</a></h1>
+                <h1 id="module-4-analytics-on-metrics-data">Module - 4 : Analytics on Metrics Data<a class="headerlink" href="#module-4-analytics-on-metrics-data" title="Permanent link">#</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
-<li><strong>In this module you will learn how to configure object storage using the Ceph RADOS Gateway (RGW) protocol</strong></li>
-<li><strong>You will then use Ceph for Object Storage over S3 and SWIFT APIs</strong></li>
-<li><strong>Finally, you will configure a Sree GUI S3 Browser to access Ceph Object Storage via the S3 API</strong></li>
-<li><strong>By the end of this module, you will have an understanding of Ceph Object Storage.</strong></li>
+<li><strong>In this module, you will be doing basic analysis of Metrics Data Set</strong></li>
 </ul>
 </div>
-<ul>
-<li>From your workstation login to the <code class="codehilite">ceph-admin</code> node as user <strong><code class="codehilite">student</code></strong> <a href="https://red-hat-storage.github.io/RHCS_Test_Drive/#starting-the-lab">(Learn how to Login)</a></li>
-</ul>
-<div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-admin node&gt;
-</pre></div>
-
 <div class="admonition example">
 <p class="admonition-title">Prerequisite</p>
 <ul>
-<li><strong>This module is independent of the other modules. If you intend to follow this module, please make sure that you have a running Ceph cluster before you begin.</strong></li>
-<li><strong>You could setup a Ceph cluster using either of these two methods<br />
-1) Follow the hands-on instructions in Module-2 and deploy the Ceph cluster<br />
-2) From <code class="codehilite">ceph-admin</code> node, execute the following script to setup a Ceph cluster<br />
-<code class="codehilite">sh /home/student/auto-pilot/setup_ceph_cluster.sh</code></strong></li>
-<li><strong>Once you have a running Ceph cluster you will be ready to continue with this module.</strong></li>
-<li><strong>You must run all the commands using user <code class="codehilite">student</code> on the <code class="codehilite">ceph-admin</code> node, unless otherwise specified.</strong></li>
+<li><strong>You need to have completed Modules 1-3 before beginning this module</strong></li>
 </ul>
 </div>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>The Ceph object gateway, also know as the RADOS gateway (RGW), is an object storage interface built on top of the librados API to provide applications with a RESTful gateway to Ceph storage clusters. </p>
-<p>To access Ceph over object storage interfaces i.e. via <code class="codehilite">swift</code> or <code class="codehilite">s3</code> APIs, we need to configure Ceph RGW. In this module we will configure the <code class="codehilite">ceph-admin</code> node as Ceph RGW and verify <code class="codehilite">s3</code> and <code class="codehilite">swift</code> client access from <code class="codehilite">client-node1</code> </p>
-<h2 id="setting-up-ceph-rados-gateway">Setting up Ceph Rados Gateway<a class="headerlink" href="#setting-up-ceph-rados-gateway" title="Permanent link">#</a></h2>
-<ul>
-<li>Visit the <code class="codehilite">ceph-ansible</code> main configuration directory</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /usr/share/ceph-ansible/group_vars/
-</pre></div>
-
-<ul>
-<li>In this directory you will find the <code class="codehilite">all.yml</code> configuration file which has <strong>already been pre-populated for you</strong> to avoid any typographical errors. Let&rsquo;s review this file to better understand the Ceph RGW configuration parameters.</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat all.yml
-</pre></div>
-
-<ul>
-<li><code class="codehilite">all.yml</code> file configures Ceph RGW for<ul>
-<li>Port</li>
-<li>Number of concurrent threads</li>
-<li>RGW interface</li>
-<li>RGW DNS name (required for s3 style bucket access)</li>
-</ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="x">...</span>
-<span class="x">...</span>
-<span class="x">radosgw_civetweb_port: 80</span>
-<span class="x">radosgw_civetweb_num_threads: 512</span>
-<span class="x">radosgw_civetweb_options: &quot;num_threads=</span><span class="cp">{{</span> <span class="nv">radosgw_civetweb_num_threads</span> <span class="cp">}}</span><span class="x">&quot;</span>
-<span class="x">radosgw_interface: eth0</span>
-<span class="x">radosgw_dns_name: &quot;ceph-admin&quot;</span>
-<span class="x">...</span>
-<span class="x">...</span>
-</pre></div>
-
-<ul>
-<li>Add Ceph RGW host to your Ansible inventory file by editing the <code class="codehilite">/etc/ansible/hosts</code> file</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo vim /etc/ansible/hosts
-</pre></div>
-
-<ul>
-<li>Add the following section to your <code class="codehilite">/etc/ansible/hosts</code> file</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">[rgws]</span>
-<span class="na">ceph-admin</span>
-</pre></div>
-
-<ul>
-<li>To start deploying Ceph RGW, switch your directory to the <code class="codehilite">ceph-ansible</code> root</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /usr/share/ceph-ansible
-</pre></div>
-
-<ul>
-<li>Run the <code class="codehilite">ceph-ansible</code> playbook and limit it to <code class="codehilite">rgw</code> </li>
-</ul>
-<div class="codehilite"><pre><span></span>time ansible-playbook site.yml --limit  rgws
-</pre></div>
-
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Ansible is idempotent. If it is run multiple times, it has the same effect as running it once. Therefore, there is no harm in running it again. Configuration changes will not take place after its initial application.</p>
-</div>
 <ul>
 <li>
-<p>Once your Ansible playbook run has finished, ensure there are no failed items under <code class="codehilite">PLAY RECAP</code> </p>
+<p>The instruction for this excercise is available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>), that you could download it from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_1.ipynb">here</a></p>
 </li>
 <li>
-<p>Allow user <code class="codehilite">student</code> to access the Ceph cluster</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo chown -R student:student /etc/ceph
-</pre></div>
-
-<ul>
-<li>Verify <code class="codehilite">ceph-radosgw</code> service is running on <code class="codehilite">ceph-admin</code> . Also make note of the port number it&rsquo;s running on. It must be on port 80.</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo systemctl status ceph-radosgw@rgw.ceph-admin.service ; 
-sudo netstat -plunt | grep -i rados ;
-</pre></div>
-
-<ul>
-<li>
-<p>To use Ceph as an Object Storage cluster, we first need to create <code class="codehilite">S3</code> and <code class="codehilite">swift</code> users</p>
+<p>You would require Jupyter instance to open this notebook. Use JupyterHub application that you have deployed in module-2. Login to OpenShift Container Platform Console and click on JupyterHub application endpoint URL.</p>
 </li>
 <li>
-<p>Create a RGW user for <code class="codehilite">S3</code> access </p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo radosgw-admin user create --uid=&#39;user1&#39; --display-name=&#39;First User&#39; --access-key=&#39;S3user1&#39; --secret-key=&#39;S3user1key&#39;
-</pre></div>
-
-<ul>
-<li>Create RGW subuser for <code class="codehilite">swift</code> access</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo radosgw-admin subuser create --uid=&#39;user1&#39; --subuser=&#39;user1:swift&#39; --secret-key=&#39;Swiftuser1key&#39; --access=full
-</pre></div>
-
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>At this point, you have Ceph RGW installed and configured, and you have created S3 and Swift users. In the next section, you will learn how to access Ceph object storage using <code class="codehilite">S3</code> and <code class="codehilite">Swift</code> clients.</p>
-</div>
-<h2 id="access-ceph-object-storage-using-swift-api">Access Ceph Object Storage using Swift API<a class="headerlink" href="#access-ceph-object-storage-using-swift-api" title="Permanent link">#</a></h2>
-<ul>
-<li>
-<p>To save time, <code class="codehilite">python-swiftclient</code> cli has already been installed on <code class="codehilite">ceph-admin</code> node</p>
+<p>Use the following credentials to login into the Jupyter Notebook<br />
+User Name : <code class="codehilite">user1</code><br />
+Password  : <code class="codehilite">79e4e0</code>  </p>
 </li>
 <li>
-<p>Using Swift CLI, create a swift container (aka bucket) named <code class="codehilite">container-1</code> and then list it</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nt">swift</span> <span class="nt">-A</span> <span class="nt">http</span><span class="o">://</span><span class="nt">ceph-admin</span><span class="o">/</span><span class="nt">auth</span><span class="o">/</span><span class="nt">1</span><span class="p">.</span><span class="nc">0</span>  <span class="nt">-U</span> <span class="nt">user1</span><span class="p">:</span><span class="nd">swift</span> <span class="nt">-K</span> <span class="s1">&#39;Swiftuser1key&#39;</span> <span class="nt">post</span> <span class="nt">container-1</span> <span class="o">;</span> 
-</pre></div>
-
-<div class="codehilite"><pre><span></span>swift -A http://ceph-admin/auth/1.0  -U user1:swift -K &#39;Swiftuser1key&#39; list
-</pre></div>
-
-<ul>
-<li>Create a dummy file and then upload it to <code class="codehilite">container-1</code> using swift</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /tmp ; base64 /dev/urandom | head -c 10000000 &gt; dummy_file1.txt ; 
-</pre></div>
-
-<div class="codehilite"><pre><span></span>swift -A http://ceph-admin/auth/1.0  -U user1:swift -K &#39;Swiftuser1key&#39; upload container-1 dummy_file1.txt
-</pre></div>
-
-<ul>
-<li>List <code class="codehilite">container-1</code> to verify the file is stored</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nt">swift</span> <span class="nt">-A</span> <span class="nt">http</span><span class="o">://</span><span class="nt">ceph-admin</span><span class="o">/</span><span class="nt">auth</span><span class="o">/</span><span class="nt">1</span><span class="p">.</span><span class="nc">0</span>  <span class="nt">-U</span> <span class="nt">user1</span><span class="p">:</span><span class="nd">swift</span> <span class="nt">-K</span> <span class="s1">&#39;Swiftuser1key&#39;</span> <span class="nt">list</span> <span class="nt">container-1</span><span class="o">;</span> 
-</pre></div>
-
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>Easy, right? So you have just learned how to use Ceph for Object Storage using swift APIs. </p>
-</div>
-<h2 id="access-ceph-object-storage-using-s3-api">Access Ceph Object Storage using S3 API<a class="headerlink" href="#access-ceph-object-storage-using-s3-api" title="Permanent link">#</a></h2>
-<p>The Ceph object storage cluster can be accessed by any client that supports <code class="codehilite">S3</code> API access.  In this section we will use <code class="codehilite">s3cmd</code> which has already been installed on the <code class="codehilite">ceph-admin</code> node.</p>
-<ul>
-<li>
-<p>To use Ceph with S3-style subdomains (e.g., bucket-name.domain-name.com), you need to add a wildcard to the DNS record of the DNS server you use with the ceph-radosgw daemon. We will rely on <code class="codehilite">dnsmasq</code> which is a lightweight DNS server and has already been installed and configured on the <code class="codehilite">ceph-admin</code> node</p>
+<p>Select </p>
 </li>
 <li>
-<p>Next, we shall configure <code class="codehilite">s3cmd</code> on <code class="codehilite">ceph-admin</code> node</p>
+<p>Click <code class="codehilite">Start Server</code></p>
 </li>
+<li></li>
 </ul>
-<div class="codehilite"><pre><span></span>s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl --host=ceph-admin --host-bucket=&quot;%(bucket)s.ceph-admin&quot; --dump-config &gt; /home/student/.s3cfg
-</pre></div>
-
-<ul>
-<li>Test Ceph object storage via S3 protocol by listing buckets using <code class="codehilite">s3cmd</code>. It should list buckets that you have created using <code class="codehilite">swift</code> in the last section </li>
-</ul>
-<div class="codehilite"><pre><span></span>s3cmd ls
-</pre></div>
-
-<ul>
-<li>Create a new bucket and list </li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nt">s3cmd</span> <span class="nt">mb</span> <span class="nt">s3</span><span class="o">://</span><span class="nt">s3-bucket</span> <span class="o">;</span> 
-</pre></div>
-
-<div class="codehilite"><pre><span></span>s3cmd ls
-</pre></div>
-
-<ul>
-<li>Create a dummy file and upload to <code class="codehilite">s3-bucket</code> via S3 API</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /tmp ; base64 /dev/urandom | head -c 10000000 &gt; dummy_file2.txt ;
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">s3cmd</span> <span class="nt">put</span> <span class="nt">dummy_file2</span><span class="p">.</span><span class="nc">txt</span> <span class="nt">s3</span><span class="o">://</span><span class="nt">s3-bucket</span> <span class="o">;</span> 
-</pre></div>
-
-<div class="codehilite"><pre><span></span>s3cmd ls s3://s3-bucket
-</pre></div>
-
-<ul>
-<li>Now, create a publicly accessible Ceph S3 bucket</li>
-</ul>
-<div class="codehilite"><pre><span></span>s3cmd mb s3://public_bucket --acl-public
-</pre></div>
-
-<ul>
-<li>Add content (Image File) to the S3 public bucket</li>
-</ul>
-<div class="codehilite"><pre><span></span>s3cmd put --acl-public  /home/student/Red_Hat_Tower.jpg s3://public_bucket 
-</pre></div>
-
-<ul>
-<li>Add content (Video File) to the S3 public bucket</li>
-</ul>
-<div class="codehilite"><pre><span></span>s3cmd put --acl-public /home/student/Red_Hat_Ceph_Storage.mp4 s3://public_bucket
-</pre></div>
-
-<ul>
-<li>
-<p>Next, let&rsquo;s view this public content directly from your browser</p>
-</li>
-<li>
-<p>To view the image file, update the following URL with the public IP address of your <code class="codehilite">ceph-admin</code> node and copy this to your browser</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>http://&lt;Public_IP_of_Ceph_Admin_Node&gt;/public_bucket/Red_Hat_Tower.jpg
-</pre></div>
-
-<ul>
-<li>To stream video directly from Ceph S3 public bucket, again, update the URL below with the public IP address of your <code class="codehilite">ceph-admin</code> node and copy the result to your browser</li>
-</ul>
-<div class="codehilite"><pre><span></span>http://&lt;Public_IP_of_Ceph_Admin_Node&gt;/public_bucket/Red_Hat_Ceph_Storage.mp4
-</pre></div>
-
-<ul>
-<li>
-<p>Finally, let&rsquo;s use an Open Source object storage GUI browser, <a href="https://github.com/ksingh7/Sree">Sree</a>, to access Ceph Object Storage using the S3 API. For simplicity, Sree has been configured on your <code class="codehilite">ceph-admin</code> node and is running on port <code class="codehilite">5000</code>.</p>
-</li>
-<li>
-<p>To open the Sree Object Storage browser, update the following URL with your <code class="codehilite">ceph-admin</code> node&rsquo;s public IP addresss and point your browser to</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>http://&lt;Public_IP_of_Ceph_Admin_Node&gt;:5000
-</pre></div>
-
-<ul>
-<li>Let&rsquo;s configure Sree to access Ceph S3 by providing the following details in the configuration section (as shown in the screen shot)</li>
-</ul>
-<div class="codehilite"><pre><span></span>Ceph S3 Endpoint : http://&lt;Public_IP_of_Ceph_Admin_Node&gt;
-Access Key ID : S3user1
-Access Key ID : S3user1key
-</pre></div>
-
-<p><img alt="" src="../images/module_4_Sree_1.png" /></p>
-<ul>
-<li>Once you have Sree configured with Ceph S3 endpoints and keys, click on the buckets section to list/create new buckets from the Sree object storage browser</li>
-</ul>
-<p><img alt="" src="../images/module_4_Sree_2.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Browsing buckets upon which Cross-Origin Resource Sharing (CORS) has not been set could result in a &ldquo;Network Error&rdquo;. To avoid such errors, set CORS on the bucket either through the Sree web interface or the S3cmd CLI. It&rsquo;s worth noting that buckets created through the Sree web interface have CORS set by default and are browsable. Learn more about <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>.</p>
-</div>
-<ul>
-<li>Let&rsquo;s create a new bucket, <code class="codehilite">sree-bucket</code> , from the Sree Object Storage browser </li>
-</ul>
-<p><img alt="" src="../images/module_4_Sree_3.png" /></p>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached the end of Module-4. In this module, you have learned to use the Ceph cluster for object storage using S3 and Swift APIs. In the next module, you will learn to use Ceph storage as a distributed file system.</strong></p>
+<p><strong>We have reached the end of Module-4. In this module, you downloaded the sample data set, uploaded it to your Ceph object store using S3cmd. In the next module you will do some basic analysis on this dataa</strong></p>
 </div>
                 
                   
@@ -645,7 +322,7 @@ Access Key ID : S3user1key
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Module-3/" title="Module-3 : Loading Dataset" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Module-3/" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -654,19 +331,19 @@ Access Key ID : S3user1key
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Module-3 : Loading Dataset
+                Module-3 : Introduction to S3A & Loading Sample Data Set
               </span>
             </div>
           </a>
         
         
-          <a href="../Module-5/" title="Module-5 : Lab excercise-2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Module-5/" title="Module-5 : ML using Jupyter Datahub on Ceph" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Module-5 : Lab excercise-2
+                Module-5 : ML using Jupyter Datahub on Ceph
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
