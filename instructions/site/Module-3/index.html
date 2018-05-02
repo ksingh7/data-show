@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-3/">
+        <link rel="canonical" href="https://ksingh7.github.io/data-show/Module-3/">
       
       
       
@@ -34,7 +34,7 @@
     
     
       
-        <title>Module-3 : Ceph Block Storage - Red Hat Ceph Storage Test Drive</title>
+        <title>Module-3 : Introduction to S3A & Loading Sample Data Set - Ceph Data Show</title>
       
     
     
@@ -76,7 +76,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://red-hat-storage.github.io/RHCS_Test_Drive" title="Red Hat Ceph Storage Test Drive" class="md-header-nav__button md-logo">
+        <a href="https://ksingh7.github.io/data-show/" title="Ceph Data Show" class="md-header-nav__button md-logo">
           
             <img src="../images/shadowman_rgb.png" width="24" height="24">
           
@@ -90,10 +90,10 @@
           
             
               <span class="md-header-nav__topic">
-                Red Hat Ceph Storage Test Drive
+                Ceph Data Show
               </span>
               <span class="md-header-nav__topic">
-                Module-3 : Ceph Block Storage
+                Module-3 : Introduction to S3A & Loading Sample Data Set
               </span>
             
           
@@ -153,7 +153,7 @@
         <img src="../images/shadowman_rgb.png" width="24" height="24">
       
     </span>
-    Red Hat Ceph Storage Test Drive
+    Ceph Data Show
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -176,8 +176,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-1/" title="Module-1 : Introduction to RHCS" class="md-nav__link">
-      Module-1 : Introduction to RHCS
+    <a href="../Module-1/" title="Module-1 : Ceph cluster & Object Storage Setup" class="md-nav__link">
+      Module-1 : Ceph cluster & Object Storage Setup
     </a>
   </li>
 
@@ -188,8 +188,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-2/" title="Module-2 : Deploying RHCS" class="md-nav__link">
-      Module-2 : Deploying RHCS
+    <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-nav__link">
+      Module-2 : Setting up OpenShift Container Platform
     </a>
   </li>
 
@@ -209,11 +209,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Module-3 : Ceph Block Storage
+        Module-3 : Introduction to S3A & Loading Sample Data Set
       </label>
     
-    <a href="./" title="Module-3 : Ceph Block Storage" class="md-nav__link md-nav__link--active">
-      Module-3 : Ceph Block Storage
+    <a href="./" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-nav__link md-nav__link--active">
+      Module-3 : Introduction to S3A & Loading Sample Data Set
     </a>
     
       
@@ -227,8 +227,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ceph-block-storage-provisioning-through-rbd-protocol" title="Ceph Block Storage Provisioning through RBD Protocol" class="md-nav__link">
-    Ceph Block Storage Provisioning through RBD Protocol
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-credentials-and-ssl" title="Endpoints, credentials, and SSL" class="md-nav__link">
+    Endpoints, credentials, and SSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-sample-data-set-into-ceph-object-storage" title="Loading the sample data set into Ceph object storage" class="md-nav__link">
+    Loading the sample data set into Ceph object storage
   </a>
   
 </li>
@@ -248,8 +262,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-4/" title="Module-4 : Ceph Object Storage" class="md-nav__link">
-      Module-4 : Ceph Object Storage
+    <a href="../Module-4/" title="Module-4 : Analytics on Metrics Data" class="md-nav__link">
+      Module-4 : Analytics on Metrics Data
     </a>
   </li>
 
@@ -260,20 +274,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-5/" title="Module-5 : Ceph File Storage" class="md-nav__link">
-      Module-5 : Ceph File Storage
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Module-6/" title="Module-6 : Ceph Administration" class="md-nav__link">
-      Module-6 : Ceph Administration
+    <a href="../Module-5/" title="Module-5 : ML using Jupyter Datahub on Ceph" class="md-nav__link">
+      Module-5 : ML using Jupyter Datahub on Ceph
     </a>
   </li>
 
@@ -299,8 +301,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ceph-block-storage-provisioning-through-rbd-protocol" title="Ceph Block Storage Provisioning through RBD Protocol" class="md-nav__link">
-    Ceph Block Storage Provisioning through RBD Protocol
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-credentials-and-ssl" title="Endpoints, credentials, and SSL" class="md-nav__link">
+    Endpoints, credentials, and SSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-sample-data-set-into-ceph-object-storage" title="Loading the sample data set into Ceph object storage" class="md-nav__link">
+    Loading the sample data set into Ceph object storage
   </a>
   
 </li>
@@ -320,261 +336,86 @@
               
                 
                 
-                <h1 id="module-3-ceph-block-storage-provisioning">Module - 3 : Ceph Block Storage Provisioning<a class="headerlink" href="#module-3-ceph-block-storage-provisioning" title="Permanent link">#</a></h1>
+                <h1 id="module-3-introduction-to-s3a-loading-sample-data-set">Module - 3 : Introduction to S3A &amp; Loading Sample Data Set<a class="headerlink" href="#module-3-introduction-to-s3a-loading-sample-data-set" title="Permanent link">#</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
-<li><strong>In this module, you will be provisioning Ceph Block Storage using the RADOS Block Device (RBD) protocol.</strong></li>
-<li><strong>Later, you will use RBD to host a MySQL database and perform some basic operations on the database running on Ceph Block Storage.</strong></li>
-<li><strong>By the end of this module, you will have an understanding of Ceph Block Storage provisioning.</strong></li>
+<li><strong>In this module, you will be introduced to the S3A filesystem client</strong></li>
+<li><strong>Download a sample data set of operational data.</strong></li>
+<li><strong>Create a bucket and ingest the local data set to your Ceph object store</strong></li>
 </ul>
 </div>
 <ul>
-<li>From your workstation login to the <code class="codehilite">ceph-admin</code> node as user <strong><code class="codehilite">student</code></strong> <a href="https://red-hat-storage.github.io/RHCS_Test_Drive/#starting-the-lab">(Learn how to Login)</a></li>
+<li>From your workstation, login to the <code class="codehilite">ceph-node1</code> node as user <strong><code class="codehilite">student</code></strong> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Learn how to Login)</a></li>
 </ul>
-<div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-admin node&gt;
+<div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-node1 node&gt;
 </pre></div>
 
 <div class="admonition example">
 <p class="admonition-title">Prerequisite</p>
 <ul>
-<li><strong>This module is independent of the other modules. If you intend to follow this module, please make sure that you have a running Ceph cluster before you begin.</strong></li>
-<li><strong>You could setup a Ceph cluster using either of these two methods<br />
-1) Follow the hands-on instructions in Module-2 and deploy the Ceph cluster<br />
-2) From <code class="codehilite">ceph-admin</code> node, execute the following script to setup a Ceph cluster <br />
-<code class="codehilite">sh /home/student/auto-pilot/setup_ceph_cluster.sh</code></strong></li>
-<li><strong>Once you have a running Ceph cluster, you will be ready to continue with this module.</strong></li>
-<li><strong>You must run all the commands using user <code class="codehilite">student</code> on the <code class="codehilite">ceph-admin</code> node, unless otherwise specified.</strong></li>
+<li><strong>You need to have completed Modules 1-3 before beginning this module</strong></li>
 </ul>
 </div>
-<h2 id="ceph-block-storage-provisioning-through-rbd-protocol">Ceph Block Storage Provisioning through RBD Protocol<a class="headerlink" href="#ceph-block-storage-provisioning-through-rbd-protocol" title="Permanent link">#</a></h2>
-<p>In this section you will learn how to provision block storage using Ceph RBD. We will create a thin-provisioned, re-sizable RADOS Block Device (RBD) volume, which you will provision and map to <code class="codehilite">client-node1</code>. Later you will use this RBD volume to store a MySQL database.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>The S3A filesystem client comes from Apache Hadoop and can be utilized by Spark and other tools to interact with a S3 compatible object storage system. S3A is the most feature complete and robust client for interacting with S3 compatible object storage systems, successor to the S3N and S3 filesystem clients. While S3A makes every attempt to map the HDFS API closely to the S3 API, there are some semantic differences inherrent to object storage (Reference: Hadoop Wiki):</p>
 <ul>
-<li>Let&rsquo;s begin by creating a <code class="codehilite">rbd</code> storage pool</li>
+<li>Eventual Consistency, with Amazon S3, or Multi-site Ceph. Creation, updates, deletes may not be visible for an undefined time.</li>
+<li>Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries and visible to other processes during this time, and indeed, until the eventual consistency has been resolved.</li>
 </ul>
-<div class="codehilite"><pre><span></span>ceph osd pool create rbd 64
-</pre></div>
-
+<h2 id="endpoints-credentials-and-ssl">Endpoints, credentials, and SSL<a class="headerlink" href="#endpoints-credentials-and-ssl" title="Permanent link">#</a></h2>
+<p>The default endpoint for S3A routes requests to Amazon S3 with SSL (TLS). When interacting with a Ceph object store you will need to change a few S3A configuration parameters, notably the endpoint should be the DNS name or IP address of your Ceph object storage API endpoint.</p>
 <ul>
-<li>Assign an application to this pool</li>
+<li>Endpoint (fs.s3a.endpoint)</li>
+<li>SSL (fs.s3a.connection.ssl.enabled)</li>
 </ul>
-<div class="codehilite"><pre><span></span>ceph osd pool application enable rbd rbd
-</pre></div>
-
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If HTTP(S) is included in the endpoint definition, then the SSL property is automatically adjusted as appropriate. We will use this convention in the later module when we update the Jupyter Notebook.</p>
+</div>
+<h2 id="loading-the-sample-data-set-into-ceph-object-storage">Loading the sample data set into Ceph object storage<a class="headerlink" href="#loading-the-sample-data-set-into-ceph-object-storage" title="Permanent link">#</a></h2>
+<p>To load the data set into your Ceph object store we will use S3cmd, a python CLI tool for interacting with S3 compatible object stores. For convenience S3cmd was pre-installed on <code class="codehilite">ceph-node1</code>.</p>
 <ul>
-<li>Create a RBD client named <code class="codehilite">client.rbd</code> with necessary permissions on Ceph Monitor and OSDs</li>
+<li>
+<p>Login to <code class="codehilite">ceph-node1</code> as <strong>student</strong> user</p>
+</li>
+<li>
+<p>To begin download the sample data set on <code class="codehilite">ceph-node</code> from Amazon S3:</p>
+</li>
 </ul>
-<div class="codehilite"><pre><span></span>ceph auth get-or-create client.rbd mon &#39;allow r&#39; osd &#39;allow rwx pool=rbd&#39; -o /etc/ceph/ceph.client.rbd.keyring
-</pre></div>
-
-<ul>
-<li><code class="codehilite">ceph-common</code> package has already been installed on <code class="codehilite">client-node1</code>. Next, set permissions on the <code class="codehilite">/etc/ceph</code> directory</li>
-</ul>
-<div class="codehilite"><pre><span></span>ssh client-node1 -t sudo chown -R ceph:student /etc/ceph
-</pre></div>
-
-<div class="codehilite"><pre><span></span>ssh client-node1 -t sudo chmod 775 /etc/ceph
-</pre></div>
-
-<ul>
-<li>In order to allow <code class="codehilite">client-node1</code> to run Ceph commands, add a copy of the <code class="codehilite">ceph.conf</code> and <code class="codehilite">ceph.client.rbd.keyring</code> files to <code class="codehilite">client-node1</code></li>
-</ul>
-<div class="codehilite"><pre><span></span>scp /etc/ceph/ceph.conf client-node1:/etc/ceph/ceph.conf
-</pre></div>
-
-<div class="codehilite"><pre><span></span>scp /etc/ceph/ceph.client.rbd.keyring client-node1:/etc/ceph
+<div class="codehilite"><pre><span></span>wget -O /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds.zip  \
+  https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
 </pre></div>
 
 <ul>
-<li>The rest of the commands must be run from <code class="codehilite">client-node1</code>, so let&rsquo;s ssh to client-node1</li>
+<li>Unzip the sample dataset</li>
 </ul>
-<div class="codehilite"><pre><span></span>ssh client-node1
-</pre></div>
-
-<ul>
-<li>First, let&rsquo;s verify that <code class="codehilite">client-node1</code> is able to access the Ceph cluster through user <code class="codehilite">rbd</code> </li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph -s --id rbd
-</pre></div>
-
-<ul>
-<li>Next, we shall provision a RBD volume named <code class="codehilite">mariadb-disk1</code> of size 10G</li>
-</ul>
-<div class="codehilite"><pre><span></span>rbd create mariadb-disk1 --size 10240 --image-feature layering --id rbd
-</pre></div>
-
-<ul>
-<li>Verify the RBD volume that we have just created</li>
-</ul>
-<div class="codehilite"><pre><span></span>rbd ls --id rbd ; 
-rbd info mariadb-disk1 --id rbd
-</pre></div>
-
-<ul>
-<li>The Red Hat Linux kernel starting with 2.6.32 comes with native support for Ceph RBD protocol, so let&rsquo;s verify that the RBD module is loaded.</li>
-</ul>
-<div class="codehilite"><pre><span></span>lsmod | grep -i rbd
-</pre></div>
-
-<ul>
-<li>If the RBD module is not loaded for some reason, try loading it manually.</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo modprobe rbd
-</pre></div>
-
-<ul>
-<li>Once the RBD module is loaded, the client node is ready to map the Ceph RBD volume. Let&rsquo;s map <code class="codehilite">mariadb-disk1</code> RBD volume on <code class="codehilite">client-node1</code></li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo rbd map mariadb-disk1 --id rbd
-</pre></div>
-
-<ul>
-<li>Verify that the RBD volume is mapped</li>
-</ul>
-<div class="codehilite"><pre><span></span>rbd showmapped --id rbd
+<div class="codehilite"><pre><span></span>unzip /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds.zip
 </pre></div>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
+<p>The S3 API provides two ways to route requests to a particular bucket. The first is to use a bucket domain name prefix, meaning the API request will be sent to whichever IP address the <bucket_name>.<endpoint> hostname resolves to. If a wildcard DNS subdomain is not configured for the S3 endpoint, or if the endpoint domain name is not configured in Ceph, then requests using this convention will fail. The second way of routing requests is to use path style access, meaning the API request will be sent to <endpoint>/<bucket_name>. We will create a bucket with all upper case letters, as this convention instructs the S3A client to use the latter, path style approach.</p>
 </div>
 <ul>
-<li>From the above command output, make a note of the OS device name for <code class="codehilite">mariadb-disk1</code> RBD volume. </li>
+<li>Create bucket for loading the sample data set into Ceph object store</li>
 </ul>
-<p>​    - In most of the cases it&rsquo;s  <code class="codehilite">/dev/rbd0</code>.</p>
-<ul>
-<li>
-<p>At this point, we have created a 10GB RBD volume provisioned and mapped on <code class="codehilite">client-node1</code> as a block device. Let&rsquo;s make use of this storage by putting a workload on it (MariaDB in our case).</p>
-</li>
-<li>
-<p>Create an xfs file-system and mount the RBD volume on the <code class="codehilite">/var/lib/mysql</code> directory and verify</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo mkfs.xfs /dev/rbd0 ;
-sudo mount /dev/rbd0 /var/lib/mysql ; sudo df -h /var/lib/mysql
+<div class="codehilite"><pre><span></span>s3cmd mb s3://METRICS
 </pre></div>
 
-<p><strong>Next, we shall configure the MariaDB database and use Ceph RBD for storage.</strong></p>
+<p>Next, we will use the <code class="codehilite">sync</code> S3cmd command to synchronize the local directory with the downloaded data set with the newly created bucket. This is roughly equivalent to using rsync between two filesystems.</p>
 <ul>
-<li>Prepare the MariaDB configuration file for use</li>
+<li>Sync local directory with METRICS bucket</li>
 </ul>
-<div class="codehilite"><pre><span></span>sudo wget https://raw.githubusercontent.com/red-hat-storage/ceph-test-drive-bootstrap/master/mysql-module/my.cnf -O /etc/my.cnf
+<div class="codehilite"><pre><span></span>s3cmd sync /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds/ s3://METRICS
 </pre></div>
 
 <ul>
-<li>To save time, a MariaDB package has already been installed. Let&rsquo;s begin by changing the ownership of the database mount point and start the MariaDB service.</li>
+<li>Now we have our sample dataset ready to be used in Ceph object store.</li>
 </ul>
-<div class="codehilite"><pre><span></span>sudo chown -R mysql:mysql /var/lib/mysql
-</pre></div>
-
-<div class="codehilite"><pre><span></span>sudo systemctl start mariadb ; sudo systemctl enable mariadb ; sudo systemctl status mariadb
-</pre></div>
-
-<ul>
-<li>Login as <code class="codehilite">mysqladmin</code> and run a basic query to verify </li>
-</ul>
-<div class="codehilite"><pre><span></span>mysqladmin -u root version
-</pre></div>
-
-<div class="codehilite"><pre><span></span>mysql -u root -e &#39;SHOW DATABASES&#39;
-</pre></div>
-
-<ul>
-<li>If MariaDB is setup properly, you should see an output similar to that as shown below</li>
-</ul>
-<div class="codehilite"><pre><span></span>[ceph@client-node1 ~]$ mysqladmin -u root version
-mysqladmin  Ver 9.0 Distrib 5.5.52-MariaDB, for Linux on x86_64
-Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
-
-Server version      5.5.52-MariaDB
-Protocol version    10
-Connection      Localhost via UNIX socket
-UNIX socket     /var/lib/mysql/mysql.sock
-Uptime:         41 min 21 sec
-
-Threads: 1  Questions: 1000769  Slow queries: 0  Opens: 65  Flush tables: 2  Open tables: 90  Queries per second avg: 403.373
-[ceph@client-node1 ~]$
-[ceph@client-node1 ~]$
-[ceph@client-node1 ~]$ mysql -u root -e &#39;SHOW DATABASES&#39;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| test               |
-+--------------------+
-[ceph@client-node1 ~]$
-</pre></div>
-
-<ul>
-<li>Verify MySQL is using Ceph block storage</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo ls -l /var/lib/mysql ; sudo df -h /var/lib/mysql
-</pre></div>
-
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-</div>
-<ul>
-<li>
-<p>At this point, we have a running MariaDB database instance on top of Ceph Block Storage. Let&rsquo;s try some database read and write operations using <code class="codehilite">sysbench</code> which is a popular tool for MySQL database benchmarking.</p>
-</li>
-<li>
-<p>For sysbench, create a database user and grant necessary access</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>mysql -u root -e &quot;CREATE DATABASE sysbench;&quot; 
-</pre></div>
-
-<div class="codehilite"><pre><span></span>mysql -u root -e &quot;CREATE USER &#39;sysbench&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;secret&#39;;&quot;
-</pre></div>
-
-<div class="codehilite"><pre><span></span>mysql -u root -e &quot;GRANT ALL PRIVILEGES ON *.* TO &#39;sysbench&#39;@&#39;localhost&#39; IDENTIFIED  BY &#39;secret&#39;;&quot;
-</pre></div>
-
-<ul>
-<li>Generate some test data in a <code class="codehilite">sysbench</code> table.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>As soon as you start generating test data by running the following command, switch to Ceph Metrics Dashboard to monitor your Ceph cluster activity.</p>
-</div>
-<div class="codehilite"><pre><span></span>sysbench /usr/share/sysbench/oltp_read_write.lua --threads=64 --table_size=2000000 --time=300 --mysql-db=sysbench --mysql-user=sysbench --mysql-password=secret --db-driver=mysql --mysql_storage_engine=innodb prepare
-</pre></div>
-
-<ul>
-<li>Verify sysbench created test table rows</li>
-</ul>
-<div class="codehilite"><pre><span></span>mysql -u root -e &#39;SELECT TABLE_NAME, TABLE_ROWS FROM information_schema.tables WHERE `table_schema` = &quot;sysbench&quot; ;&#39;
-</pre></div>
-
-<ul>
-<li>You will notice a similar output, as shown below</li>
-</ul>
-<p><a href="../images/ceph-rbd-mariadb-1.png"><img alt="" src="../images/ceph-rbd-mariadb-1.png" /></a><br />
-<em>(click on the screen shot for better resolution)</em></p>
-<ul>
-<li>Finally using Sysbench, simulate read+write (mix) database operations representing a MariaDB workload on Ceph block storage.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>As soon as you start generating test data by running the following command, switch to Ceph Metrics Dashboard to monitor your Ceph cluster activity.</p>
-</div>
-<div class="codehilite"><pre><span></span>sysbench /usr/share/sysbench/oltp_read_write.lua --table_size=2000000 --time=60 --threads=64 --mysql-db=sysbench --mysql-user=sysbench --mysql-password=secret --db-driver=mysql --mysql_storage_engine=innodb  run
-</pre></div>
-
-<ul>
-<li>You will notice a similar output, as shown below</li>
-</ul>
-<p><a href="../images/ceph-rbd-mariadb-2.png"><img alt="" src="../images/ceph-rbd-mariadb-2.png" /></a><br />
-<em>(click on the screen shot for better resolution)</em></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>By any means, this test does not represents Ceph or MariaDB actual performance, so do not take these performance numbers literally. This is only for demonstration purposes.</p>
-</div>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached the end of Module-3. In this module, you have learned how to provision Ceph block storage through the RBD protocol and have verified its functionality by applying a MariaDB database workload. In the next module, we shall cover Ceph Object Storage.</strong></p>
+<p><strong>We have reached the end of Module-3. In this module, you downloaded the sample data set, uploaded it to your Ceph object store using S3cmd. In the next module you will do some basic analysis on this dataa</strong></p>
 </div>
                 
                   
@@ -594,7 +435,7 @@ Threads: 1  Questions: 1000769  Slow queries: 0  Opens: 65  Flush tables: 2  Ope
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Module-2/" title="Module-2 : Deploying RHCS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -603,19 +444,19 @@ Threads: 1  Questions: 1000769  Slow queries: 0  Opens: 65  Flush tables: 2  Ope
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Module-2 : Deploying RHCS
+                Module-2 : Setting up OpenShift Container Platform
               </span>
             </div>
           </a>
         
         
-          <a href="../Module-4/" title="Module-4 : Ceph Object Storage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Module-4/" title="Module-4 : Analytics on Metrics Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Module-4 : Ceph Object Storage
+                Module-4 : Analytics on Metrics Data
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

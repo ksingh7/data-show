@@ -1,85 +1,218 @@
-# Module - 1 : Introduction to Red Hat Ceph Storage
+# Module - 1 : Ceph cluster & Object Storage Setup
 
-!!! Summary "Module Overview"
-    **Module 1 provides an introduction to Software Defined Storage, the Red Hat Ceph architecture, target use cases, and features. There is no hands-on exercise to be performed in this module.**
+!!! Summary "Module Agenda"
+    - **In this module you will be deploying Red Hat Ceph Storage 3 cluster across 3 nodes using Ansible based deployer called ``ceph-ansible``.**
+    - **You will also learn how to configure object storage for S3 API by setting up Ceph Rados Gateway (RGW)**
 
-**If you are familiar with Red Hat Ceph Storage, peruse Module 1 as a refresher, or you may skip it altogether. Once you are ready for the action, please proceed to [Module 2](https://red-hat-storage.github.io/RHCS_Test_Drive/Module-2/)**
+- From your workstation login to the ``ceph-node1`` node with the user name **``student``** [(Learn how to Login)](https://ksingh7.github.io/data-show/#accessing-the-lab)
 
-![](images/Slide01.JPG)
-## Software Defined Storage and Ceph
-![](images/Slide02.JPG)
-![](images/Slide03.JPG)
-![](images/Slide04.JPG)
-![](images/Slide05.JPG)
-![](images/Slide06.JPG)
-## What's New in Ceph 3
-![](images/Slide07.JPG)
-![](images/Slide08.JPG)
-![](images/Slide09.JPG)
-![](images/Slide10.JPG)
-![](images/Slide11.JPG)
-![](images/Slide12.JPG)
-![](images/Slide13.JPG)
-![](images/Slide14.JPG)
-## Ceph Architectural Components
-![](images/Slide15.JPG)
-![](images/Slide16.JPG)
-![](images/Slide17.JPG)
-![](images/Slide18.JPG)
-![](images/Slide19.JPG)
-![](images/Slide20.JPG)
-![](images/Slide21.JPG)
-![](images/Slide22.JPG)
-![](images/Slide23.JPG)
-![](images/Slide24.JPG)
-![](images/Slide25.JPG)
-![](images/Slide26.JPG)
-![](images/Slide27.JPG)
-![](images/Slide28.JPG)
-![](images/Slide29.JPG)
-![](images/Slide30.JPG)
-![](images/Slide31.JPG)
-![](images/Slide32.JPG)
-![](images/Slide33.JPG)
-![](images/Slide34.JPG)
-![](images/Slide35.JPG)
-![](images/Slide36.JPG)
-![](images/Slide37.JPG)
-![](images/Slide38.JPG)
-![](images/Slide39.JPG)
-## Ceph Use Cases
-![](images/Slide40.JPG)
-![](images/Slide41.JPG)
-![](images/Slide42.JPG)
-![](images/Slide43.JPG)
-![](images/Slide44.JPG)
-![](images/Slide45.JPG)
-![](images/Slide46.JPG)
-![](images/Slide47.JPG)
-![](images/Slide48.JPG)
-![](images/Slide49.JPG)
-![](images/Slide50.JPG)
-![](images/Slide51.JPG)
-![](images/Slide52.JPG)
-## Ceph Features
-![](images/Slide53.JPG)
-![](images/Slide54.JPG)
-![](images/Slide55.JPG)
-![](images/Slide56.JPG)
-![](images/Slide57.JPG)
-![](images/Slide58.JPG)
-![](images/Slide59.JPG)
-![](images/Slide60.JPG)
-![](images/Slide61.JPG)
-![](images/Slide62.JPG)
-![](images/Slide63.JPG)
-![](images/Slide64.JPG)
-![](images/Slide65.JPG)
-## Where to get more information
-![](images/Slide66.JPG)
-![](images/Slide67.JPG)
-![](images/Slide68.JPG)
-![](images/Slide69.JPG)
+```
+ssh student@<IP Address of ceph-node1>
+```  
+
+!!! example "Prerequisite"
+    - You must run all the commands logged in as user **student** on the **ceph-node1** node, unless otherwise specified. 
+
+## Fast Forward Deployment
+
+In order to save your precious lab time, this section deploys and configures the Ceph Cluster as well as Ceph S3 Object storage in a highly automated way using a all-in-one shell script. If you are using this method of deployment, you could skip the next sections labeled as "Manual Deployment"
+
+- To start ``Fast Forward Deployer`` run the following command
+
+```
+sh /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
+```
+
+
+## Manual Deployment : Setting up environment for ceph-ansible  
+
+!!! info
+    - If you have choose to follow the above ``Fast Forward Deployment`` method, you should skip the below ``Manual Deployment`` process.
+
+- Begin by creating a directory for ceph-ansible keys under ``student`` user's home directory.
+
+```
+mkdir ~/ceph-ansible-keys
+```
+
+- Create a new ansible inventory file which helps ``ceph-ansible`` to know what role needs to be applied on each node.
+
+```
+sudo vi /etc/ansible/hosts
+```
+
+- In the ``/etc/ansible/hosts`` inventory file add the following
+
+```
+[mons]
+ceph-node[1:3]
+
+[osds]
+ceph-node[1:3]
+
+[mgrs]
+ceph-node1
+
+[clients]
+ceph-node1
+
+[rgws]
+ceph-node1
+```
+
+!!! info
+    - Since this is a lab environment we are collocating Ceph Mon and Ceph OSD daemons on `ceph-node*` nodes
+    - Also ``ceph-node1`` node will host Ceph Client, Ceph Manager and Ceph RGW services
+
+- Before we begin Ceph deployment, make sure that Ansible can reach to all the cluster nodes.
+
+```
+ansible all -m ping
+```
+
+## Manual Deployment : Configuring Ceph-Ansible Settings
+
+- Visit ``ceph-ansible`` main configuration directory
+
+```
+cd /usr/share/ceph-ansible/group_vars/
+```
+
+- In the directory you will find ``all.yml`` , ``osds.yml`` and ``clients.yml`` configuration files which are **pre-populated for you** to avoid any typographic errors. Lets look at these configuration files one by one.
+
+!!! tip
+    You can skip editing configuration files as they are pre-populated with correct settings to avoid typos and save time.
+
+- ``all.yml`` configuration file most importantly configures
+    - Ceph repository, path to RHCS ISO
+    - Ceph Monitor network interface ID, public network
+    - Ceph OSD backend as ``filestore``
+    - Ceph RGW port, threads and interface
+    - Ceph configuration settings for pools
+
+```
+cat all.yml
+```
+
+```
+---
+dummy:
+fetch_directory: ~/ceph-ansible-keys
+ceph_repository_type: iso
+ceph_origin: repository
+ceph_repository: rhcs
+ceph_rhcs_version: 3
+ceph_rhcs_iso_path: "/home/student/rhceph-3.0-rhel-7-x86_64.iso"
+
+monitor_interface: eth0
+mon_use_fqdn: true
+public_network: 10.0.1.0/24
+osd_objectstore: filestore
+
+radosgw_civetweb_port: 80
+radosgw_civetweb_num_threads: 512
+radosgw_civetweb_options: "num_threads={{ radosgw_civetweb_num_threads }}"
+radosgw_interface: eth0
+radosgw_dns_name: "ceph-node1"
+
+ceph_conf_overrides:
+  global:
+    osd pool default pg num: 64
+    osd pool default pgp num: 64
+    mon allow pool delete: true
+    mon clock drift allowed: 5
+    rgw dns name: "ceph-node1"
+```
+
+
+- ``osds.yml`` configuration file most importantly configures
+    - Ceph OSD deployment scenario to be collocated (ceph-data and ceph-journal on same device)
+    - Auto discover storage device and use them as Ceph OSD
+    - Allow Ceph OSD nodes to be ceph admin nodes (optional)
+
+```
+cat osds.yml
+```
+
+```
+---
+dummy:
+copy_admin_key: true
+osd_auto_discovery: true
+osd_scenario: collocated
+```
+
+- ``clients.yml`` configuration file most importantly configures
+    - Allow Ceph client nodes to issue ceph admin commands (optional, not recomended for production)
+
+```
+cat clients.yml
+```
+
+```
+---
+dummy:
+copy_admin_key: True
+```
+
+
+## Manual Deployment of RHCS Cluster
+
+- To start deploying RHCS cluster, switch to ``ceph-ansible`` root directory
+
+```
+cd /usr/share/ceph-ansible
+```
+
+
+- Run ``ceph-ansible`` playbook
+
+```
+time ansible-playbook site.yml
+```
+
+- This should usually take 10-12 minutes to complete. Once its done, play recap should look similar to below. Make sure play recap does not show any host run failed.
+
+```
+PLAY RECAP ******************************************************************
+ceph-node1                 : ok=149  changed=29   unreachable=0    failed=0
+ceph-node2                 : ok=136  changed=24   unreachable=0    failed=0
+ceph-node3                 : ok=138  changed=25   unreachable=0    failed=0
+
+real  10m9.966s
+user  2m6.029s
+sys 1m1.005s
+```
+
+
+- Finally check the status of your cluster. 
+
+```
+sudo ceph -s
+```
+
+```
+[student@ceph-node1 ceph-ansible]$ sudo ceph -s
+  cluster:
+    id:     908c17fc-1da0-4569-a25a-f1a23f2e101e
+    health: HEALTH_OK
+
+  services:
+    mon: 3 daemons, quorum ceph-node1,ceph-node2,ceph-node3
+    mgr: ceph-node1(active)
+    osd: 12 osds: 12 up, 12 in
+
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0 bytes
+    usage:   1290 MB used, 5935 GB / 5937 GB avail
+    pgs:
+
+[student@ceph-node1 ceph-ansible]$
+```
+
+!!! success
+    At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager , 1 x Ceph RGW.
 
 !!! summary "End of Module"
-    **We have reached the end of Module-1. At this point you should have theoretical understanding of software defined storage concepts, Ceph's architecture and its terminology. In the next module you will learn how to deploy a Ceph cluster.**
+    **We have reached to the end of Module-1. At this point you have learned to deploy a Ceph cluster as well as Ceph S3 Object Storage.**

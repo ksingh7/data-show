@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-2/">
+        <link rel="canonical" href="https://ksingh7.github.io/data-show/Module-2/">
       
       
       
@@ -34,7 +34,7 @@
     
     
       
-        <title>Module-2 : Deploying RHCS - Red Hat Ceph Storage Test Drive</title>
+        <title>Module-2 : Setting up OpenShift Container Platform - Ceph Data Show</title>
       
     
     
@@ -76,7 +76,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://red-hat-storage.github.io/RHCS_Test_Drive" title="Red Hat Ceph Storage Test Drive" class="md-header-nav__button md-logo">
+        <a href="https://ksingh7.github.io/data-show/" title="Ceph Data Show" class="md-header-nav__button md-logo">
           
             <img src="../images/shadowman_rgb.png" width="24" height="24">
           
@@ -90,10 +90,10 @@
           
             
               <span class="md-header-nav__topic">
-                Red Hat Ceph Storage Test Drive
+                Ceph Data Show
               </span>
               <span class="md-header-nav__topic">
-                Module-2 : Deploying RHCS
+                Module-2 : Setting up OpenShift Container Platform
               </span>
             
           
@@ -153,7 +153,7 @@
         <img src="../images/shadowman_rgb.png" width="24" height="24">
       
     </span>
-    Red Hat Ceph Storage Test Drive
+    Ceph Data Show
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -176,8 +176,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-1/" title="Module-1 : Introduction to RHCS" class="md-nav__link">
-      Module-1 : Introduction to RHCS
+    <a href="../Module-1/" title="Module-1 : Ceph cluster & Object Storage Setup" class="md-nav__link">
+      Module-1 : Ceph cluster & Object Storage Setup
     </a>
   </li>
 
@@ -197,11 +197,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Module-2 : Deploying RHCS
+        Module-2 : Setting up OpenShift Container Platform
       </label>
     
-    <a href="./" title="Module-2 : Deploying RHCS" class="md-nav__link md-nav__link--active">
-      Module-2 : Deploying RHCS
+    <a href="./" title="Module-2 : Setting up OpenShift Container Platform" class="md-nav__link md-nav__link--active">
+      Module-2 : Setting up OpenShift Container Platform
     </a>
     
       
@@ -215,50 +215,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-environment-for-ceph-ansible" title="Setting up environment for ceph-ansible" class="md-nav__link">
-    Setting up environment for ceph-ansible
+  <a href="#create-an-opensshift-project" title="Create an OpensShift Project" class="md-nav__link">
+    Create an OpensShift Project
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-ceph-ansible-settings" title="Configuring Ceph-Ansible Settings" class="md-nav__link">
-    Configuring Ceph-Ansible Settings
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-rhcs-cluster" title="Deploying RHCS Cluster" class="md-nav__link">
-    Deploying RHCS Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-ceph-metrics-dashboard" title="Deploying Ceph Metrics Dashboard" class="md-nav__link">
-    Deploying Ceph Metrics Dashboard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-your-ceph-cluster" title="Interacting with your Ceph cluster" class="md-nav__link">
-    Interacting with your Ceph cluster
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-ceph-storage-pool" title="Creating a Ceph Storage Pool" class="md-nav__link">
-    Creating a Ceph Storage Pool
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -277,8 +236,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-3/" title="Module-3 : Ceph Block Storage" class="md-nav__link">
-      Module-3 : Ceph Block Storage
+    <a href="../Module-3/" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-nav__link">
+      Module-3 : Introduction to S3A & Loading Sample Data Set
     </a>
   </li>
 
@@ -289,8 +248,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-4/" title="Module-4 : Ceph Object Storage" class="md-nav__link">
-      Module-4 : Ceph Object Storage
+    <a href="../Module-4/" title="Module-4 : Analytics on Metrics Data" class="md-nav__link">
+      Module-4 : Analytics on Metrics Data
     </a>
   </li>
 
@@ -301,20 +260,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-5/" title="Module-5 : Ceph File Storage" class="md-nav__link">
-      Module-5 : Ceph File Storage
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Module-6/" title="Module-6 : Ceph Administration" class="md-nav__link">
-      Module-6 : Ceph Administration
+    <a href="../Module-5/" title="Module-5 : ML using Jupyter Datahub on Ceph" class="md-nav__link">
+      Module-5 : ML using Jupyter Datahub on Ceph
     </a>
   </li>
 
@@ -340,50 +287,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-environment-for-ceph-ansible" title="Setting up environment for ceph-ansible" class="md-nav__link">
-    Setting up environment for ceph-ansible
+  <a href="#create-an-opensshift-project" title="Create an OpensShift Project" class="md-nav__link">
+    Create an OpensShift Project
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-ceph-ansible-settings" title="Configuring Ceph-Ansible Settings" class="md-nav__link">
-    Configuring Ceph-Ansible Settings
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-rhcs-cluster" title="Deploying RHCS Cluster" class="md-nav__link">
-    Deploying RHCS Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-ceph-metrics-dashboard" title="Deploying Ceph Metrics Dashboard" class="md-nav__link">
-    Deploying Ceph Metrics Dashboard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-your-ceph-cluster" title="Interacting with your Ceph cluster" class="md-nav__link">
-    Interacting with your Ceph cluster
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-ceph-storage-pool" title="Creating a Ceph Storage Pool" class="md-nav__link">
-    Creating a Ceph Storage Pool
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -402,359 +308,76 @@
               
                 
                 
-                <h1 id="module-2-deploying-red-hat-ceph-storage">Module - 2 : Deploying Red Hat Ceph Storage<a class="headerlink" href="#module-2-deploying-red-hat-ceph-storage" title="Permanent link">#</a></h1>
+                <h1 id="module-2-setting-up-openshift-container-platform">Module - 2 : Setting up OpenShift Container Platform<a class="headerlink" href="#module-2-setting-up-openshift-container-platform" title="Permanent link">#</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
-<li><strong>In this module you will be deploying Red Hat Ceph Storage 3 cluster across 3 nodes using Ansible based deployer called <code class="codehilite">ceph-ansible</code>.</strong></li>
-<li><strong>Later you will deploy Ceph Metrics, an end to end monitoring system for Red Hat Ceph Storage.</strong></li>
-<li><strong>By the end of this module you will have a running Red Hat Ceph Storage cluster and Ceph Metrics monitoring Dashboard.</strong></li>
+<li><strong>In this module you will be creating an OpenShift project required for the rest of the sessions</strong></li>
 </ul>
 </div>
 <ul>
-<li>From your workstation login to the <code class="codehilite">ceph-admin</code> node with the user name <strong><code class="codehilite">student</code></strong> <a href="https://red-hat-storage.github.io/RHCS_Test_Drive/#starting-the-lab">(Learn how to Login)</a></li>
+<li>From your workstation login to the <code class="codehilite">OpenShift Master Node</code> with the user name <strong><code class="codehilite">cloud-user</code></strong> and <code class="codehilite">SSH Private Key</code> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Learn how to Login)</a></li>
 </ul>
-<div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-admin node&gt;
+<div class="codehilite"><pre><span></span>ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Address&gt;
 </pre></div>
 
 <div class="admonition example">
 <p class="admonition-title">Prerequisite</p>
 <ul>
-<li>You must run all the commands logged in as user <strong>student</strong> on the <strong>ceph-admin</strong> node, unless otherwise specified. </li>
+<li>You must run all the commands logged in as user <strong>cloud-user</strong> on the <strong>OpenShift Master Node</strong> node, unless otherwise specified. </li>
 </ul>
 </div>
-<h2 id="setting-up-environment-for-ceph-ansible">Setting up environment for ceph-ansible<a class="headerlink" href="#setting-up-environment-for-ceph-ansible" title="Permanent link">#</a></h2>
-<p>In-order to save time <code class="codehilite">ceph-ansible</code> package has already been installed on <code class="codehilite">ceph-admin</code> node.</p>
+<h2 id="create-an-opensshift-project">Create an OpensShift Project<a class="headerlink" href="#create-an-opensshift-project" title="Permanent link">#</a></h2>
+<p>In order to save your precious lab time, OpenShift Container Platform has already been installed and configured. Before you begin with some data science exercises, lets&rsquo; create a OpenShift project</p>
 <ul>
-<li>Begin by creating a directory for ceph-ansible keys under <code class="codehilite">student</code> user&rsquo;s home directory.</li>
+<li>Login to OpenShift Master Node as <code class="codehilite">cloud-user</code></li>
 </ul>
-<div class="codehilite"><pre><span></span>mkdir ~/ceph-ansible-keys
-</pre></div>
-
-<ul>
-<li>Create a new ansible inventory file which helps <code class="codehilite">ceph-ansible</code> to know what role needs to be applied on each node.</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo vi /etc/ansible/hosts
+<div class="codehilite"><pre><span></span>ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Address&gt;
 </pre></div>
 
 <ul>
-<li>In the <code class="codehilite">/etc/ansible/hosts</code> inventory file add <ul>
-<li>Ceph Monitor host name <code class="codehilite">ceph-node[1:3]</code> under <code class="codehilite">[mons]</code>  section</li>
-<li>Ceph OSDs host name <code class="codehilite">ceph-node[1:3]</code> under <code class="codehilite">[osds]</code>  section</li>
-<li>Ceph Manager host name <code class="codehilite">ceph-admin</code> under <code class="codehilite">[mgrs]</code>  section</li>
-<li>Ceph Client host name <code class="codehilite">ceph-admin</code> under <code class="codehilite">[clients]</code>  section </li>
+<li>Login to OpenShift</li>
 </ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">[mons]</span>
-<span class="na">ceph-node[1:3]</span>
-
-<span class="k">[osds]</span>
-<span class="na">ceph-node[1:3]</span>
-
-<span class="k">[mgrs]</span>
-<span class="na">ceph-admin</span>
-
-<span class="k">[clients]</span>
-<span class="na">ceph-admin</span>
-</pre></div>
-
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<ul>
-<li>Since this is a lab environment we are collocating Ceph Mon and Ceph OSD daemons on <code class="codehilite">ceph-node*</code> nodes</li>
-<li>Also <code class="codehilite">ceph-admin</code> node will host Ceph Manager and Ceph Client services</li>
-</ul>
-</div>
-<ul>
-<li>Ensure that Ansible can reach to all the cluster nodes.</li>
-</ul>
-<div class="codehilite"><pre><span></span>ansible all -m ping
-</pre></div>
-
-<h2 id="configuring-ceph-ansible-settings">Configuring Ceph-Ansible Settings<a class="headerlink" href="#configuring-ceph-ansible-settings" title="Permanent link">#</a></h2>
-<ul>
-<li>Visit <code class="codehilite">ceph-ansible</code> main configuration directory</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /usr/share/ceph-ansible/group_vars/
+<div class="codehilite"><pre><span></span>oc login -u teamuser1 -p openshift
 </pre></div>
 
 <ul>
-<li>In the directory you will find <code class="codehilite">all.yml</code> , <code class="codehilite">osds.yml</code> and <code class="codehilite">clients.yml</code> configuration files which are <strong>pre-populated for you</strong> to avoid any typographic errors. Lets look at these configuration files one by one.</li>
+<li>Create a new project</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can skip editing configuration files as they are pre-populated with correct settings to avoid typos and save time.</p>
-</div>
-<ul>
-<li><code class="codehilite">all.yml</code> configuration file most importantly configures<ul>
-<li>Ceph repository, path to RHCS ISO</li>
-<li>Ceph Monitor network interface ID, public network</li>
-<li>Ceph OSD backend as <code class="codehilite">filestore</code> ( In later modules you will test <code class="codehilite">bluestore</code> too )</li>
-<li>Ceph RGW port, threads and interface (Required for module - 4)</li>
-<li>Ceph configuration settings for pools</li>
-</ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat all.yml
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="x">---</span>
-<span class="x">dummy:</span>
-<span class="x">fetch_directory: ~/ceph-ansible-keys</span>
-<span class="x">ceph_repository_type: iso</span>
-<span class="x">ceph_origin: repository</span>
-<span class="x">ceph_repository: rhcs</span>
-<span class="x">ceph_rhcs_version: 3</span>
-<span class="x">ceph_rhcs_iso_path: &quot;/home/student/rhceph-3.0-rhel-7-x86_64.iso&quot;</span>
-
-<span class="x">monitor_interface: eth0</span>
-<span class="x">mon_use_fqdn: true</span>
-<span class="x">public_network: 10.100.0.0/16</span>
-<span class="x">osd_objectstore: filestore</span>
-
-<span class="x">radosgw_civetweb_port: 80</span>
-<span class="x">radosgw_civetweb_num_threads: 512</span>
-<span class="x">radosgw_civetweb_options: &quot;num_threads=</span><span class="cp">{{</span> <span class="nv">radosgw_civetweb_num_threads</span> <span class="cp">}}</span><span class="x">&quot;</span>
-<span class="x">radosgw_interface: eth0</span>
-<span class="x">radosgw_dns_name: &quot;ceph-admin&quot;</span>
-
-<span class="x">ceph_conf_overrides:</span>
-<span class="x">  global:</span>
-<span class="x">    osd pool default pg num: 64</span>
-<span class="x">    osd pool default pgp num: 64</span>
-<span class="x">    mon allow pool delete: true</span>
-<span class="x">    mon clock drift allowed: 5</span>
+<div class="codehilite"><pre><span></span>oc new-project jupyterhub
 </pre></div>
 
 <ul>
-<li><code class="codehilite">osds.yml</code> configuration file most importantly configures<ul>
-<li>Ceph OSD deployment scenario to be collocated (ceph-data and ceph-journal on same device)</li>
-<li>Auto discover storage device and use them as Ceph OSD</li>
-<li>Allow Ceph OSD nodes to be ceph admin nodes (optional)</li>
+<li>Pull the required container image</li>
 </ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat osds.yml
-</pre></div>
-
-<div class="codehilite"><pre><span></span>---
-dummy:
-copy_admin_key: true
-osd_auto_discovery: true
-osd_scenario: collocated
+<div class="codehilite"><pre><span></span>oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/notebooks.json
 </pre></div>
 
 <ul>
-<li><code class="codehilite">clients.yml</code> configuration file most importantly configures<ul>
-<li>Allow Ceph client nodes to issue ceph admin commands (optional, not recomended for production)</li>
+<li>Deploy JupyterHub application</li>
 </ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat clients.yml
-</pre></div>
-
-<div class="codehilite"><pre><span></span>---
-dummy:
-copy_admin_key: True
-</pre></div>
-
-<h2 id="deploying-rhcs-cluster">Deploying RHCS Cluster<a class="headerlink" href="#deploying-rhcs-cluster" title="Permanent link">#</a></h2>
-<ul>
-<li>To start deploying RHCS cluster, switch to <code class="codehilite">ceph-ansible</code> root directory</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /usr/share/ceph-ansible
+<div class="codehilite"><pre><span></span>oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
 </pre></div>
 
 <ul>
-<li>Run <code class="codehilite">ceph-ansible</code> playbook</li>
+<li>Process JupyterHub application</li>
 </ul>
-<div class="codehilite"><pre><span></span>time ansible-playbook site.yml
-</pre></div>
-
-<ul>
-<li>This should usually take 10-12 minutes to complete. Once its done, play recap should look similar to below. Make sure play recap does not show any host run failed.</li>
-</ul>
-<div class="codehilite"><pre><span></span>PLAY RECAP ******************************************************************
-ceph-node1                 : ok=149  changed=29   unreachable=0    failed=0
-ceph-node2                 : ok=136  changed=24   unreachable=0    failed=0
-ceph-node3                 : ok=138  changed=25   unreachable=0    failed=0
-
-real  10m9.966s
-user  2m6.029s
-sys 1m1.005s
-</pre></div>
-
-<ul>
-<li>Finally check the status of your cluster. </li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo ceph -s
-</pre></div>
-
-<div class="codehilite"><pre><span></span>[student@ceph-admin ceph-ansible]$ sudo ceph -s
-  cluster:
-    id:     908c17fc-1da0-4569-a25a-f1a23f2e101e
-    health: HEALTH_OK
-
-  services:
-    mon: 3 daemons, quorum ceph-node1,ceph-node2,ceph-node3
-    mgr: ceph-admin(active)
-    osd: 12 osds: 12 up, 12 in
-
-  data:
-    pools:   0 pools, 0 pgs
-    objects: 0 objects, 0 bytes
-    usage:   1290 MB used, 5935 GB / 5937 GB avail
-    pgs:
-
-[student@ceph-admin ceph-ansible]$
-</pre></div>
-
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager.</p>
-</div>
-<h2 id="deploying-ceph-metrics-dashboard">Deploying Ceph Metrics Dashboard<a class="headerlink" href="#deploying-ceph-metrics-dashboard" title="Permanent link">#</a></h2>
-<p>RHCS 3 comes with a brand new Ceph monitoring interface, known as Ceph Metrics Dashboard. In this section, we shall deploy Ceph Metrics Dashboard which comes with its own installer called <code class="codehilite">cephmetrics-ansible</code></p>
-<ul>
-<li>Edit Ansible inventory file</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo vim /etc/ansible/hosts
-</pre></div>
-
-<ul>
-<li>Add the name of the host you like use for Ceph Metrics, in our case we will use <code class="codehilite">ceph-admin</code> node. Add the following content to <code class="codehilite">/etc/ansible/hosts</code> file.</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">[ceph-grafana]</span>
-<span class="na">ceph-admin ansible_connection</span><span class="o">=</span><span class="s">local</span>
-</pre></div>
-
-<ul>
-<li>Switch to Ceph Metrics Ansible directory</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd /usr/share/cephmetrics-ansible
-</pre></div>
-
-<ul>
-<li>Deploy Ceph Metrics </li>
-</ul>
-<div class="codehilite"><pre><span></span>time ansible-playbook playbook.yml
+<div class="codehilite"><pre><span></span>oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY=&quot;meh&quot; | oc apply -f -
 </pre></div>
 
 <ul>
 <li>
-<p>This should usually take under 5 minutes to complete. Once its done, make sure play recap does not show any host run failed.</p>
+<p>You should now have JupyterHub pods and services coming up ( will take some time to fully start)<br />
+<div class="codehilite"><pre><span></span>oc get po,svcs
+</pre></div></p>
 </li>
 <li>
-<p>To open Ceph Metrics Dashboard, grab your <strong>Public IP Address of ceph-admin node (the IP you ssh into)</strong> and point your workstation web browser to </p>
+<p>You could also monitor your application from OpenShift Container Platform Console by visiting <code class="codehilite">OpenShift Console URL</code>. The user name and password to access the console is <code class="codehilite">teamuser1</code> and <code class="codehilite">openshift</code> respectively.</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span>http://&lt;ceph-admin_Public-IP_Address&gt;:3000
-</pre></div>
-
-<ul>
-<li><strong>User Name : <code class="codehilite">admin</code></strong></li>
-<li>
-<p><strong>Password : <code class="codehilite">admin</code></strong></p>
-</li>
-<li>
-<p>The Ceph Metrics Dashboard should look like this.</p>
-</li>
-</ul>
-<p><a href="../images/module_2_ceph_dashboard_1.png"><img alt="Ceph Metrics Dashboard At Glance" src="../images/module_2_ceph_dashboard_1.png" /></a><br />
-<em>(click on the screen shot for better resolution)</em></p>
-<ul>
-<li>There are a lot of stats that you can monitor using Ceph Metrics, just select a dashboard from the drop-down list as shown in the screen shot. </li>
-</ul>
-<p><a href="../images/module_2_ceph_dashboard_2.png"><img alt="Ceph Metrics Dashboard At Glance" src="../images/module_2_ceph_dashboard_2.png" /></a></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Don&rsquo;t worry if some of the panels in Ceph Metrics Dashboard is not showing any data or showing NA. Its simply because its a new cluster and does not have any data on it.</p>
-</div>
-<h2 id="interacting-with-your-ceph-cluster">Interacting with your Ceph cluster<a class="headerlink" href="#interacting-with-your-ceph-cluster" title="Permanent link">#</a></h2>
-<p>In this section you will learn a few commands to interact with Ceph cluster. These commands should be executed from <code class="codehilite">ceph-admin</code> node as <code class="codehilite">student</code> user.</p>
-<ul>
-<li>Allow <code class="codehilite">student</code> user to access ceph cluster</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo chown -R student:student /etc/ceph
-</pre></div>
-
-<ul>
-<li>Check cluster status</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph -s
-</pre></div>
-
-<ul>
-<li>Check cluster health</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph health detail
-</pre></div>
-
-<ul>
-<li>Check Ceph OSD stats and tree view of OSDs in cluster</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph osd stat
-</pre></div>
-
-<div class="codehilite"><pre><span></span>ceph osd tree
-</pre></div>
-
-<ul>
-<li>Check Ceph monitor status</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph mon stat
-</pre></div>
-
-<h3 id="creating-a-ceph-storage-pool">Creating a Ceph Storage Pool<a class="headerlink" href="#creating-a-ceph-storage-pool" title="Permanent link">#</a></h3>
-<p>We now have a running Ceph cluster. In order to use it, we will need to create a storage pool. Based on the data protection schemes, a storage pool in Ceph could be one of two types <br />
-- <code class="codehilite">Replicated</code> : Data is replicated for protection. <br />
-- <code class="codehilite">Erasure Coded</code> : Data is chunked and stored together with erasure coded chunks for protection.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Red Hat Ceph Storage Erasure Coding method avoids capacity overhead associated with the Replication method. For data protection, instead of copying the data multiple times, EC splits the data in <strong>k</strong> pieces of Data Chunks and adds <strong>m</strong> pieces of EC chunks. The Erasure Coding scheme is referred to as <strong>k+m</strong>. Its worth noting that only 4+2, 8+3 and 8+4 EC configurations are supported by Red Hat.</p>
-<p>Since this is a test environment, we will create a pool with EC 2+1 configuration (as we have 3 OSD hosts). This configuration is not recommended and we are using it here only as an example.</p>
-</div>
-<ul>
-<li>To create a EC pool we first need to define the EC scheme by creating a EC profile.</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph osd erasure-code-profile set my_ec_profile k=2 m=1 ruleset-failure-domain=host
-</pre></div>
-
-<ul>
-<li>Next create a pool that uses the EC profile we just created</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph osd pool create ecpool 128 128 erasure my_ec_profile
-</pre></div>
-
-<ul>
-<li>Verify pool creation</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph df
-</pre></div>
-
-<ul>
-<li>Starting RHCS 3, a Pool must be associated with a application, so lets enable application on the newly created pool.</li>
-</ul>
-<div class="codehilite"><pre><span></span>ceph osd pool application enable ecpool benchmarking
-</pre></div>
-
-<ul>
-<li>Lets write/read some data to/from this pool using <code class="codehilite">rados bench</code> tool, which runs a basic benchmarking on a pool.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>As soon as you start generating test data by running following command, switch to Ceph Metrics Dashboard and monitor Ceph cluster activity.</p>
-</div>
-<div class="codehilite"><pre><span></span>rados bench -p ecpool 60 write  --no-cleanup
-</pre></div>
-
-<div class="codehilite"><pre><span></span>rados bench -p ecpool 60 rand
-</pre></div>
-
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached to the end of Module-2. At this point you have learned to deploy, configure and interact with your Ceph cluster together with Ceph Metrics monitoring dashboard. In the next module you will learn Ceph Block storage provisioning.</strong></p>
+<p><strong>We have reached to the end of Module-2. At this point you have learned how to deploy an application on OCP. In the later modules we will use this application to perform some interesting data analytics work</strong></p>
 </div>
                 
                   
@@ -774,7 +397,7 @@ sys 1m1.005s
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Module-1/" title="Module-1 : Introduction to RHCS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Module-1/" title="Module-1 : Ceph cluster & Object Storage Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -783,19 +406,19 @@ sys 1m1.005s
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Module-1 : Introduction to RHCS
+                Module-1 : Ceph cluster & Object Storage Setup
               </span>
             </div>
           </a>
         
         
-          <a href="../Module-3/" title="Module-3 : Ceph Block Storage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Module-3/" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Module-3 : Ceph Block Storage
+                Module-3 : Introduction to S3A & Loading Sample Data Set
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

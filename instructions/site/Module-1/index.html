@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-1/">
+        <link rel="canonical" href="https://ksingh7.github.io/data-show/Module-1/">
       
       
       
@@ -34,7 +34,7 @@
     
     
       
-        <title>Module-1 : Introduction to RHCS - Red Hat Ceph Storage Test Drive</title>
+        <title>Module-1 : Ceph cluster & Object Storage Setup - Ceph Data Show</title>
       
     
     
@@ -76,7 +76,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://red-hat-storage.github.io/RHCS_Test_Drive" title="Red Hat Ceph Storage Test Drive" class="md-header-nav__button md-logo">
+        <a href="https://ksingh7.github.io/data-show/" title="Ceph Data Show" class="md-header-nav__button md-logo">
           
             <img src="../images/shadowman_rgb.png" width="24" height="24">
           
@@ -90,10 +90,10 @@
           
             
               <span class="md-header-nav__topic">
-                Red Hat Ceph Storage Test Drive
+                Ceph Data Show
               </span>
               <span class="md-header-nav__topic">
-                Module-1 : Introduction to RHCS
+                Module-1 : Ceph cluster & Object Storage Setup
               </span>
             
           
@@ -153,7 +153,7 @@
         <img src="../images/shadowman_rgb.png" width="24" height="24">
       
     </span>
-    Red Hat Ceph Storage Test Drive
+    Ceph Data Show
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -185,11 +185,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Module-1 : Introduction to RHCS
+        Module-1 : Ceph cluster & Object Storage Setup
       </label>
     
-    <a href="./" title="Module-1 : Introduction to RHCS" class="md-nav__link md-nav__link--active">
-      Module-1 : Introduction to RHCS
+    <a href="./" title="Module-1 : Ceph cluster & Object Storage Setup" class="md-nav__link md-nav__link--active">
+      Module-1 : Ceph cluster & Object Storage Setup
     </a>
     
       
@@ -203,43 +203,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#software-defined-storage-and-ceph" title="Software Defined Storage and Ceph" class="md-nav__link">
-    Software Defined Storage and Ceph
+  <a href="#fast-forward-deployment" title="Fast Forward Deployment" class="md-nav__link">
+    Fast Forward Deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-new-in-ceph-3" title="What's New in Ceph 3" class="md-nav__link">
-    What's New in Ceph 3
+  <a href="#manual-deployment-setting-up-environment-for-ceph-ansible" title="Manual Deployment : Setting up environment for ceph-ansible" class="md-nav__link">
+    Manual Deployment : Setting up environment for ceph-ansible
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ceph-architectural-components" title="Ceph Architectural Components" class="md-nav__link">
-    Ceph Architectural Components
+  <a href="#manual-deployment-configuring-ceph-ansible-settings" title="Manual Deployment : Configuring Ceph-Ansible Settings" class="md-nav__link">
+    Manual Deployment : Configuring Ceph-Ansible Settings
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ceph-use-cases" title="Ceph Use Cases" class="md-nav__link">
-    Ceph Use Cases
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ceph-features" title="Ceph Features" class="md-nav__link">
-    Ceph Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#where-to-get-more-information" title="Where to get more information" class="md-nav__link">
-    Where to get more information
+  <a href="#manual-deployment-of-rhcs-cluster" title="Manual Deployment of RHCS Cluster" class="md-nav__link">
+    Manual Deployment of RHCS Cluster
   </a>
   
 </li>
@@ -259,8 +245,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-2/" title="Module-2 : Deploying RHCS" class="md-nav__link">
-      Module-2 : Deploying RHCS
+    <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-nav__link">
+      Module-2 : Setting up OpenShift Container Platform
     </a>
   </li>
 
@@ -271,8 +257,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-3/" title="Module-3 : Ceph Block Storage" class="md-nav__link">
-      Module-3 : Ceph Block Storage
+    <a href="../Module-3/" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-nav__link">
+      Module-3 : Introduction to S3A & Loading Sample Data Set
     </a>
   </li>
 
@@ -283,8 +269,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-4/" title="Module-4 : Ceph Object Storage" class="md-nav__link">
-      Module-4 : Ceph Object Storage
+    <a href="../Module-4/" title="Module-4 : Analytics on Metrics Data" class="md-nav__link">
+      Module-4 : Analytics on Metrics Data
     </a>
   </li>
 
@@ -295,20 +281,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-5/" title="Module-5 : Ceph File Storage" class="md-nav__link">
-      Module-5 : Ceph File Storage
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Module-6/" title="Module-6 : Ceph Administration" class="md-nav__link">
-      Module-6 : Ceph Administration
+    <a href="../Module-5/" title="Module-5 : ML using Jupyter Datahub on Ceph" class="md-nav__link">
+      Module-5 : ML using Jupyter Datahub on Ceph
     </a>
   </li>
 
@@ -334,43 +308,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#software-defined-storage-and-ceph" title="Software Defined Storage and Ceph" class="md-nav__link">
-    Software Defined Storage and Ceph
+  <a href="#fast-forward-deployment" title="Fast Forward Deployment" class="md-nav__link">
+    Fast Forward Deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-new-in-ceph-3" title="What's New in Ceph 3" class="md-nav__link">
-    What's New in Ceph 3
+  <a href="#manual-deployment-setting-up-environment-for-ceph-ansible" title="Manual Deployment : Setting up environment for ceph-ansible" class="md-nav__link">
+    Manual Deployment : Setting up environment for ceph-ansible
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ceph-architectural-components" title="Ceph Architectural Components" class="md-nav__link">
-    Ceph Architectural Components
+  <a href="#manual-deployment-configuring-ceph-ansible-settings" title="Manual Deployment : Configuring Ceph-Ansible Settings" class="md-nav__link">
+    Manual Deployment : Configuring Ceph-Ansible Settings
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ceph-use-cases" title="Ceph Use Cases" class="md-nav__link">
-    Ceph Use Cases
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ceph-features" title="Ceph Features" class="md-nav__link">
-    Ceph Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#where-to-get-more-information" title="Where to get more information" class="md-nav__link">
-    Where to get more information
+  <a href="#manual-deployment-of-rhcs-cluster" title="Manual Deployment of RHCS Cluster" class="md-nav__link">
+    Manual Deployment of RHCS Cluster
   </a>
   
 </li>
@@ -390,90 +350,230 @@
               
                 
                 
-                <h1 id="module-1-introduction-to-red-hat-ceph-storage">Module - 1 : Introduction to Red Hat Ceph Storage<a class="headerlink" href="#module-1-introduction-to-red-hat-ceph-storage" title="Permanent link">#</a></h1>
+                <h1 id="module-1-ceph-cluster-object-storage-setup">Module - 1 : Ceph cluster &amp; Object Storage Setup<a class="headerlink" href="#module-1-ceph-cluster-object-storage-setup" title="Permanent link">#</a></h1>
 <div class="admonition summary">
-<p class="admonition-title">Module Overview</p>
-<p><strong>Module 1 provides an introduction to Software Defined Storage, the Red Hat Ceph architecture, target use cases, and features. There is no hands-on exercise to be performed in this module.</strong></p>
+<p class="admonition-title">Module Agenda</p>
+<ul>
+<li><strong>In this module you will be deploying Red Hat Ceph Storage 3 cluster across 3 nodes using Ansible based deployer called <code class="codehilite">ceph-ansible</code>.</strong></li>
+<li><strong>You will also learn how to configure object storage for S3 API by setting up Ceph Rados Gateway (RGW)</strong></li>
+</ul>
 </div>
-<p><strong>If you are familiar with Red Hat Ceph Storage, peruse Module 1 as a refresher, or you may skip it altogether. Once you are ready for the action, please proceed to <a href="https://red-hat-storage.github.io/RHCS_Test_Drive/Module-2/">Module 2</a></strong></p>
-<p><img alt="" src="../images/Slide01.JPG" /></p>
-<h2 id="software-defined-storage-and-ceph">Software Defined Storage and Ceph<a class="headerlink" href="#software-defined-storage-and-ceph" title="Permanent link">#</a></h2>
-<p><img alt="" src="../images/Slide02.JPG" /><br />
-<img alt="" src="../images/Slide03.JPG" /><br />
-<img alt="" src="../images/Slide04.JPG" /><br />
-<img alt="" src="../images/Slide05.JPG" /><br />
-<img alt="" src="../images/Slide06.JPG" /></p>
-<h2 id="whats-new-in-ceph-3">What&rsquo;s New in Ceph 3<a class="headerlink" href="#whats-new-in-ceph-3" title="Permanent link">#</a></h2>
-<p><img alt="" src="../images/Slide07.JPG" /><br />
-<img alt="" src="../images/Slide08.JPG" /><br />
-<img alt="" src="../images/Slide09.JPG" /><br />
-<img alt="" src="../images/Slide10.JPG" /><br />
-<img alt="" src="../images/Slide11.JPG" /><br />
-<img alt="" src="../images/Slide12.JPG" /><br />
-<img alt="" src="../images/Slide13.JPG" /><br />
-<img alt="" src="../images/Slide14.JPG" /></p>
-<h2 id="ceph-architectural-components">Ceph Architectural Components<a class="headerlink" href="#ceph-architectural-components" title="Permanent link">#</a></h2>
-<p><img alt="" src="../images/Slide15.JPG" /><br />
-<img alt="" src="../images/Slide16.JPG" /><br />
-<img alt="" src="../images/Slide17.JPG" /><br />
-<img alt="" src="../images/Slide18.JPG" /><br />
-<img alt="" src="../images/Slide19.JPG" /><br />
-<img alt="" src="../images/Slide20.JPG" /><br />
-<img alt="" src="../images/Slide21.JPG" /><br />
-<img alt="" src="../images/Slide22.JPG" /><br />
-<img alt="" src="../images/Slide23.JPG" /><br />
-<img alt="" src="../images/Slide24.JPG" /><br />
-<img alt="" src="../images/Slide25.JPG" /><br />
-<img alt="" src="../images/Slide26.JPG" /><br />
-<img alt="" src="../images/Slide27.JPG" /><br />
-<img alt="" src="../images/Slide28.JPG" /><br />
-<img alt="" src="../images/Slide29.JPG" /><br />
-<img alt="" src="../images/Slide30.JPG" /><br />
-<img alt="" src="../images/Slide31.JPG" /><br />
-<img alt="" src="../images/Slide32.JPG" /><br />
-<img alt="" src="../images/Slide33.JPG" /><br />
-<img alt="" src="../images/Slide34.JPG" /><br />
-<img alt="" src="../images/Slide35.JPG" /><br />
-<img alt="" src="../images/Slide36.JPG" /><br />
-<img alt="" src="../images/Slide37.JPG" /><br />
-<img alt="" src="../images/Slide38.JPG" /><br />
-<img alt="" src="../images/Slide39.JPG" /></p>
-<h2 id="ceph-use-cases">Ceph Use Cases<a class="headerlink" href="#ceph-use-cases" title="Permanent link">#</a></h2>
-<p><img alt="" src="../images/Slide40.JPG" /><br />
-<img alt="" src="../images/Slide41.JPG" /><br />
-<img alt="" src="../images/Slide42.JPG" /><br />
-<img alt="" src="../images/Slide43.JPG" /><br />
-<img alt="" src="../images/Slide44.JPG" /><br />
-<img alt="" src="../images/Slide45.JPG" /><br />
-<img alt="" src="../images/Slide46.JPG" /><br />
-<img alt="" src="../images/Slide47.JPG" /><br />
-<img alt="" src="../images/Slide48.JPG" /><br />
-<img alt="" src="../images/Slide49.JPG" /><br />
-<img alt="" src="../images/Slide50.JPG" /><br />
-<img alt="" src="../images/Slide51.JPG" /><br />
-<img alt="" src="../images/Slide52.JPG" /></p>
-<h2 id="ceph-features">Ceph Features<a class="headerlink" href="#ceph-features" title="Permanent link">#</a></h2>
-<p><img alt="" src="../images/Slide53.JPG" /><br />
-<img alt="" src="../images/Slide54.JPG" /><br />
-<img alt="" src="../images/Slide55.JPG" /><br />
-<img alt="" src="../images/Slide56.JPG" /><br />
-<img alt="" src="../images/Slide57.JPG" /><br />
-<img alt="" src="../images/Slide58.JPG" /><br />
-<img alt="" src="../images/Slide59.JPG" /><br />
-<img alt="" src="../images/Slide60.JPG" /><br />
-<img alt="" src="../images/Slide61.JPG" /><br />
-<img alt="" src="../images/Slide62.JPG" /><br />
-<img alt="" src="../images/Slide63.JPG" /><br />
-<img alt="" src="../images/Slide64.JPG" /><br />
-<img alt="" src="../images/Slide65.JPG" /></p>
-<h2 id="where-to-get-more-information">Where to get more information<a class="headerlink" href="#where-to-get-more-information" title="Permanent link">#</a></h2>
-<p><img alt="" src="../images/Slide66.JPG" /><br />
-<img alt="" src="../images/Slide67.JPG" /><br />
-<img alt="" src="../images/Slide68.JPG" /><br />
-<img alt="" src="../images/Slide69.JPG" /></p>
+<ul>
+<li>From your workstation login to the <code class="codehilite">ceph-node1</code> node with the user name <strong><code class="codehilite">student</code></strong> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Learn how to Login)</a></li>
+</ul>
+<div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-node1&gt;
+</pre></div>
+
+<div class="admonition example">
+<p class="admonition-title">Prerequisite</p>
+<ul>
+<li>You must run all the commands logged in as user <strong>student</strong> on the <strong>ceph-node1</strong> node, unless otherwise specified. </li>
+</ul>
+</div>
+<h2 id="fast-forward-deployment">Fast Forward Deployment<a class="headerlink" href="#fast-forward-deployment" title="Permanent link">#</a></h2>
+<p>In order to save your precious lab time, this section deploys and configures the Ceph Cluster as well as Ceph S3 Object storage in a highly automated way using a all-in-one shell script. If you are using this method of deployment, you could skip the next sections labeled as &ldquo;Manual Deployment&rdquo;</p>
+<ul>
+<li>To start <code class="codehilite">Fast Forward Deployer</code> run the following command<br />
+<div class="codehilite"><pre><span></span>sh /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
+</pre></div></li>
+</ul>
+<h2 id="manual-deployment-setting-up-environment-for-ceph-ansible">Manual Deployment : Setting up environment for ceph-ansible<a class="headerlink" href="#manual-deployment-setting-up-environment-for-ceph-ansible" title="Permanent link">#</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>If you have choose to follow the above <code class="codehilite">Fast Forward Deployment</code> method, you should skip the below <code class="codehilite">Manual Deployment</code> process.</li>
+</ul>
+</div>
+<ul>
+<li>Begin by creating a directory for ceph-ansible keys under <code class="codehilite">student</code> user&rsquo;s home directory.</li>
+</ul>
+<div class="codehilite"><pre><span></span>mkdir ~/ceph-ansible-keys
+</pre></div>
+
+<ul>
+<li>Create a new ansible inventory file which helps <code class="codehilite">ceph-ansible</code> to know what role needs to be applied on each node.</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo vi /etc/ansible/hosts
+</pre></div>
+
+<ul>
+<li>In the <code class="codehilite">/etc/ansible/hosts</code> inventory file add the following</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">[mons]</span>
+<span class="na">ceph-node[1:3]</span>
+
+<span class="k">[osds]</span>
+<span class="na">ceph-node[1:3]</span>
+
+<span class="k">[mgrs]</span>
+<span class="na">ceph-node1</span>
+
+<span class="k">[clients]</span>
+<span class="na">ceph-node1</span>
+
+<span class="k">[rgws]</span>
+<span class="na">ceph-node1</span>
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>Since this is a lab environment we are collocating Ceph Mon and Ceph OSD daemons on <code class="codehilite">ceph-node*</code> nodes</li>
+<li>Also <code class="codehilite">ceph-node1</code> node will host Ceph Client, Ceph Manager and Ceph RGW services</li>
+</ul>
+</div>
+<ul>
+<li>Before we begin Ceph deployment, make sure that Ansible can reach to all the cluster nodes.</li>
+</ul>
+<div class="codehilite"><pre><span></span>ansible all -m ping
+</pre></div>
+
+<h2 id="manual-deployment-configuring-ceph-ansible-settings">Manual Deployment : Configuring Ceph-Ansible Settings<a class="headerlink" href="#manual-deployment-configuring-ceph-ansible-settings" title="Permanent link">#</a></h2>
+<ul>
+<li>Visit <code class="codehilite">ceph-ansible</code> main configuration directory</li>
+</ul>
+<div class="codehilite"><pre><span></span>cd /usr/share/ceph-ansible/group_vars/
+</pre></div>
+
+<ul>
+<li>In the directory you will find <code class="codehilite">all.yml</code> , <code class="codehilite">osds.yml</code> and <code class="codehilite">clients.yml</code> configuration files which are <strong>pre-populated for you</strong> to avoid any typographic errors. Lets look at these configuration files one by one.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can skip editing configuration files as they are pre-populated with correct settings to avoid typos and save time.</p>
+</div>
+<ul>
+<li><code class="codehilite">all.yml</code> configuration file most importantly configures<ul>
+<li>Ceph repository, path to RHCS ISO</li>
+<li>Ceph Monitor network interface ID, public network</li>
+<li>Ceph OSD backend as <code class="codehilite">filestore</code></li>
+<li>Ceph RGW port, threads and interface</li>
+<li>Ceph configuration settings for pools</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>cat all.yml
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="x">---</span>
+<span class="x">dummy:</span>
+<span class="x">fetch_directory: ~/ceph-ansible-keys</span>
+<span class="x">ceph_repository_type: iso</span>
+<span class="x">ceph_origin: repository</span>
+<span class="x">ceph_repository: rhcs</span>
+<span class="x">ceph_rhcs_version: 3</span>
+<span class="x">ceph_rhcs_iso_path: &quot;/home/student/rhceph-3.0-rhel-7-x86_64.iso&quot;</span>
+
+<span class="x">monitor_interface: eth0</span>
+<span class="x">mon_use_fqdn: true</span>
+<span class="x">public_network: 10.0.1.0/24</span>
+<span class="x">osd_objectstore: filestore</span>
+
+<span class="x">radosgw_civetweb_port: 80</span>
+<span class="x">radosgw_civetweb_num_threads: 512</span>
+<span class="x">radosgw_civetweb_options: &quot;num_threads=</span><span class="cp">{{</span> <span class="nv">radosgw_civetweb_num_threads</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">radosgw_interface: eth0</span>
+<span class="x">radosgw_dns_name: &quot;ceph-node1&quot;</span>
+
+<span class="x">ceph_conf_overrides:</span>
+<span class="x">  global:</span>
+<span class="x">    osd pool default pg num: 64</span>
+<span class="x">    osd pool default pgp num: 64</span>
+<span class="x">    mon allow pool delete: true</span>
+<span class="x">    mon clock drift allowed: 5</span>
+<span class="x">    rgw dns name: &quot;ceph-node1&quot;</span>
+</pre></div>
+
+<ul>
+<li><code class="codehilite">osds.yml</code> configuration file most importantly configures<ul>
+<li>Ceph OSD deployment scenario to be collocated (ceph-data and ceph-journal on same device)</li>
+<li>Auto discover storage device and use them as Ceph OSD</li>
+<li>Allow Ceph OSD nodes to be ceph admin nodes (optional)</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>cat osds.yml
+</pre></div>
+
+<div class="codehilite"><pre><span></span>---
+dummy:
+copy_admin_key: true
+osd_auto_discovery: true
+osd_scenario: collocated
+</pre></div>
+
+<ul>
+<li><code class="codehilite">clients.yml</code> configuration file most importantly configures<ul>
+<li>Allow Ceph client nodes to issue ceph admin commands (optional, not recomended for production)</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>cat clients.yml
+</pre></div>
+
+<div class="codehilite"><pre><span></span>---
+dummy:
+copy_admin_key: True
+</pre></div>
+
+<h2 id="manual-deployment-of-rhcs-cluster">Manual Deployment of RHCS Cluster<a class="headerlink" href="#manual-deployment-of-rhcs-cluster" title="Permanent link">#</a></h2>
+<ul>
+<li>To start deploying RHCS cluster, switch to <code class="codehilite">ceph-ansible</code> root directory</li>
+</ul>
+<div class="codehilite"><pre><span></span>cd /usr/share/ceph-ansible
+</pre></div>
+
+<ul>
+<li>Run <code class="codehilite">ceph-ansible</code> playbook</li>
+</ul>
+<div class="codehilite"><pre><span></span>time ansible-playbook site.yml
+</pre></div>
+
+<ul>
+<li>This should usually take 10-12 minutes to complete. Once its done, play recap should look similar to below. Make sure play recap does not show any host run failed.</li>
+</ul>
+<div class="codehilite"><pre><span></span>PLAY RECAP ******************************************************************
+ceph-node1                 : ok=149  changed=29   unreachable=0    failed=0
+ceph-node2                 : ok=136  changed=24   unreachable=0    failed=0
+ceph-node3                 : ok=138  changed=25   unreachable=0    failed=0
+
+real  10m9.966s
+user  2m6.029s
+sys 1m1.005s
+</pre></div>
+
+<ul>
+<li>Finally check the status of your cluster. </li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo ceph -s
+</pre></div>
+
+<div class="codehilite"><pre><span></span>[student@ceph-node1 ceph-ansible]$ sudo ceph -s
+  cluster:
+    id:     908c17fc-1da0-4569-a25a-f1a23f2e101e
+    health: HEALTH_OK
+
+  services:
+    mon: 3 daemons, quorum ceph-node1,ceph-node2,ceph-node3
+    mgr: ceph-node1(active)
+    osd: 12 osds: 12 up, 12 in
+
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0 bytes
+    usage:   1290 MB used, 5935 GB / 5937 GB avail
+    pgs:
+
+[student@ceph-node1 ceph-ansible]$
+</pre></div>
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager , 1 x Ceph RGW.</p>
+</div>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached the end of Module-1. At this point you should have theoretical understanding of software defined storage concepts, Ceph&rsquo;s architecture and its terminology. In the next module you will learn how to deploy a Ceph cluster.</strong></p>
+<p><strong>We have reached to the end of Module-1. At this point you have learned to deploy a Ceph cluster as well as Ceph S3 Object Storage.</strong></p>
 </div>
                 
                   
@@ -508,13 +608,13 @@
           </a>
         
         
-          <a href="../Module-2/" title="Module-2 : Deploying RHCS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Module-2 : Deploying RHCS
+                Module-2 : Setting up OpenShift Container Platform
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
