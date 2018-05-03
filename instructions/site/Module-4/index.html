@@ -271,7 +271,7 @@
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
-<li><strong>In this module, you will be doing basic analysis of Metrics Data Set</strong></li>
+<li><strong>In this module, you will be doing basic analysis of a Metrics data set from Prometheus</strong></li>
 </ul>
 </div>
 <div class="admonition example">
@@ -282,27 +282,53 @@
 </div>
 <ul>
 <li>
-<p>The instruction for this excercise is available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>), that you could download it from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_1.ipynb">here</a></p>
+<p>The instructions for this excercise are available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>) that you can download from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_1.ipynb">here</a></p>
 </li>
 <li>
-<p>You would require Jupyter instance to open this notebook. Use JupyterHub application that you have deployed in module-2. Login to OpenShift Container Platform Console and click on JupyterHub application endpoint URL.</p>
+<p>An active JupyterHub instance is required to open this notebook. Use the JupyterHub application that you have deployed in module-2. Login to the OpenShift Container Platform Console and click on the JupyterHub application endpoint URL from the Overview screen.  It is the HTTP link located to the right of the screen.</p>
 </li>
+</ul>
+<p><img alt="" src="../images/jupyterurl.png" /></p>
+<ul>
 <li>
-<p>Use the following credentials to login into the Jupyter Notebook<br />
+<p>Use the following credentials to login into the JupyterHub application<br />
 User Name : <code class="codehilite">user1</code><br />
 Password  : <code class="codehilite">79e4e0</code>  </p>
 </li>
 <li>
-<p>Select </p>
+<p>Select <code class="codehilite">Start My Server</code></p>
 </li>
 <li>
-<p>Click <code class="codehilite">Start Server</code></p>
+<p>Select the <code class="codehilite">s2i-spark-scipy-notebook:3.6</code> notebook image</p>
 </li>
-<li></li>
+<li>
+<p>Click <code class="codehilite">Spawn</code> and wait for your notebook server to start, this may take a minute</p>
+</li>
+<li>
+<p>Once the notebook server has started, you will see a folder view of the notebook file system</p>
+</li>
+<li>
+<p>Click the <code class="codehilite">Upload</code> button to the right <img alt="" src="../images/upload1.png" /> </p>
+</li>
+<li>
+<p>Find the Ceph_Data_Show_Lab_1.ipynb downloaded at the start of this module and upload it to the notebook</p>
+</li>
+<li>
+<p>Click on the <code class="codehilite">Upload</code> button to finish uploading the notebook to JupyterHub <img alt="" src="../images/upload2.png" /> </p>
+</li>
+<li>
+<p>Select the Ceph_Data_Show_Lab_1.ipynb notebook to begin analyzing the data</p>
+</li>
+<li>
+<p>In the section <code class="codehilite">Analysing data using Spark</code>, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster</p>
+</li>
+<li>
+<p>Select the first cell (the beginning of the notebook) and click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results  <img alt="" src="../images/run.png" /></p>
+</li>
 </ul>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached the end of Module-4. In this module, you downloaded the sample data set, uploaded it to your Ceph object store using S3cmd. In the next module you will do some basic analysis on this dataa</strong></p>
+<p><strong>We have reached the end of Module-4. In this module, you downloaded a sample Jupyter notebook exercise, uploaded it to JupyterHub and used it to analyze Prometheus data stored in Ceph. In the next module you will use machine learning libraries to train a model to detect the sentiment of a customer trip report.</strong></p>
 </div>
                 
                   
