@@ -31,9 +31,9 @@ The default endpoint for S3A routes requests to Amazon S3 with SSL (TLS). When i
 !!! tip
      If HTTP(S) is included in the endpoint definition, then the SSL property is automatically adjusted as appropriate. We will use this convention in the later module when we update the Jupyter Notebook.
 
-## Loading the sample data set into Ceph object storage
+## Loading the sample data sets into Ceph object storage
 
-To load the data set into your Ceph object store we will use S3cmd, a python CLI tool for interacting with S3 compatible object stores. For convenience S3cmd was pre-installed on ``ceph-node1``.
+To load the data sets into your Ceph object store we will use S3cmd, a python CLI tool for interacting with S3 compatible object stores. For convenience S3cmd was pre-installed on ``ceph-node1``.
 
 - Login to ``ceph-node1`` as **student** user
 
@@ -44,8 +44,16 @@ wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https:/
 
 wget -O /home/student/trip_report.tsv https://s3.amazonaws.com/bd-dist/trip_report.tsv
 ```
+```
+wget -O /home/student/auto-pilot/trip_report.tsv  \
+  https://s3.amazonaws.com/bd-dist/trip_report.tsv
+```
 
+<<<<<<< HEAD
 - Unzip the sample Metrics dataset
+=======
+- Unzip the sample metrics data set
+>>>>>>> 2beb3fe6921386ca48b9e38a7837c8f8ad8a431a
 
 ```
 unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/student/METRICS
@@ -54,7 +62,11 @@ unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/
 !!! tip
      The S3 API provides two ways to route requests to a particular bucket. The first is to use a bucket domain name prefix, meaning the API request will be sent to whichever IP address the <bucket_name>.<endpoint> hostname resolves to. If a wildcard DNS subdomain is not configured for the S3 endpoint, or if the endpoint domain name is not configured in Ceph, then requests using this convention will fail. The second way of routing requests is to use path style access, meaning the API request will be sent to <endpoint>/<bucket_name>. We will create a bucket with all upper case letters, as this convention instructs the S3A client to use the latter, path style approach.
 
+<<<<<<< HEAD
 - Create buckets for loading the sample data sets into Ceph object store
+=======
+- Create bucket for loading the sample metrics data set into Ceph object store
+>>>>>>> 2beb3fe6921386ca48b9e38a7837c8f8ad8a431a
 
 ```
 s3cmd mb s3://METRICS
@@ -71,7 +83,19 @@ s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
 
 ```
 
-- Now we have our sample dataset ready to be used in Ceph object store.
+- Create bucket for loading the sample trip report data set into Ceph object store
+
+```
+s3cmd mb s3://SENTIMENT
+```
+
+- Copy local trip report file to SENTIMENT bucket
+
+```
+s3cmd cp /home/student/auto-pilot/trip_report.tsv s3://SENTIMENT/trip_report.tsv
+```
+
+- Now we have our sample data sets ready to be used in Ceph object store.
 
 !!! summary "End of Module"
-    **We have reached the end of Module-3. In this module, you downloaded the sample data set, uploaded it to your Ceph object store using S3cmd. In the next module you will do some basic analysis on this dataa**
+    **We have reached the end of Module-3. In this module, you downloaded the sample data sets and uploaded them to your Ceph object store using S3cmd. In the next module you will do some basic analysis on this data**
