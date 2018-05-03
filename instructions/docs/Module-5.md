@@ -1,7 +1,7 @@
 # Module - 5 : ML using Jupyter Notebooks on Ceph
 
 !!! Summary "Module Agenda"
-    - **In this module, you will be creating a model using data stored in Ceph to detect the sentiment of customer trip reports**
+    - **In this module, you will be creating a model using data stored in Ceph to detect the sentiment of customer trip reports, and uploading the trained model back to Ceph**
 
 !!! example "Prerequisite"
     - **You need to have completed Modules 1-4 before beginning this module**
