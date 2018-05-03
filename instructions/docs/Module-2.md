@@ -65,15 +65,13 @@ oc get route jupyterhub -o jsonpath={.spec.host}
 
 Sometimes the JupyterHub deployment to OpenShift runs into race conditions.
 
-- jupyterhub-db never comes up and constantly restarts.
--- This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.
+- jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.
 
 ```
 oc delete project jupyterhub
 ```
 
-- You receive a ``500 Internal Error``.
--- Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.
+- You receive a ``500 Internal Error``.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.
 ```
 oc rollout latest jupyterhub
 ```
