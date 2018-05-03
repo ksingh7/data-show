@@ -1,4 +1,4 @@
-# Module - 3 : Introduction to S3A & Loading Sample Data Set
+# Module - 3 : Introduction to S3A & Loading Sample Data Sets
 
 !!! Summary "Module Agenda"
     - **In this module, you will be introduced to the S3A filesystem client**
@@ -37,13 +37,15 @@ To load the data set into your Ceph object store we will use S3cmd, a python CLI
 
 - Login to ``ceph-node1`` as **student** user
 
-- To begin download the sample data set on ``ceph-node`` from Amazon S3:
+- To begin download the sample data sets on ``ceph-node`` from Amazon S3:
 
 ```
 wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
+
+wget -O /home/student/trip_report.tsv https://s3.amazonaws.com/bd-dist/trip_report.tsv
 ```
 
-- Unzip the sample dataset
+- Unzip the sample Metrics dataset
 
 ```
 unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/student/METRICS
@@ -52,18 +54,21 @@ unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/
 !!! tip
      The S3 API provides two ways to route requests to a particular bucket. The first is to use a bucket domain name prefix, meaning the API request will be sent to whichever IP address the <bucket_name>.<endpoint> hostname resolves to. If a wildcard DNS subdomain is not configured for the S3 endpoint, or if the endpoint domain name is not configured in Ceph, then requests using this convention will fail. The second way of routing requests is to use path style access, meaning the API request will be sent to <endpoint>/<bucket_name>. We will create a bucket with all upper case letters, as this convention instructs the S3A client to use the latter, path style approach.
 
-- Create bucket for loading the sample data set into Ceph object store
+- Create buckets for loading the sample data sets into Ceph object store
 
 ```
 s3cmd mb s3://METRICS
+s3cmd mb s3://SENTIMENT
 ```
 
 Next, we will use the ``sync`` S3cmd command to synchronize the local directory with the downloaded data set with the newly created bucket. This is roughly equivalent to using rsync between two filesystems.
 
-- Sync local directory with METRICS bucket
+- Sync local directory with METRICS bucket and use put command to copy ``trip_report.tsv`` data set to SENTIMENT bucket
 
 ```
-s3cmd sync /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds/ s3://METRICS
+s3cmd sync /home/student/METRICS/kubelet_docker_operations_latency_microseconds/ s3://METRICS/
+s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
+
 ```
 
 - Now we have our sample dataset ready to be used in Ceph object store.
