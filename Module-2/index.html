@@ -318,7 +318,8 @@
 <ul>
 <li>From your workstation login to the <code class="codehilite">OpenShift Master Node</code> with the user name <strong><code class="codehilite">cloud-user</code></strong> and <code class="codehilite">SSH Private Key</code> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Learn how to Login)</a></li>
 </ul>
-<div class="codehilite"><pre><span></span>ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Address&gt;
+<div class="codehilite"><pre><span></span>chmod 400 &lt;path to ssh_key.pem&gt;
+ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Address&gt;
 </pre></div>
 
 <div class="admonition example">
@@ -368,7 +369,7 @@
 <ul>
 <li>
 <p>You should now have JupyterHub pods and services coming up ( will take some time to fully start)<br />
-<div class="codehilite"><pre><span></span>oc get po,svcs
+<div class="codehilite"><pre><span></span>oc get pods
 </pre></div></p>
 </li>
 <li>
