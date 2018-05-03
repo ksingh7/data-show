@@ -40,14 +40,13 @@ To load the data set into your Ceph object store we will use S3cmd, a python CLI
 - To begin download the sample data set on ``ceph-node`` from Amazon S3:
 
 ```
-wget -O /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds.zip  \
-  https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
+wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
 ```
 
 - Unzip the sample dataset
 
 ```
-unzip /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds.zip
+unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/student/METRICS
 ```
 
 !!! tip

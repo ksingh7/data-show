@@ -40,7 +40,7 @@ sudo radosgw-admin subuser create --uid='user1' --subuser='user1:swift' --secret
 swift -A http://ceph-node1/auth/1.0  -U user1:swift -K 'Swiftuser1key' post container-1
 swift -A http://ceph-node1/auth/1.0  -U user1:swift -K 'Swiftuser1key' list
 
-echo "address=/.ceph-node1/10.100.0.10" | sudo tee -a /etc/dnsmasq.conf
+echo "address=/.ceph-node1/10.0.1.111" | sudo tee -a /etc/dnsmasq.conf
 sudo systemctl start dnsmasq ; sudo systemctl enable dnsmasq
 
 sudo sed -i '/search/anameserver 127.0.0.1' /etc/resolv.conf

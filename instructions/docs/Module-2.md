@@ -6,6 +6,7 @@
 - From your workstation login to the ``OpenShift Master Node`` with the user name **``cloud-user``** and ``SSH Private Key`` [(Learn how to Login)](https://ksingh7.github.io/data-show/#accessing-the-lab)
 
 ```
+chmod 400 <path to ssh_key.pem>
 ssh -i <path to ssh_key.pem> cloud-user@<OpenShift Master Node IP Address>
 ```  
 
@@ -54,7 +55,7 @@ oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -
 
 - You should now have JupyterHub pods and services coming up ( will take some time to fully start)
 ```
-oc get po,svcs
+oc get pods
 ```
 
 - You could also monitor your application from OpenShift Container Platform Console by visiting ``OpenShift Console URL``. The user name and password to access the console is ``teamuser1`` and ``openshift`` respectively.
