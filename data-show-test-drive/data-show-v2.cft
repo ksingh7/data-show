@@ -2177,7 +2177,9 @@ Outputs:
    OpenShiftWebConsole:
      Description: "OpenShift Web Console"
      Value: !Sub "https://openshift.${AWS::AccountId}.${PublicHostedZone}/console"
-   OpenShiftNodeSSHIP:
+   OpenShiftMasterNodeSSHIP:
      Description: "OpenShift OC CLI Node SSH IP"
      Value: !GetAtt Master1.PublicIp 
-
+   OpenShiftMasterNodeUserName:
+     Description: "SSH User Name"
+     Value: "cloud-user"
