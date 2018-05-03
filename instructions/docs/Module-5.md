@@ -16,17 +16,17 @@ Password  : ``79e4e0``
 
 - Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left
 
-- Click the ``Upload`` button to the right
+- Click the ``Upload`` button to the right ![](images/upload1.png) 
 
 - Find the Ceph_Data_Show_Lab_2.ipynb downloaded at the start of this module and upload it to JupyterHub
 
-- Click on the ``Upload`` button to finish uploading the notebook to JupyterHub
+- Click on the ``Upload`` button to finish uploading the notebook to JupyterHub ![](images/upload2.png) 
 
 - Select the Ceph_Data_Show_Lab_2.ipynb notebook to begin building a model for machine learning
 
 - In the section ``Access data using Spark``, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster
 
-- Select the first cell (the beginning of the notebook) and click the ``Run`` button in the toolbar on each cell, stepping through the notebook and its results
+- Select the first cell (the beginning of the notebook) and click the ``Run`` button in the toolbar on each cell, stepping through the notebook and its results ![](images/run.png)
 
 
 !!! summary "End of Module"
