@@ -49,7 +49,7 @@ oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -
 
 - You should now have JupyterHub pods and services coming up ( will take some time to fully start).  The deployment is complete when the jupyterhub-db and jupyter pods are fully running.
 ```
-oc get po,svcs
+oc get po,svc
 ```
 
 - You could also monitor your application from OpenShift Container Platform Console by visiting ``OpenShift Console URL``. The user name and password to access the console is ``teamuser1`` and ``openshift`` respectively.
