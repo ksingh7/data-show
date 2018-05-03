@@ -336,7 +336,7 @@
               
                 
                 
-                <h1 id="module-3-introduction-to-s3a-loading-sample-data-set">Module - 3 : Introduction to S3A &amp; Loading Sample Data Set<a class="headerlink" href="#module-3-introduction-to-s3a-loading-sample-data-set" title="Permanent link">#</a></h1>
+                <h1 id="module-3-introduction-to-s3a-loading-sample-data-sets">Module - 3 : Introduction to S3A &amp; Loading Sample Data Sets<a class="headerlink" href="#module-3-introduction-to-s3a-loading-sample-data-sets" title="Permanent link">#</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
@@ -380,14 +380,16 @@
 <p>Login to <code class="codehilite">ceph-node1</code> as <strong>student</strong> user</p>
 </li>
 <li>
-<p>To begin download the sample data set on <code class="codehilite">ceph-node</code> from Amazon S3:</p>
+<p>To begin download the sample data sets on <code class="codehilite">ceph-node</code> from Amazon S3:</p>
 </li>
 </ul>
 <div class="codehilite"><pre><span></span>wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
+
+wget -O /home/student/trip_report.tsv https://s3.amazonaws.com/bd-dist/trip_report.tsv
 </pre></div>
 
 <ul>
-<li>Unzip the sample dataset</li>
+<li>Unzip the sample Metrics dataset</li>
 </ul>
 <div class="codehilite"><pre><span></span>unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/student/METRICS
 </pre></div>
@@ -397,16 +399,18 @@
 <p>The S3 API provides two ways to route requests to a particular bucket. The first is to use a bucket domain name prefix, meaning the API request will be sent to whichever IP address the <bucket_name>.<endpoint> hostname resolves to. If a wildcard DNS subdomain is not configured for the S3 endpoint, or if the endpoint domain name is not configured in Ceph, then requests using this convention will fail. The second way of routing requests is to use path style access, meaning the API request will be sent to <endpoint>/<bucket_name>. We will create a bucket with all upper case letters, as this convention instructs the S3A client to use the latter, path style approach.</p>
 </div>
 <ul>
-<li>Create bucket for loading the sample data set into Ceph object store</li>
+<li>Create buckets for loading the sample data sets into Ceph object store</li>
 </ul>
 <div class="codehilite"><pre><span></span>s3cmd mb s3://METRICS
+s3cmd mb s3://SENTIMENT
 </pre></div>
 
 <p>Next, we will use the <code class="codehilite">sync</code> S3cmd command to synchronize the local directory with the downloaded data set with the newly created bucket. This is roughly equivalent to using rsync between two filesystems.</p>
 <ul>
-<li>Sync local directory with METRICS bucket</li>
+<li>Sync local directory with METRICS bucket and use put command to copy <code class="codehilite">trip_report.tsv</code> data set to SENTIMENT bucket</li>
 </ul>
-<div class="codehilite"><pre><span></span>s3cmd sync /home/student/auto-pilot/kubelet_docker_operations_latency_microseconds/ s3://METRICS
+<div class="codehilite"><pre><span></span>s3cmd sync /home/student/METRICS/kubelet_docker_operations_latency_microseconds/ s3://METRICS/
+s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
 </pre></div>
 
 <ul>
