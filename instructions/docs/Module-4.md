@@ -10,6 +10,8 @@
 
 - An active JupyterHub instance is required to open this notebook. Use the JupyterHub application that you have deployed in module-2. Login to the OpenShift Container Platform Console and click on the JupyterHub application endpoint URL from the Overview screen.  It is the HTTP link located to the right of the screen.
 
+![](images/jupyterurl.png)
+
 - Use the following credentials to login into the JupyterHub application
 User Name : ``user1``
 Password  : ``79e4e0``  
