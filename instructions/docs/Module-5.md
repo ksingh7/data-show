@@ -16,6 +16,8 @@ Password  : ``79e4e0``
 
 - Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left
 
+![](images/jupyterlogo.png)
+
 - Click the ``Upload`` button to the right ![](images/upload1.png) 
 
 - Find the Ceph_Data_Show_Lab_2.ipynb downloaded at the start of this module and upload it to JupyterHub
