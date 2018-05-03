@@ -17,10 +17,10 @@ theme:
 pages:
     - 'Getting Started': index.md
     - 'Module-1 : Ceph cluster & Object Storage Setup': Module-1.md
-    - 'Module-2 : Setting up OpenShift Container Platform': Module-2.md
-    - 'Module-3 : Introduction to S3A & Loading Sample Data Set': Module-3.md
+    - 'Module-2 : Setting up JupyterHub in OpenShift Container Platform': Module-2.md
+    - 'Module-3 : Introduction to S3A & Loading Sample Data Sets': Module-3.md
     - 'Module-4 : Analytics on Metrics Data': Module-4.md
-    - 'Module-5 : ML using Jupyter Datahub on Ceph': Module-5.md
+    - 'Module-5 : ML using Jupyter Notebooks on Ceph': Module-5.md
 
 extra:
   social:
