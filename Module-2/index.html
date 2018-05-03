@@ -215,9 +215,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-an-opensshift-project" title="Create an OpensShift Project" class="md-nav__link">
-    Create an OpensShift Project
+  <a href="#create-an-openshift-project" title="Create an OpenShift Project" class="md-nav__link">
+    Create an OpenShift Project
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
+    Troubleshooting the JupyterHub deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -287,9 +300,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-an-opensshift-project" title="Create an OpensShift Project" class="md-nav__link">
-    Create an OpensShift Project
+  <a href="#create-an-openshift-project" title="Create an OpenShift Project" class="md-nav__link">
+    Create an OpenShift Project
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
+    Troubleshooting the JupyterHub deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -308,11 +334,11 @@
               
                 
                 
-                <h1 id="module-2-setting-up-openshift-container-platform">Module - 2 : Setting up OpenShift Container Platform<a class="headerlink" href="#module-2-setting-up-openshift-container-platform" title="Permanent link">#</a></h1>
+                <h1 id="module-2-setting-up-jupyterhub-in-openshift-container-platform">Module - 2 : Setting up JupyterHub in OpenShift Container Platform<a class="headerlink" href="#module-2-setting-up-jupyterhub-in-openshift-container-platform" title="Permanent link">#</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
-<li><strong>In this module you will be creating an OpenShift project required for the rest of the sessions</strong></li>
+<li><strong>In this module you will be creating an OpenShift project for JupyterHub required for the rest of the sessions</strong></li>
 </ul>
 </div>
 <ul>
@@ -328,8 +354,8 @@ ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Addre
 <li>You must run all the commands logged in as user <strong>cloud-user</strong> on the <strong>OpenShift Master Node</strong> node, unless otherwise specified. </li>
 </ul>
 </div>
-<h2 id="create-an-opensshift-project">Create an OpensShift Project<a class="headerlink" href="#create-an-opensshift-project" title="Permanent link">#</a></h2>
-<p>In order to save your precious lab time, OpenShift Container Platform has already been installed and configured. Before you begin with some data science exercises, lets&rsquo; create a OpenShift project</p>
+<h2 id="create-an-openshift-project">Create an OpenShift Project<a class="headerlink" href="#create-an-openshift-project" title="Permanent link">#</a></h2>
+<p>In order to save your precious lab time, OpenShift Container Platform has already been installed and configured. Before you begin with some data science exercises, let&rsquo;s create an OpenShift project.</p>
 <ul>
 <li>Login to OpenShift Master Node as <code class="codehilite">cloud-user</code></li>
 </ul>
@@ -349,32 +375,48 @@ ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Addre
 </pre></div>
 
 <ul>
-<li>Pull the required container image</li>
+<li>Prepare the OpenShift templates</li>
 </ul>
 <div class="codehilite"><pre><span></span>oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/notebooks.json
+oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
 </pre></div>
 
 <ul>
-<li>Deploy JupyterHub application</li>
-</ul>
-<div class="codehilite"><pre><span></span>oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
-</pre></div>
-
-<ul>
-<li>Process JupyterHub application</li>
+<li>Process the template to deploy the JupyterHub application</li>
 </ul>
 <div class="codehilite"><pre><span></span>oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY=&quot;meh&quot; | oc apply -f -
 </pre></div>
 
 <ul>
 <li>
-<p>You should now have JupyterHub pods and services coming up ( will take some time to fully start)<br />
+<p>You should now have JupyterHub pods and services coming up ( will take some time to fully start).  The deployment is complete when the jupyterhub-db and jupyter pods are fully running.<br />
 <div class="codehilite"><pre><span></span>oc get pods
 </pre></div></p>
 </li>
 <li>
 <p>You could also monitor your application from OpenShift Container Platform Console by visiting <code class="codehilite">OpenShift Console URL</code>. The user name and password to access the console is <code class="codehilite">teamuser1</code> and <code class="codehilite">openshift</code> respectively.</p>
 </li>
+<li>
+<p>Verify you can access JupyterHub by visiting the URL.<br />
+<div class="codehilite"><pre><span></span>oc get route jupyterhub -o jsonpath={.spec.host}
+</pre></div></p>
+</li>
+<li>
+<p>Verify you can log into JupyterHub by using the user name and password <code class="codehilite">user1</code> and <code class="codehilite">79e4e0</code> respectively.</p>
+</li>
+</ul>
+<h3 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h3>
+<p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions.</p>
+<ul>
+<li>jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.</li>
+</ul>
+<div class="codehilite"><pre><span></span>oc delete project jupyterhub
+</pre></div>
+
+<ul>
+<li>You receive a <code class="codehilite">500 Internal Error</code>.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.<br />
+<div class="codehilite"><pre><span></span>oc rollout latest jupyterhub
+</pre></div></li>
 </ul>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
