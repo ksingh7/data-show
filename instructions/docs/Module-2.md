@@ -48,10 +48,14 @@ oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-
 oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -f -
 ```
 
-- You should now have JupyterHub pods and services coming up ( will take some time to fully start).  The deployment is complete when the jupyterhub-db and jupyter pods are fully running.
+- You should now have JupyterHub pods and services coming up ( will take some time to fully start).  The deployment is complete when the jupyterhub-db and jupyter pods are fully running.  This should take a few minutes.
 ```
 oc get pods
 ```
+
+The running pods should look like this when JupyterHub is ready
+
+![](images/jupyteropenshift.png)
 
 - You could also monitor your application from OpenShift Container Platform Console by visiting ``OpenShift Console URL``. The user name and password to access the console is ``teamuser1`` and ``openshift`` respectively.
 
@@ -60,7 +64,7 @@ oc get pods
 oc get route jupyterhub -o jsonpath={.spec.host}
 ```
 
-- Verify you can log into JupyterHub by using the user name and password ``user1`` and ``79e4e0`` respectively.
+- Using the URL returned from the ''oc get route'' command above, verify you can log into JupyterHub by using the user name and password ``user1`` and ``79e4e0`` respectively.
 
 ### Troubleshooting the JupyterHub deployment
 
