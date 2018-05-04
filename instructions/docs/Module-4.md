@@ -16,6 +16,8 @@
 User Name : ``user1``
 Password  : ``79e4e0``  
 
+IMPORTANT: If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.
+
 - Select ``Start My Server``
 
 - Select the ``spark-scipy-notebook:latest`` notebook image
