@@ -34,7 +34,7 @@
     
     
       
-        <title>Module-3 : Introduction to S3A & Loading Sample Data Set - Ceph Data Show</title>
+        <title>Module-3 : Introduction to S3A & Loading Sample Data Sets - Ceph Data Show</title>
       
     
     
@@ -93,7 +93,7 @@
                 Ceph Data Show
               </span>
               <span class="md-header-nav__topic">
-                Module-3 : Introduction to S3A & Loading Sample Data Set
+                Module-3 : Introduction to S3A & Loading Sample Data Sets
               </span>
             
           
@@ -188,8 +188,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-nav__link">
-      Module-2 : Setting up OpenShift Container Platform
+    <a href="../Module-2/" title="Module-2 : Setting up JupyterHub in OpenShift Container Platform" class="md-nav__link">
+      Module-2 : Setting up JupyterHub in OpenShift Container Platform
     </a>
   </li>
 
@@ -209,11 +209,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Module-3 : Introduction to S3A & Loading Sample Data Set
+        Module-3 : Introduction to S3A & Loading Sample Data Sets
       </label>
     
-    <a href="./" title="Module-3 : Introduction to S3A & Loading Sample Data Set" class="md-nav__link md-nav__link--active">
-      Module-3 : Introduction to S3A & Loading Sample Data Set
+    <a href="./" title="Module-3 : Introduction to S3A & Loading Sample Data Sets" class="md-nav__link md-nav__link--active">
+      Module-3 : Introduction to S3A & Loading Sample Data Sets
     </a>
     
       
@@ -274,8 +274,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Module-5/" title="Module-5 : ML using Jupyter Datahub on Ceph" class="md-nav__link">
-      Module-5 : ML using Jupyter Datahub on Ceph
+    <a href="../Module-5/" title="Module-5 : ML using Jupyter Notebooks on Ceph" class="md-nav__link">
+      Module-5 : ML using Jupyter Notebooks on Ceph
     </a>
   </li>
 
@@ -336,7 +336,7 @@
               
                 
                 
-                <h1 id="module-3-introduction-to-s3a-loading-sample-data-sets">Module - 3 : Introduction to S3A &amp; Loading Sample Data Sets<a class="headerlink" href="#module-3-introduction-to-s3a-loading-sample-data-sets" title="Permanent link">#</a></h1>
+                <h1 id="module-3-introduction-to-s3a-loading-sample-data-set">Module - 3 : Introduction to S3A &amp; Loading Sample Data Set<a class="headerlink" href="#module-3-introduction-to-s3a-loading-sample-data-set" title="Permanent link">#</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Module Agenda</p>
 <ul>
@@ -380,35 +380,18 @@
 <p>Login to <code class="codehilite">ceph-node1</code> as <strong>student</strong> user</p>
 </li>
 <li>
-<p>To begin download the sample data sets on <code class="codehilite">ceph-node</code> from Amazon S3:</p>
+<p>Download the sample data sets on <code class="codehilite">ceph-node</code> from Amazon S3:</p>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span>wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
+<div class="codehilite"><pre><span></span>wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
+</pre></div>
 
-wget -O /home/student/trip_report.tsv https://s3.amazonaws.com/bd-dist/trip_report.tsv
-</pre></div><br />
-<div class="codehilite"><pre><span></span>wget -O /home/student/auto-pilot/trip_report.tsv  \
-  https://s3.amazonaws.com/bd-dist/trip_report.tsv
-</pre></div></p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br />
-- Unzip the sample Metrics dataset<br />
-=======<br />
-- Unzip the sample metrics data set</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>2beb3fe6921386ca48b9e38a7837c8f8ad8a431a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<div class="codehilite"><pre><span></span>wget -O /home/student/trip_report.tsv https://s3.amazonaws.com/bd-dist/trip_report.tsv
+</pre></div>
+
+<ul>
+<li>Unzip the sample metrics data set</li>
+</ul>
 <div class="codehilite"><pre><span></span>unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/student/METRICS
 </pre></div>
 
@@ -416,35 +399,17 @@ wget -O /home/student/trip_report.tsv https://s3.amazonaws.com/bd-dist/trip_repo
 <p class="admonition-title">Tip</p>
 <p>The S3 API provides two ways to route requests to a particular bucket. The first is to use a bucket domain name prefix, meaning the API request will be sent to whichever IP address the <bucket_name>.<endpoint> hostname resolves to. If a wildcard DNS subdomain is not configured for the S3 endpoint, or if the endpoint domain name is not configured in Ceph, then requests using this convention will fail. The second way of routing requests is to use path style access, meaning the API request will be sent to <endpoint>/<bucket_name>. We will create a bucket with all upper case letters, as this convention instructs the S3A client to use the latter, path style approach.</p>
 </div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br />
-- Create buckets for loading the sample data sets into Ceph object store<br />
-=======<br />
-- Create bucket for loading the sample metrics data set into Ceph object store</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>2beb3fe6921386ca48b9e38a7837c8f8ad8a431a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<ul>
+<li>Create bucket for loading the sample metrics data set into Ceph object store</li>
+</ul>
 <div class="codehilite"><pre><span></span>s3cmd mb s3://METRICS
-s3cmd mb s3://SENTIMENT
 </pre></div>
 
 <p>Next, we will use the <code class="codehilite">sync</code> S3cmd command to synchronize the local directory with the downloaded data set with the newly created bucket. This is roughly equivalent to using rsync between two filesystems.</p>
 <ul>
-<li>Sync local directory with METRICS bucket and use put command to copy <code class="codehilite">trip_report.tsv</code> data set to SENTIMENT bucket</li>
+<li>Sync local directory with METRICS bucket</li>
 </ul>
-<div class="codehilite"><pre><span></span>s3cmd sync /home/student/METRICS/kubelet_docker_operations_latency_microseconds/ s3://METRICS/
-s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
+<div class="codehilite"><pre><span></span>s3cmd sync /home/student/METRICS/ s3://METRICS
 </pre></div>
 
 <ul>
@@ -456,7 +421,7 @@ s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
 <ul>
 <li>Copy local trip report file to SENTIMENT bucket</li>
 </ul>
-<div class="codehilite"><pre><span></span>s3cmd cp /home/student/auto-pilot/trip_report.tsv s3://SENTIMENT/trip_report.tsv
+<div class="codehilite"><pre><span></span>s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
 </pre></div>
 
 <ul>
@@ -484,7 +449,7 @@ s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Module-2/" title="Module-2 : Setting up OpenShift Container Platform" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Module-2/" title="Module-2 : Setting up JupyterHub in OpenShift Container Platform" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -493,7 +458,7 @@ s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Module-2 : Setting up OpenShift Container Platform
+                Module-2 : Setting up JupyterHub in OpenShift Container Platform
               </span>
             </div>
           </a>
