@@ -14,6 +14,8 @@
 User Name : ``user1``
 Password  : ``79e4e0``
 
+**IMPORTANT: If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.**
+
 - Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left
 
 ![](images/jupyterlogo.png)
