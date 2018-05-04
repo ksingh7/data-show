@@ -14,6 +14,8 @@
 User Name : ``user1``
 Password  : ``79e4e0``
 
+**IMPORTANT: If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.**
+
 - Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left
 
 ![](images/jupyterlogo.png)
@@ -26,9 +28,13 @@ Password  : ``79e4e0``
 
 - Select the Ceph_Data_Show_Lab_2.ipynb notebook to begin building a model for machine learning
 
-- In the section ``Access data using Spark``, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster
+- In the section ``Access data using Spark``, replace the endpointUrl parameter value with the DNS or IP address of your Ceph cluster similar to module 4.  An example should look like the following:
 
-- Select the first cell (the beginning of the notebook) and click the ``Run`` button in the toolbar on each cell, stepping through the notebook and its results ![](images/run.png)
+```
+endpointUrl= 'http://10.0.0.1'
+```
+
+- Before running any of the cells in the notebook, select the first cell (the beginning of the notebook). Once the first cell is selected, click the ``Run`` button in the toolbar on each cell, stepping through the notebook and its results ![](images/run.png)
 
 
 !!! summary "End of Module"

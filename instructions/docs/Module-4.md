@@ -16,9 +16,11 @@
 User Name : ``user1``
 Password  : ``79e4e0``  
 
+**IMPORTANT: If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.**
+
 - Select ``Start My Server``
 
-- Select the ``s2i-spark-scipy-notebook:3.6`` notebook image
+- Select the ``spark-scipy-notebook:latest`` notebook image
 
 - Click ``Spawn`` and wait for your notebook server to start, this may take a minute
 
@@ -32,9 +34,13 @@ Password  : ``79e4e0``
 
 - Select the Ceph_Data_Show_Lab_1.ipynb notebook to begin analyzing the data
 
-- In the section ``Analysing data using Spark``, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster
+- In the section ``Analysing data using Spark``, replace the value of fs.s3a.endpoint with the DNS or IP address of your Ceph cluster.  To edit the notebook, simply click on a cell and begin typing.  An example endpoint configuration should look like the following:
 
-- Select the first cell (the beginning of the notebook) and click the ``Run`` button in the toolbar on each cell, stepping through the notebook and its results  ![](images/run.png)
+```
+sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", 'http://10.0.0.1')
+```
+
+- Before running any of the cells in the notebook, select the first cell (the beginning of the notebook).  Once the first cell is selected, click the ``Run`` button in the toolbar on each cell, stepping through the notebook and its results  ![](images/run.png)
 
 !!! summary "End of Module"
     **We have reached the end of Module-4. In this module, you downloaded a sample Jupyter notebook exercise, uploaded it to JupyterHub and used it to analyze Prometheus data stored in Ceph. In the next module you will use machine learning libraries to train a model to detect the sentiment of a customer trip report.**
