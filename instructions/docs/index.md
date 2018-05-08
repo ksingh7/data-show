@@ -1,7 +1,7 @@
 # Getting Started
 
 !!! example "Tip" 
-    - **To open this lab guide in a separate browser window use [This Link](https://ksingh7.github.io/data-show/).**
+    - **To open this lab guide in a separate browser window** (Right Click >> Open In a New Tab) **use [This Link](https://ksingh7.github.io/data-show/).**
 
 ## Test Drive Prerequisites
 
@@ -23,23 +23,24 @@ After you have logged into [Red Hat Test Drive Portal](https://redhat.qwiklab.co
 
 ![](images/access_keys.png)
 
-- Download the PEM key to your computer if you are using regular OpenSSH on the command line with Linux or macOS. Choose Download PPK if you are using PuTTY on Windows.
+- Download the PEM key to your computer if you are using regular OpenSSH on the command line with Linux or macOS. Choose Download PPK if you are using [PuTTY on Windows](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-ssh).
 
 - Change permission of the downloaded SSH private key
 
 ```
-chmod 400 ~/Dowloads/access_key.pem
+chmod 400 ~/Downloads/qwikLABS*.p*
 ```
 
 ## Wait for lab provisioning to complete
 
 Generally it takes less than 15 minutes to provision your lab environment. Once your lab environment is provisioned, you will find login details on the left hand pane in a section labeled ``Connection Details`` 
 
-- ``Ceph Node IP Address``
+- ``Ceph Node SSH IP``
 - ``Ceph Node SSH user name``
+- ``Ceph Node SSH Password``
 - ``Ceph S3 Endpoint``
-- ``OpenShift Console URL``
-- ``OpenShift Console user name``
-- ``OpenShift Console Password``
-- ``OpenShift Master Node IP Address``
+- ``OpenShift Web Console URL``
+- ``OpenShift Web Console user name``
+- ``OpenShift Web Console Password``
+- ``OpenShift Master Node SSH IP``
 - ``OpenShift Master Node SSH user name``

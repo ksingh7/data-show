@@ -1984,7 +1984,7 @@ Resources:
               runcmd:
               - 'curl -X PUT -H "Content-Type:" --data-binary "{ \"Status\" : \"SUCCESS\", \"Reason\": \"Configuration Complete\", \"UniqueId\": \"CephNode1\",\"Data\": \"Ceph-node1 launch successful\" }" '
               - hostnamectl set-hostname ceph-node1
-              - echo "address=/.ceph-admin/10.0.1.111" | sudo tee -a /etc/dnsmasq.conf ; 
+              - echo "address=/.ceph-node1/10.0.1.111" | sudo tee -a /etc/dnsmasq.conf ; 
               - sudo systemctl start dnsmasq ; sudo systemctl enable dnsmasq
               - sudo sed -i '/search/anameserver 127.0.0.1' /etc/resolv.conf
               - sudo mkdir /home/student/auto-pilot
@@ -2165,21 +2165,27 @@ Outputs:
      Description: "ceph-node1 node SSH IP address"
      Value:
        Ref: CephNode1EIP
-   CephNodeUserName:
+   CephNodeSSHUserName:
      Description: "SSH User Name"
      Value: "student"
-   CephNodeUserPassword:
+   CephNodeSSHPassword:
      Description: "SSH Password"
      Value: "Redhat18"
-   CephS3PublicEndpoint:
+   CephS3Endpoint:
      Description: "Ceph S3 Endpoint"
      Value: "http://10.0.1.111"
    OpenShiftWebConsole:
      Description: "OpenShift Web Console"
      Value: !Sub "https://openshift.${AWS::AccountId}.${PublicHostedZone}/console"
+   OpenShiftWebConsoleUserName:
+     Description: "Web Console User Name"
+     Value: "teamuser1"
+   OpenShiftWebConsolePassword:
+     Description: "Web Console Password"
+     Value: "openshift"   
    OpenShiftMasterNodeSSHIP:
      Description: "OpenShift OC CLI Node SSH IP"
      Value: !GetAtt Master1.PublicIp 
-   OpenShiftMasterNodeUserName:
+   OpenShiftMasterNodeSSHUserName:
      Description: "SSH User Name"
      Value: "cloud-user"

@@ -4,7 +4,7 @@
     - **In this module you will be deploying Red Hat Ceph Storage 3 cluster across 3 nodes using Ansible based deployer called ``ceph-ansible``.**
     - **You will also learn how to configure object storage for S3 API by setting up Ceph Rados Gateway (RGW)**
 
-- From your workstation login to the ``ceph-node1`` node with the user name **``student``** [(Learn how to Login)](https://ksingh7.github.io/data-show/#accessing-the-lab)
+- From your workstation SSH into ``ceph-node1`` with the user name **``student``** and password **``Redhat18``** [(Need Help..Learn how to Login)](https://ksingh7.github.io/data-show/#accessing-the-lab)
 
 ```
 ssh student@<IP Address of ceph-node1>
@@ -15,7 +15,10 @@ ssh student@<IP Address of ceph-node1>
 
 ## Fast Forward Deployment
 
-In order to save your precious lab time, this section deploys and configures the Ceph Cluster as well as Ceph S3 Object storage in a highly automated way using a all-in-one shell script. If you are using this method of deployment, you could skip the next sections labeled as "Manual Deployment"
+In order to save your precious lab time, this section deploys and configures the Ceph Cluster as well as Ceph S3 Object storage in a highly automated way using a all-in-one shell script. 
+
+!!! important
+    - **If you are using Fast Forward method of deployment, you could skip the next sections labeled as "Manual Deployment"**
 
 - To start ``Fast Forward Deployer`` run the following command
 
@@ -23,11 +26,51 @@ In order to save your precious lab time, this section deploys and configures the
 sh /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
 ```
 
+- This should usually take 10-12 minutes to complete. Once its done, play recap should look similar to below. Make sure play recap does not show any host run failed.
+
+```
+PLAY RECAP ******************************************************************
+ceph-node1                 : ok=149  changed=29   unreachable=0    failed=0
+ceph-node2                 : ok=136  changed=24   unreachable=0    failed=0
+ceph-node3                 : ok=138  changed=25   unreachable=0    failed=0
+
+real  10m9.966s
+user  2m6.029s
+sys 1m1.005s
+```
+
+
+- Finally check the status of your cluster. 
+
+```
+sudo ceph -s
+```
+
+```
+[student@ceph-node1 ceph-ansible]$ sudo ceph -s
+  cluster:
+    id:     908c17fc-1da0-4569-a25a-f1a23f2e101e
+    health: HEALTH_OK
+
+  services:
+    mon: 3 daemons, quorum ceph-node1,ceph-node2,ceph-node3
+    mgr: ceph-node1(active)
+    osd: 12 osds: 12 up, 12 in
+
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0 bytes
+    usage:   1290 MB used, 5935 GB / 5937 GB avail
+    pgs:
+
+[student@ceph-node1 ceph-ansible]$
+```
+
 
 ## Manual Deployment : Setting up environment for ceph-ansible  
 
-!!! info
-    - If you have choose to follow the above ``Fast Forward Deployment`` method, you should skip the below ``Manual Deployment`` process.
+!!! important
+    - **If you have choose to follow the above ``Fast Forward Deployment`` method, you should skip the below ``Manual Deployment`` process.**
 
 - Begin by creating a directory for ceph-ansible keys under ``student`` user's home directory.
 
@@ -211,8 +254,6 @@ sudo ceph -s
 [student@ceph-node1 ceph-ansible]$
 ```
 
-!!! success
-    At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager , 1 x Ceph RGW.
 
 !!! summary "End of Module"
-    **We have reached to the end of Module-1. At this point you have learned to deploy a Ceph cluster as well as Ceph S3 Object Storage.**
+    **We have reached to the end of Module-1. At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager , 1 x Ceph RGW.**

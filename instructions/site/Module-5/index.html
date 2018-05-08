@@ -292,9 +292,10 @@
 User Name : <code class="codehilite">user1</code><br />
 Password  : <code class="codehilite">79e4e0</code></p>
 </li>
-<li>
-<p>Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left</p>
-</li>
+</ul>
+<p><strong>IMPORTANT: If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.</strong></p>
+<ul>
+<li>Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left</li>
 </ul>
 <p><img alt="" src="../images/jupyterlogo.png" /></p>
 <ul>
@@ -311,11 +312,14 @@ Password  : <code class="codehilite">79e4e0</code></p>
 <p>Select the Ceph_Data_Show_Lab_2.ipynb notebook to begin building a model for machine learning</p>
 </li>
 <li>
-<p>In the section <code class="codehilite">Access data using Spark</code>, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster</p>
+<p>In the section <code class="codehilite">Access data using Spark</code>, replace the endpointUrl parameter value with the DNS or IP address of your Ceph cluster similar to module 4.  An example should look like the following:</p>
 </li>
-<li>
-<p>Select the first cell (the beginning of the notebook) and click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results <img alt="" src="../images/run.png" /></p>
-</li>
+</ul>
+<div class="codehilite"><pre><span></span>endpointUrl= &#39;http://10.0.0.1&#39;
+</pre></div>
+
+<ul>
+<li>Before running any of the cells in the notebook, select the first cell (the beginning of the notebook). Once the first cell is selected, click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results <img alt="" src="../images/run.png" /></li>
 </ul>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>

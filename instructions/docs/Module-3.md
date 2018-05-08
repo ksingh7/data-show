@@ -2,17 +2,17 @@
 
 !!! Summary "Module Agenda"
     - **In this module, you will be introduced to the S3A filesystem client**
-    - **Download a sample data set of operational data.**
+    - **Locally download sample data sets of metrics data and sample trip reports.**
     - **Create a bucket and ingest the local data set to your Ceph object store**
 
-- From your workstation, login to the ``ceph-node1`` node as user **``student``** [(Learn how to Login)](https://ksingh7.github.io/data-show/#accessing-the-lab)
+- From your workstation, SSH into ``ceph-node1`` node as user **``student``** and password **``Redhat18``** [(Need Help..Learn how to Login)](https://ksingh7.github.io/data-show/#accessing-the-lab)
 
 ```
 ssh student@<IP Address of ceph-node1 node>
 ```
 
 !!! example "Prerequisite"
-    - **You need to have completed Modules 1-3 before beginning this module**
+    - **You need to have completed Modules 1-2 before beginning this module**
 
 ## Introduction
 
@@ -21,12 +21,12 @@ The S3A filesystem client comes from Apache Hadoop and can be utilized by Spark 
 * Eventual Consistency, with Amazon S3, or Multi-site Ceph. Creation, updates, deletes may not be visible for an undefined time.
 * Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries and visible to other processes during this time, and indeed, until the eventual consistency has been resolved.
 
-## Endpoints, credentials, and SSL
+## Endpoints, Credentials, and SSL
 
 The default endpoint for S3A routes requests to Amazon S3 with SSL (TLS). When interacting with a Ceph object store you will need to change a few S3A configuration parameters, notably the endpoint should be the DNS name or IP address of your Ceph object storage API endpoint.
 
-- Endpoint (fs.s3a.endpoint)
-- SSL (fs.s3a.connection.ssl.enabled)
+- Endpoint (``fs.s3a.endpoint``)
+- SSL (``fs.s3a.connection.ssl.enabled``)
 
 !!! tip
      If HTTP(S) is included in the endpoint definition, then the SSL property is automatically adjusted as appropriate. We will use this convention in the later module when we update the Jupyter Notebook.
@@ -35,9 +35,9 @@ The default endpoint for S3A routes requests to Amazon S3 with SSL (TLS). When i
 
 To load the data sets into your Ceph object store we will use S3cmd, a python CLI tool for interacting with S3 compatible object stores. For convenience S3cmd was pre-installed on ``ceph-node1``.
 
-- Login to ``ceph-node1`` as **student** user
+- If you have not already done, SSH into ``ceph-node1`` as **student** user and **``Redhat18``** password.
 
-- Download the sample data sets on ``ceph-node`` from Amazon S3:
+- Locally download the sample data sets on ``ceph-node``.
 
 ```
 wget -O /home/student/kubelet_docker_operations_latency_microseconds.zip https://s3.amazonaws.com/bd-dist/kubelet_docker_operations_latency_microseconds.zip
@@ -71,6 +71,12 @@ Next, we will use the ``sync`` S3cmd command to synchronize the local directory 
 s3cmd sync /home/student/METRICS/ s3://METRICS
 ```
 
+- Verify that metrics dataset is safe and sound in Ceph Object Storage
+
+```
+s3cmd ls s3://METRICS/kubelet_docker_operations_latency_microseconds/
+```
+
 - Create bucket for loading the sample trip report data set into Ceph object store
 
 ```
@@ -84,7 +90,13 @@ s3cmd put /home/student/trip_report.tsv s3://SENTIMENT/data/trip_report.tsv
 
 ```
 
+- Verify that trip report dataset is safe and sound in Ceph Object Storage
+
+```
+s3cmd ls s3://SENTIMENT/data/
+```
+
 - Now we have our sample data sets ready to be used in Ceph object store.
 
 !!! summary "End of Module"
-    **We have reached the end of Module-3. In this module, you downloaded the sample data sets and uploaded them to your Ceph object store using S3cmd. In the next module you will do some basic analysis on this data**
+    **We have reached the end of Module-3. In this module, you downloaded the sample data sets and uploaded them to your Ceph object store using S3cmd. In the next module you will do some basic analysis on these data sets**

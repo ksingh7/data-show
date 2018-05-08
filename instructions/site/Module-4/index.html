@@ -290,16 +290,17 @@
 </ul>
 <p><img alt="" src="../images/jupyterurl.png" /></p>
 <ul>
-<li>
-<p>Use the following credentials to login into the JupyterHub application<br />
+<li>Use the following credentials to login into the JupyterHub application<br />
 User Name : <code class="codehilite">user1</code><br />
-Password  : <code class="codehilite">79e4e0</code>  </p>
-</li>
+Password  : <code class="codehilite">79e4e0</code>  </li>
+</ul>
+<p><strong>IMPORTANT: If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.</strong></p>
+<ul>
 <li>
 <p>Select <code class="codehilite">Start My Server</code></p>
 </li>
 <li>
-<p>Select the <code class="codehilite">s2i-spark-scipy-notebook:3.6</code> notebook image</p>
+<p>Select the <code class="codehilite">spark-scipy-notebook:latest</code> notebook image</p>
 </li>
 <li>
 <p>Click <code class="codehilite">Spawn</code> and wait for your notebook server to start, this may take a minute</p>
@@ -320,11 +321,14 @@ Password  : <code class="codehilite">79e4e0</code>  </p>
 <p>Select the Ceph_Data_Show_Lab_1.ipynb notebook to begin analyzing the data</p>
 </li>
 <li>
-<p>In the section <code class="codehilite">Analysing data using Spark</code>, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster</p>
+<p>In the section <code class="codehilite">Analysing data using Spark</code>, replace the value of fs.s3a.endpoint with the DNS or IP address of your Ceph cluster.  To edit the notebook, simply click on a cell and begin typing.  An example endpoint configuration should look like the following:</p>
 </li>
-<li>
-<p>Select the first cell (the beginning of the notebook) and click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results  <img alt="" src="../images/run.png" /></p>
-</li>
+</ul>
+<div class="codehilite"><pre><span></span>sc._jsc.hadoopConfiguration().set(&quot;fs.s3a.endpoint&quot;, &#39;http://10.0.0.1&#39;)
+</pre></div>
+
+<ul>
+<li>Before running any of the cells in the notebook, select the first cell (the beginning of the notebook).  Once the first cell is selected, click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results  <img alt="" src="../images/run.png" /></li>
 </ul>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
