@@ -119,11 +119,20 @@ Sometimes the JupyterHub deployment to OpenShift runs into race conditions, that
 
 ![](images/data-show-images/ocp-jupyterhub-error.png)
 
-- jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.
+- The jupyterhub-db pod never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the jupyterhub-db persisted volume and rerun the oc process command.
 
+Delete the persisted volume:
+![](images/jupyterstorage.png)
+![](images/jupyterstoragedelete.png)
+
+Rerun oc process command:
 ```
-oc delete project jupyterhub
+oc login -u teamuser1 -p openshift
+oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -f -
 ```
+
+Wait for the pods to come up cleanly:
+![](images/jupyteropenshift.png)
 
 - You receive a ``500 Internal Error``.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.
 
