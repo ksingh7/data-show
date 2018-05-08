@@ -26,21 +26,7 @@ In order to save your precious lab time, this section deploys and configures the
 sh /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
 ```
 
-- This should usually take 10-12 minutes to complete. Once its done, play recap should look similar to below. Make sure play recap does not show any host run failed.
-
-```
-PLAY RECAP ******************************************************************
-ceph-node1                 : ok=149  changed=29   unreachable=0    failed=0
-ceph-node2                 : ok=136  changed=24   unreachable=0    failed=0
-ceph-node3                 : ok=138  changed=25   unreachable=0    failed=0
-
-real  10m9.966s
-user  2m6.029s
-sys 1m1.005s
-```
-
-
-- Finally check the status of your cluster. 
+- The ``Fast Forward Deployer`` should take under 10-12 minutes to complete. Once its done, check the status of your Ceph cluster.
 
 ```
 sudo ceph -s

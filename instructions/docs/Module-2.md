@@ -78,10 +78,10 @@ oc get pods
 
 ```
 $ oc get pods
-NAME                     READY     STATUS      RESTARTS   AGE
-jupyterhub-1-2z9xw       1/1       Running     0          1m
-jupyterhub-db-1-hmf6c    1/1       Running     1          2m
-jupyterhub-img-1-build   0/1       Completed   0          2m
+NAME                     READY     STATUS    RESTARTS   AGE
+jupyterhub-db-1-deploy   1/1       Running   0          19s
+jupyterhub-db-1-zkmxc    0/1       Running   0          17s
+jupyterhub-img-1-build   1/1       Running   0          20s
 ```
 
 
@@ -113,9 +113,11 @@ echo "https://"$(oc get route jupyterhub -o jsonpath={.spec.host})
 
 ![](images/data-show-images/jupyter-login.png)
 
-### Troubleshooting the JupyterHub deployment
+## Troubleshooting the JupyterHub deployment
 
-Sometimes the JupyterHub deployment to OpenShift runs into race conditions.
+Sometimes the JupyterHub deployment to OpenShift runs into race conditions, that could trigger ``Recreate Deployment``
+
+![](images/data-show-images/ocp-jupyterhub-error.png)
 
 - jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.
 
@@ -124,6 +126,7 @@ oc delete project jupyterhub
 ```
 
 - You receive a ``500 Internal Error``.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.
+
 ```
 oc rollout latest jupyterhub
 ```

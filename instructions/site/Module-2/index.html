@@ -416,10 +416,10 @@ service &quot;jupyterhub-db&quot; created
 <li>The deployment is complete when the jupyterhub-db and jupyter pods are fully running and the output should look like this.</li>
 </ul>
 <div class="codehilite"><pre><span></span>$ oc get pods
-NAME                     READY     STATUS      RESTARTS   AGE
-jupyterhub-1-2z9xw       <span class="m">1</span>/1       Running     <span class="m">0</span>          1m
-jupyterhub-db-1-hmf6c    <span class="m">1</span>/1       Running     <span class="m">1</span>          2m
-jupyterhub-img-1-build   <span class="m">0</span>/1       Completed   <span class="m">0</span>          2m
+NAME                     READY     STATUS    RESTARTS   AGE
+jupyterhub-db-1-deploy   <span class="m">1</span>/1       Running   <span class="m">0</span>          19s
+jupyterhub-db-1-zkmxc    <span class="m">0</span>/1       Running   <span class="m">0</span>          17s
+jupyterhub-img-1-build   <span class="m">1</span>/1       Running   <span class="m">0</span>          20s
 </pre></div>
 
 <ul>
@@ -452,8 +452,10 @@ jupyterhub-img-1-build   <span class="m">0</span>/1       Completed   <span clas
 <ul>
 <li>Finally, log into JupyterHub by using the user name and password <code class="codehilite">user1</code> and <code class="codehilite">79e4e0</code> respectively.</li>
 </ul>
+<p><img alt="" src="../images/data-show-images/jupyter-login.png" /></p>
 <h3 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h3>
-<p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions.</p>
+<p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions, that could trigger <code class="codehilite">Recreate Deployment</code></p>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub-error.png" /></p>
 <ul>
 <li>jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.</li>
 </ul>
@@ -461,10 +463,11 @@ jupyterhub-img-1-build   <span class="m">0</span>/1       Completed   <span clas
 </pre></div>
 
 <ul>
-<li>You receive a <code class="codehilite">500 Internal Error</code>.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.<br />
-<div class="codehilite"><pre><span></span>oc rollout latest jupyterhub
-</pre></div></li>
+<li>You receive a <code class="codehilite">500 Internal Error</code>.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.</li>
 </ul>
+<div class="codehilite"><pre><span></span>oc rollout latest jupyterhub
+</pre></div>
+
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
 <p><strong>We have reached to the end of Module-2. At this point you have learned how to deploy an application on OCP. In the later modules we will use this application to perform some interesting Data Analytics and Machine Learning tasks</strong></p>
