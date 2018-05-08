@@ -359,7 +359,7 @@
 </ul>
 </div>
 <ul>
-<li>From your workstation login to the <code class="codehilite">ceph-node1</code> node with the user name <strong><code class="codehilite">student</code></strong> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Learn how to Login)</a></li>
+<li>From your workstation SSH into <code class="codehilite">ceph-node1</code> with the user name <strong><code class="codehilite">student</code></strong> and password <strong><code class="codehilite">Redhat18</code></strong> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Need Help..Learn how to Login)</a></li>
 </ul>
 <div class="codehilite"><pre><span></span>ssh student@&lt;IP Address of ceph-node1&gt;
 </pre></div>
@@ -371,18 +371,62 @@
 </ul>
 </div>
 <h2 id="fast-forward-deployment">Fast Forward Deployment<a class="headerlink" href="#fast-forward-deployment" title="Permanent link">#</a></h2>
-<p>In order to save your precious lab time, this section deploys and configures the Ceph Cluster as well as Ceph S3 Object storage in a highly automated way using a all-in-one shell script. If you are using this method of deployment, you could skip the next sections labeled as &ldquo;Manual Deployment&rdquo;</p>
+<p>In order to save your precious lab time, this section deploys and configures the Ceph Cluster as well as Ceph S3 Object storage in a highly automated way using a all-in-one shell script. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li><strong>If you are using Fast Forward method of deployment, you could skip the next sections labeled as &ldquo;Manual Deployment&rdquo;</strong></li>
+</ul>
+</div>
 <ul>
 <li>To start <code class="codehilite">Fast Forward Deployer</code> run the following command</li>
 </ul>
 <div class="codehilite"><pre><span></span>sh /home/student/auto-pilot/setup_ceph_cluster_with_rgw.sh
 </pre></div>
 
-<h2 id="manual-deployment-setting-up-environment-for-ceph-ansible">Manual Deployment : Setting up environment for ceph-ansible<a class="headerlink" href="#manual-deployment-setting-up-environment-for-ceph-ansible" title="Permanent link">#</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
 <ul>
-<li>If you have choose to follow the above <code class="codehilite">Fast Forward Deployment</code> method, you should skip the below <code class="codehilite">Manual Deployment</code> process.</li>
+<li>This should usually take 10-12 minutes to complete. Once its done, play recap should look similar to below. Make sure play recap does not show any host run failed.</li>
+</ul>
+<div class="codehilite"><pre><span></span>PLAY RECAP ******************************************************************
+ceph-node1                 : ok=149  changed=29   unreachable=0    failed=0
+ceph-node2                 : ok=136  changed=24   unreachable=0    failed=0
+ceph-node3                 : ok=138  changed=25   unreachable=0    failed=0
+
+real  10m9.966s
+user  2m6.029s
+sys 1m1.005s
+</pre></div>
+
+<ul>
+<li>Finally check the status of your cluster. </li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo ceph -s
+</pre></div>
+
+<div class="codehilite"><pre><span></span>[student@ceph-node1 ceph-ansible]$ sudo ceph -s
+  cluster:
+    id:     908c17fc-1da0-4569-a25a-f1a23f2e101e
+    health: HEALTH_OK
+
+  services:
+    mon: 3 daemons, quorum ceph-node1,ceph-node2,ceph-node3
+    mgr: ceph-node1(active)
+    osd: 12 osds: 12 up, 12 in
+
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0 bytes
+    usage:   1290 MB used, 5935 GB / 5937 GB avail
+    pgs:
+
+[student@ceph-node1 ceph-ansible]$
+</pre></div>
+
+<h2 id="manual-deployment-setting-up-environment-for-ceph-ansible">Manual Deployment : Setting up environment for ceph-ansible<a class="headerlink" href="#manual-deployment-setting-up-environment-for-ceph-ansible" title="Permanent link">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li><strong>If you have choose to follow the above <code class="codehilite">Fast Forward Deployment</code> method, you should skip the below <code class="codehilite">Manual Deployment</code> process.</strong></li>
 </ul>
 </div>
 <ul>
@@ -568,13 +612,9 @@ sys 1m1.005s
 [student@ceph-node1 ceph-ansible]$
 </pre></div>
 
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager , 1 x Ceph RGW.</p>
-</div>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached to the end of Module-1. At this point you have learned to deploy a Ceph cluster as well as Ceph S3 Object Storage.</strong></p>
+<p><strong>We have reached to the end of Module-1. At this point you should have a healthy RHCS cluster up and running with 3 x Ceph Monitors, 3 x Ceph OSDs (12 x OSDs), 1 x Ceph Manager , 1 x Ceph RGW.</strong></p>
 </div>
                 
                   

@@ -277,46 +277,52 @@
 <div class="admonition example">
 <p class="admonition-title">Prerequisite</p>
 <ul>
-<li><strong>You need to have completed Modules 1-4 before beginning this module</strong></li>
+<li><strong>You need to have completed Modules 1-3 before beginning this module</strong></li>
 </ul>
 </div>
 <ul>
 <li>
-<p>The instructions for this excercise are available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>) that you can download from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_2.ipynb">here</a></p>
+<p>The instructions for this excercise are available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>) that you can download from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_2.ipynb">here</a> (Right click &gt;&gt; Save Link As <code class="codehilite">ipynb</code>)</p>
 </li>
 <li>
-<p>An active JupyterHub instance is required to open this notebook. Use the same JupyterHub application from module 4.</p>
+<p>An active JupyterHub instance is required to open this notebook. Use the JupyterHub application that you have deployed in module-2. </p>
 </li>
-<li>
-<p>Use the following credentials to login into the Jupyter Notebook<br />
-User Name : <code class="codehilite">user1</code><br />
-Password  : <code class="codehilite">79e4e0</code></p>
-</li>
-<li>
-<p>Go back to the JupyterHub dashboard by clicking on the JupyterHub logo in the upper left</p>
-</li>
+<li>Login to the <code class="codehilite">OpenShift Container Platform Console</code> and click on the JupyterHub application endpoint URL from the Overview screen. </li>
 </ul>
-<p><img alt="" src="../images/jupyterlogo.png" /></p>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub-app-url.png" /></p>
+<ul>
+<li>Use the following credentials to login into the JupyterHub application<br />
+User Name : <code class="codehilite">user1</code><br />
+Password  : <code class="codehilite">79e4e0</code>  </li>
+</ul>
+<p><img alt="" src="../images/data-show-images/jupyter-login.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.</strong></p>
+</div>
+<ul>
+<li>Click the <code class="codehilite">Upload</code> button to the right </li>
+</ul>
+<p><img alt="" src="../images/upload1.png" /> </p>
 <ul>
 <li>
-<p>Click the <code class="codehilite">Upload</code> button to the right <img alt="" src="../images/upload1.png" /> </p>
-</li>
-<li>
-<p>Find the Ceph_Data_Show_Lab_2.ipynb downloaded at the start of this module and upload it to JupyterHub</p>
+<p>Find the <code class="codehilite">Ceph_Data_Show_Lab_2.ipynb</code> downloaded at the start of this module and upload it to JupyterHub</p>
 </li>
 <li>
 <p>Click on the <code class="codehilite">Upload</code> button to finish uploading the notebook to JupyterHub <img alt="" src="../images/upload2.png" /> </p>
 </li>
 <li>
-<p>Select the Ceph_Data_Show_Lab_2.ipynb notebook to begin building a model for machine learning</p>
+<p>Select the <code class="codehilite">Ceph_Data_Show_Lab_2.ipynb</code> notebook to begin building a model for machine learning</p>
 </li>
 <li>
-<p>In the section <code class="codehilite">Access data using Spark</code>, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster</p>
-</li>
-<li>
-<p>Select the first cell (the beginning of the notebook) and click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results <img alt="" src="../images/run.png" /></p>
+<p>Review the section <code class="codehilite">Access Ceph Objbect Storage over S3A</code>, the configuration here should look like this</p>
 </li>
 </ul>
+<p><img alt="" src="../images/data-show-images/s3a-connection.png" /></p>
+<ul>
+<li>Before running any of the cells in the notebook, select the first cell (the beginning of the notebook). Once the first cell is selected, click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results </li>
+</ul>
+<p><img alt="" src="../images/run.png" /></p>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
 <p><strong>We have reached the end of Module-5. In this module, you created a machine learning model using data stored in Ceph and uploaded the model to Ceph for future use.</strong></p>

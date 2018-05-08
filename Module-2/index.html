@@ -342,10 +342,10 @@
 </ul>
 </div>
 <ul>
-<li>From your workstation login to the <code class="codehilite">OpenShift Master Node</code> with the user name <strong><code class="codehilite">cloud-user</code></strong> and <code class="codehilite">SSH Private Key</code> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Learn how to Login)</a></li>
+<li>From your workstation SSH into <code class="codehilite">OpenShift Master Node</code> with the user name <strong><code class="codehilite">cloud-user</code></strong> and <code class="codehilite">SSH Private Key</code> <a href="https://ksingh7.github.io/data-show/#accessing-the-lab">(Need Help..Learn how to Login)</a></li>
 </ul>
 <div class="codehilite"><pre><span></span>chmod 400 &lt;path to ssh_key.pem&gt;
-ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Address&gt;
+ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node SSH IP Address&gt;
 </pre></div>
 
 <div class="admonition example">
@@ -357,7 +357,7 @@ ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Addre
 <h2 id="create-an-openshift-project">Create an OpenShift Project<a class="headerlink" href="#create-an-openshift-project" title="Permanent link">#</a></h2>
 <p>In order to save your precious lab time, OpenShift Container Platform has already been installed and configured. Before you begin with some data science exercises, let&rsquo;s create an OpenShift project.</p>
 <ul>
-<li>Login to OpenShift Master Node as <code class="codehilite">cloud-user</code></li>
+<li>SSH into OpenShift Master Node as <code class="codehilite">cloud-user</code></li>
 </ul>
 <div class="codehilite"><pre><span></span>ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Address&gt;
 </pre></div>
@@ -375,10 +375,12 @@ ssh -i &lt;path to ssh_key.pem&gt; cloud-user@&lt;OpenShift Master Node IP Addre
 </pre></div>
 
 <ul>
-<li>Prepare the OpenShift templates</li>
+<li>Prepare the OpenShift notebooks and templates</li>
 </ul>
 <div class="codehilite"><pre><span></span>oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/notebooks.json
-oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
+</pre></div>
+
+<div class="codehilite"><pre><span></span>oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-summit-demo/templates.json
 </pre></div>
 
 <ul>
@@ -388,23 +390,69 @@ oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-
 </pre></div>
 
 <ul>
-<li>
-<p>You should now have JupyterHub pods and services coming up ( will take some time to fully start).  The deployment is complete when the jupyterhub-db and jupyter pods are fully running.<br />
+<li>Once templates are successfully applied, the output should look like this</li>
+</ul>
+<div class="codehilite"><pre><span></span>imagestream &quot;jupyterhub-img&quot; created
+buildconfig &quot;jupyterhub-img&quot; created
+configmap &quot;jupyterhub-cfg&quot; created
+serviceaccount &quot;jupyterhub-hub&quot; created
+rolebinding &quot;jupyterhub-edit&quot; created
+deploymentconfig &quot;jupyterhub&quot; created
+service &quot;jupyterhub&quot; created
+route &quot;jupyterhub&quot; created
+persistentvolumeclaim &quot;jupyterhub-db&quot; created
+deploymentconfig &quot;jupyterhub-db&quot; created
+service &quot;jupyterhub-db&quot; created
+</pre></div>
+
+<ul>
+<li>You should now have JupyterHub pods and services coming up (will take some time to fully start). </li>
+<li>To check the status of pods and services, execute</li>
+</ul>
 <div class="codehilite"><pre><span></span>oc get pods
-</pre></div></p>
+</pre></div>
+
+<ul>
+<li>The deployment is complete when the jupyterhub-db and jupyter pods are fully running and the output should look like this.</li>
+</ul>
+<div class="codehilite"><pre><span></span>$ oc get pods
+NAME                     READY     STATUS      RESTARTS   AGE
+jupyterhub-1-2z9xw       <span class="m">1</span>/1       Running     <span class="m">0</span>          1m
+jupyterhub-db-1-hmf6c    <span class="m">1</span>/1       Running     <span class="m">1</span>          2m
+jupyterhub-img-1-build   <span class="m">0</span>/1       Completed   <span class="m">0</span>          2m
+</pre></div>
+
+<ul>
+<li>
+<p>You could also monitor your application from OpenShift Container Platform Console by visiting <code class="codehilite">OpenShift Web Console URL</code> that you can get from <a href="https://ksingh7.github.io/data-show/#wait-for-lab-provisioning-to-complete">Qwiklab Portal under Connection Details</a>.</p>
 </li>
 <li>
-<p>You could also monitor your application from OpenShift Container Platform Console by visiting <code class="codehilite">OpenShift Console URL</code>. The user name and password to access the console is <code class="codehilite">teamuser1</code> and <code class="codehilite">openshift</code> respectively.</p>
-</li>
-<li>
-<p>Verify you can access JupyterHub by visiting the URL.<br />
-<div class="codehilite"><pre><span></span>oc get route jupyterhub -o jsonpath={.spec.host}
-</pre></div></p>
-</li>
-<li>
-<p>Verify you can log into JupyterHub by using the user name and password <code class="codehilite">user1</code> and <code class="codehilite">79e4e0</code> respectively.</p>
+<p>The user name and password to access the console is <code class="codehilite">teamuser1</code> and <code class="codehilite">openshift</code> respectively.</p>
 </li>
 </ul>
+<p><img alt="" src="../images/data-show-images/ocp-login-screen.png" /></p>
+<ul>
+<li>Once you are into OpenShift Container Platform Console, click on your project <code class="codehilite">jupyterhub</code></li>
+</ul>
+<p><img alt="" src="../images/data-show-images/ocp-home.png" /></p>
+<ul>
+<li>The running pods should look like this when JupyterHub is ready</li>
+</ul>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub.png" /></p>
+<ul>
+<li>Verify you can access your JupyterHub application by visiting the application URL</li>
+</ul>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub-app-url.png" /></p>
+<ul>
+<li>(optional) You can also get your JupyterHub application URL by executing the below command on OpenShift Master Node.</li>
+</ul>
+<div class="codehilite"><pre><span></span>echo &quot;https://&quot;$(oc get route jupyterhub -o jsonpath={.spec.host})
+</pre></div>
+
+<ul>
+<li>Finally, log into JupyterHub by using the user name and password <code class="codehilite">user1</code> and <code class="codehilite">79e4e0</code> respectively.</li>
+</ul>
+<p><img alt="" src="../images/data-show-images/jupyter-login.png" /></p>
 <h3 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h3>
 <p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions.</p>
 <ul>
@@ -420,7 +468,7 @@ oc apply -f https://raw.githubusercontent.com/vpavlin/jupyterhub-ocp-oauth/ceph-
 </ul>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
-<p><strong>We have reached to the end of Module-2. At this point you have learned how to deploy an application on OCP. In the later modules we will use this application to perform some interesting data analytics work</strong></p>
+<p><strong>We have reached to the end of Module-2. At this point you have learned how to deploy an application on OCP. In the later modules we will use this application to perform some interesting Data Analytics and Machine Learning tasks</strong></p>
 </div>
                 
                   

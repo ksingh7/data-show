@@ -282,25 +282,34 @@
 </div>
 <ul>
 <li>
-<p>The instructions for this excercise are available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>) that you can download from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_1.ipynb">here</a></p>
+<p>The instructions for this excercise are available as Juypter Notebook (<code class="codehilite"><span class="na">.ipynb</span></code>) that you can download from <a href="https://raw.githubusercontent.com/ksingh7/data-show/master/data-show-test-drive/Ceph_Data_Show_Lab_1.ipynb">here</a> (Right click &gt;&gt; Save Link As <code class="codehilite">ipynb</code>)</p>
 </li>
 <li>
-<p>An active JupyterHub instance is required to open this notebook. Use the JupyterHub application that you have deployed in module-2. Login to the OpenShift Container Platform Console and click on the JupyterHub application endpoint URL from the Overview screen.  It is the HTTP link located to the right of the screen.</p>
+<p>An active JupyterHub instance is required to open this notebook. Use the JupyterHub application that you have deployed in module-2. </p>
 </li>
+<li>Login to the <code class="codehilite">OpenShift Container Platform Console</code> and click on the JupyterHub application endpoint URL from the Overview screen. </li>
 </ul>
-<p><img alt="" src="../images/jupyterurl.png" /></p>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub-app-url.png" /></p>
+<ul>
+<li>Use the following credentials to login into the JupyterHub application<br />
+User Name : <code class="codehilite">user1</code><br />
+Password  : <code class="codehilite">79e4e0</code>  </li>
+</ul>
+<p><img alt="" src="../images/data-show-images/jupyter-login.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>If JupyterHub did not deploy cleanly, refer to the troubleshooting steps in Module 2 to redeploy.</strong></p>
+</div>
 <ul>
 <li>
-<p>Use the following credentials to login into the JupyterHub application<br />
-User Name : <code class="codehilite">user1</code><br />
-Password  : <code class="codehilite">79e4e0</code>  </p>
+<p>On Juypter, select <code class="codehilite">Start My Server</code></p>
 </li>
 <li>
-<p>Select <code class="codehilite">Start My Server</code></p>
+<p>Select the <code class="codehilite">spark-scipy-notebook:latest</code> notebook image</p>
 </li>
-<li>
-<p>Select the <code class="codehilite">s2i-spark-scipy-notebook:3.6</code> notebook image</p>
-</li>
+</ul>
+<p><img alt="" src="../images/data-show-images/jupyter-spaws-notebook.png" /></p>
+<ul>
 <li>
 <p>Click <code class="codehilite">Spawn</code> and wait for your notebook server to start, this may take a minute</p>
 </li>
@@ -308,23 +317,28 @@ Password  : <code class="codehilite">79e4e0</code>  </p>
 <p>Once the notebook server has started, you will see a folder view of the notebook file system</p>
 </li>
 <li>
-<p>Click the <code class="codehilite">Upload</code> button to the right <img alt="" src="../images/upload1.png" /> </p>
+<p>Click the <code class="codehilite">Upload</code> button to the right </p>
 </li>
+</ul>
+<p><img alt="" src="../images/upload1.png" /> </p>
+<ul>
 <li>
-<p>Find the Ceph_Data_Show_Lab_1.ipynb downloaded at the start of this module and upload it to the notebook</p>
+<p>Find the <code class="codehilite">Ceph_Data_Show_Lab_1.ipynb</code> notebook file you have downloaded at the start of this module and upload it</p>
 </li>
 <li>
 <p>Click on the <code class="codehilite">Upload</code> button to finish uploading the notebook to JupyterHub <img alt="" src="../images/upload2.png" /> </p>
 </li>
 <li>
-<p>Select the Ceph_Data_Show_Lab_1.ipynb notebook to begin analyzing the data</p>
+<p>Select the <code class="codehilite">Ceph_Data_Show_Lab_1.ipynb</code> notebook to begin analyzing the data</p>
 </li>
-<li>
-<p>In the section <code class="codehilite">Analysing data using Spark</code>, replace the fs.s3a.endpoint value with the DNS or IP address of your Ceph cluster</p>
-</li>
-<li>
-<p>Select the first cell (the beginning of the notebook) and click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results  <img alt="" src="../images/run.png" /></p>
-</li>
+</ul>
+<p><img alt="" src="../images/data-show-images/jupyter-notebook-1.png" /></p>
+<ul>
+<li>Review the section <code class="codehilite">Access Ceph Objbect Storage over S3A</code>, the configuration here should look like this</li>
+</ul>
+<p><img alt="" src="../images/data-show-images/s3a-connection.png" /></p>
+<ul>
+<li>Before running any of the cells in the notebook, select the first cell (the beginning of the notebook).  Once the first cell is selected, click the <code class="codehilite">Run</code> button in the toolbar on each cell, stepping through the notebook and its results  <img alt="" src="../images/run.png" /></li>
 </ul>
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
