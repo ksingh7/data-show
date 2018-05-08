@@ -219,18 +219,12 @@
     Create an OpenShift Project
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
     Troubleshooting the JupyterHub deployment
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -304,18 +298,12 @@
     Create an OpenShift Project
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
     Troubleshooting the JupyterHub deployment
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -453,15 +441,21 @@ jupyterhub-img-1-build   <span class="m">1</span>/1       Running   <span class=
 <li>Finally, log into JupyterHub by using the user name and password <code class="codehilite">user1</code> and <code class="codehilite">79e4e0</code> respectively.</li>
 </ul>
 <p><img alt="" src="../images/data-show-images/jupyter-login.png" /></p>
-<h3 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h3>
+<h2 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h2>
 <p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions, that could trigger <code class="codehilite">Recreate Deployment</code></p>
 <p><img alt="" src="../images/data-show-images/ocp-jupyterhub-error.png" /></p>
 <ul>
-<li>jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.</li>
+<li>The jupyterhub-db pod never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the jupyterhub-db persisted volume and rerun the oc process command.</li>
 </ul>
-<div class="codehilite"><pre><span></span>oc delete project jupyterhub
-</pre></div>
-
+<p>Delete the persisted volume:<br />
+<img alt="" src="../images/jupyterstorage.png" /><br />
+<img alt="" src="../images/jupyterstoragedelete.png" /></p>
+<p>Rerun oc process command:<br />
+<div class="codehilite"><pre><span></span>oc login -u teamuser1 -p openshift
+oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY=&quot;meh&quot; | oc apply -f -
+</pre></div></p>
+<p>Wait for the pods to come up cleanly:<br />
+<img alt="" src="../images/jupyteropenshift.png" /></p>
 <ul>
 <li>You receive a <code class="codehilite">500 Internal Error</code>.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.</li>
 </ul>

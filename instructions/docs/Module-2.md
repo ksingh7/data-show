@@ -115,24 +115,35 @@ echo "https://"$(oc get route jupyterhub -o jsonpath={.spec.host})
 
 ## Troubleshooting the JupyterHub deployment
 
+#### Issue - 1 : Database not properly installed
+
 Sometimes the JupyterHub deployment to OpenShift runs into race conditions, that could trigger ``Recreate Deployment``
 
 ![](images/data-show-images/ocp-jupyterhub-error.png)
 
 - The jupyterhub-db pod never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the jupyterhub-db persisted volume and rerun the oc process command.
 
-Delete the persisted volume:
-![](images/jupyterstorage.png)
-![](images/jupyterstoragedelete.png)
+- Delete the persisted volume:
 
-Rerun oc process command:
+![](images/data-show-images/troubleshooting-1.png)
+
+![](images/data-show-images/troubleshooting-2.png)
+
+- Rerun oc process command:
+
 ```
 oc login -u teamuser1 -p openshift
+```
+
+```
 oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY="meh" | oc apply -f -
 ```
 
-Wait for the pods to come up cleanly:
-![](images/jupyteropenshift.png)
+- Wait for the pods to come up cleanly:
+
+![](images/data-show-images/ocp-jupyterhub.png)
+
+#### Issue - 2 : 500 Internal Error when logging into JupyterHub
 
 - You receive a ``500 Internal Error``.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.
 
