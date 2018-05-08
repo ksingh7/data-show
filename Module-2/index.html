@@ -219,12 +219,26 @@
     Create an OpenShift Project
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
+    Troubleshooting the JupyterHub deployment
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
-    Troubleshooting the JupyterHub deployment
+  <a href="#issue-1-database-not-properly-installed" title="Issue - 1 : Database not properly installed" class="md-nav__link">
+    Issue - 1 : Database not properly installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-500-internal-error-when-logging-into-jupyterhub" title="Issue - 2 : 500 Internal Error when logging into JupyterHub" class="md-nav__link">
+    Issue - 2 : 500 Internal Error when logging into JupyterHub
   </a>
   
 </li>
@@ -304,12 +318,26 @@
     Create an OpenShift Project
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
+    Troubleshooting the JupyterHub deployment
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-the-jupyterhub-deployment" title="Troubleshooting the JupyterHub deployment" class="md-nav__link">
-    Troubleshooting the JupyterHub deployment
+  <a href="#issue-1-database-not-properly-installed" title="Issue - 1 : Database not properly installed" class="md-nav__link">
+    Issue - 1 : Database not properly installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-500-internal-error-when-logging-into-jupyterhub" title="Issue - 2 : 500 Internal Error when logging into JupyterHub" class="md-nav__link">
+    Issue - 2 : 500 Internal Error when logging into JupyterHub
   </a>
   
 </li>
@@ -416,10 +444,10 @@ service &quot;jupyterhub-db&quot; created
 <li>The deployment is complete when the jupyterhub-db and jupyter pods are fully running and the output should look like this.</li>
 </ul>
 <div class="codehilite"><pre><span></span>$ oc get pods
-NAME                     READY     STATUS      RESTARTS   AGE
-jupyterhub-1-2z9xw       <span class="m">1</span>/1       Running     <span class="m">0</span>          1m
-jupyterhub-db-1-hmf6c    <span class="m">1</span>/1       Running     <span class="m">1</span>          2m
-jupyterhub-img-1-build   <span class="m">0</span>/1       Completed   <span class="m">0</span>          2m
+NAME                     READY     STATUS    RESTARTS   AGE
+jupyterhub-db-1-deploy   <span class="m">1</span>/1       Running   <span class="m">0</span>          19s
+jupyterhub-db-1-zkmxc    <span class="m">0</span>/1       Running   <span class="m">0</span>          17s
+jupyterhub-img-1-build   <span class="m">1</span>/1       Running   <span class="m">0</span>          20s
 </pre></div>
 
 <ul>
@@ -453,19 +481,40 @@ jupyterhub-img-1-build   <span class="m">0</span>/1       Completed   <span clas
 <li>Finally, log into JupyterHub by using the user name and password <code class="codehilite">user1</code> and <code class="codehilite">79e4e0</code> respectively.</li>
 </ul>
 <p><img alt="" src="../images/data-show-images/jupyter-login.png" /></p>
-<h3 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h3>
-<p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions.</p>
+<h2 id="troubleshooting-the-jupyterhub-deployment">Troubleshooting the JupyterHub deployment<a class="headerlink" href="#troubleshooting-the-jupyterhub-deployment" title="Permanent link">#</a></h2>
+<h4 id="issue-1-database-not-properly-installed">Issue - 1 : Database not properly installed<a class="headerlink" href="#issue-1-database-not-properly-installed" title="Permanent link">#</a></h4>
+<p>Sometimes the JupyterHub deployment to OpenShift runs into race conditions, that could trigger <code class="codehilite">Recreate Deployment</code></p>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub-error.png" /></p>
 <ul>
-<li>jupyterhub-db never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the JupyterHub project through the OpenShift Container Platform Console or via the command line.</li>
+<li>
+<p>The jupyterhub-db pod never comes up and constantly restarts.  This is often due to the PostgreSQL database not coming up cleanly.  If this occurs, the easiest thing to do is delete the jupyterhub-db persisted volume and rerun the oc process command.</p>
+</li>
+<li>
+<p>Delete the persisted volume:</p>
+</li>
 </ul>
-<div class="codehilite"><pre><span></span>oc delete project jupyterhub
+<p><img alt="" src="../images/data-show-images/troubleshooting-1.png" /></p>
+<p><img alt="" src="../images/data-show-images/troubleshooting-2.png" /></p>
+<ul>
+<li>Rerun oc process command:</li>
+</ul>
+<div class="codehilite"><pre><span></span>oc login -u teamuser1 -p openshift
+</pre></div>
+
+<div class="codehilite"><pre><span></span>oc process jupyterhub-ocp-oauth HASH_AUTHENTICATOR_SECRET_KEY=&quot;meh&quot; | oc apply -f -
 </pre></div>
 
 <ul>
-<li>You receive a <code class="codehilite">500 Internal Error</code>.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.<br />
-<div class="codehilite"><pre><span></span>oc rollout latest jupyterhub
-</pre></div></li>
+<li>Wait for the pods to come up cleanly:</li>
 </ul>
+<p><img alt="" src="../images/data-show-images/ocp-jupyterhub.png" /></p>
+<h4 id="issue-2-500-internal-error-when-logging-into-jupyterhub">Issue - 2 : 500 Internal Error when logging into JupyterHub<a class="headerlink" href="#issue-2-500-internal-error-when-logging-into-jupyterhub" title="Permanent link">#</a></h4>
+<ul>
+<li>You receive a <code class="codehilite">500 Internal Error</code>.  Do another deployment/rollout of JupyterHub which forces a restart of the server container and after connecting again to database.</li>
+</ul>
+<div class="codehilite"><pre><span></span>oc rollout latest jupyterhub
+</pre></div>
+
 <div class="admonition summary">
 <p class="admonition-title">End of Module</p>
 <p><strong>We have reached to the end of Module-2. At this point you have learned how to deploy an application on OCP. In the later modules we will use this application to perform some interesting Data Analytics and Machine Learning tasks</strong></p>
