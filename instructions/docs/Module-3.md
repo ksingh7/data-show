@@ -60,7 +60,7 @@ unzip /home/student/kubelet_docker_operations_latency_microseconds.zip -d /home/
 - Configure ``S3cmd``
 
 ```
-s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl --host=ceph-admin --host-bucket="%(bucket)s.ceph-admin" --dump-config > /home/student/.s3cfg
+s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl --host=ceph-node1 --host-bucket="%(bucket)s.ceph-node1" --dump-config > /home/student/.s3cfg
 ```
 
 - Create bucket for loading the sample metrics data set into Ceph object store
