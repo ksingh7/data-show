@@ -1,0 +1,70 @@
+{
+  "kind": "List",
+  "apiVersion": "v1",
+  "items": [
+      {
+          "kind": "ImageStream",
+          "apiVersion": "v1",
+          "metadata": {
+              "name": "minimal-notebook",
+              "labels": {
+                  "build": "minimal-notebook"
+              }
+          },
+          "spec": {
+              "lookupPolicy": {
+                  "local": true
+              },
+              "dockerImageRepository": "quay.io/vpavlin/ceph-demo-minimal-notebook"
+          }
+      },
+      {
+          "kind": "ImageStream",
+          "apiVersion": "v1",
+          "metadata": {
+              "name": "spark-scipy-notebook",
+              "labels": {
+                  "build": "spark-scipy-notebook"
+              }
+          },
+          "spec": {
+              "lookupPolicy": {
+                  "local": true
+              },
+              "dockerImageRepository": "quay.io/vpavlin/ceph-demo-spark-scipy-notebook"
+          }
+      },
+      {
+          "kind": "ImageStream",
+          "apiVersion": "v1",
+          "metadata": {
+              "name": "r-minimal-notebook",
+              "labels": {
+                  "build": "r-minimal-notebook"
+              }
+          },
+          "spec": {
+              "lookupPolicy": {
+                  "local": true
+              },
+              "dockerImageRepository": "quay.io/vpavlin/ceph-demo-r-minimal-notebook"
+          }
+      },
+      {
+          "kind": "ImageStream",
+          "apiVersion": "v1",
+          "metadata": {
+              "name": "jupyterhub",
+              "labels": {
+                  "build": "jupyterhub"
+              }
+          },
+          "spec": {
+              "lookupPolicy": {
+                  "local": true
+              },
+              "dockerImageRepository": "quay.io/vpavlin/ceph-demo-jupyterhub"
+          }
+      }
+  ]
+}
